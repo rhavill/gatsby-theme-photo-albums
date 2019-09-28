@@ -41,7 +41,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   result.data.allFile.edges.forEach(({ node }) => {
     createPage({
       path: node.relativePath,
-      component: path.resolve(`./src/components/photo.js`),
+      component: path.resolve(`./src/components/Photo.js`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
