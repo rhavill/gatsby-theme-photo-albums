@@ -1,7 +1,10 @@
+import startsWith from 'ramda/src/startsWith'
+
 export const getChildren = (path, data) => {
   const children = {
     folders: [
-      data.allDirectory.edges.map(edge => edge.node)
+      data.allDirectory.edges.filter(edge => path !== edge.node.relativePath 
+        && startsWith(path, edge.node.relativePath))
     ],
     files: []
   };
