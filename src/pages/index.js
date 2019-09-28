@@ -5,7 +5,7 @@ import { getChildren } from "../util/source-filesystem-children";
 
 
 export default ({ data, location/*, pageContext*/ }) => {
-  const children = getChildren(data);
+  const children = getChildren(location.pathname, data);
   return (
     <div>
       <Header path={location.pathname}/>

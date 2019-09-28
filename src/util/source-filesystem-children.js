@@ -1,11 +1,11 @@
-export const getChildren = (data) => {
+export const getChildren = (path, data) => {
   const children = {
     folders: [
       data.allDirectory.edges.map(edge => edge.node)
     ],
     files: []
   };
-  console.log('getChildren data', data, 'children', children);
+  console.log('getChildren path', path, 'data', data, 'children', children);
   return children;
 }
 
