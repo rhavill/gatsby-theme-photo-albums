@@ -1,8 +1,8 @@
-const breadcrumbs = path => {
+const breadcrumbs = (path, rootTitle = 'Home') => {
   const parts = path === '/' ? [''] : path.replace(/\/$/, '').split('/')
   return parts
     .map((folder, i) => ({
-      title: folder === '' ? 'Home' : toTitleCase(folder),
+      title: folder === '' ? rootTitle : toTitleCase(folder),
       path: folder === '' ? '/' : parts.filter((part, j) => j <= i).join('/') 
     }))
 }
