@@ -3,17 +3,11 @@ import renderer from "react-test-renderer"
 
 import Header from "./Header"
 
-// describe("Header", () => {
-//   it("renders correctly", () => {
-//     const tree = renderer
-//       .create(<Header siteTitle="Default Starter" />)
-//       .toJSON()
-//     expect(tree).toMatchSnapshot()
-//   })
-// })
-
-describe("dummy test", () => {
-  it("dummy test prevents error message", () => {
-    expect(1).toEqual(1)
+describe("Header", () => {
+  it("renders correctly", () => {
+    const tree = renderer
+      .create(<Header path="/" />)
+      .toJSON()
+    expect(tree).toMatchSnapshot()
   })
 })
