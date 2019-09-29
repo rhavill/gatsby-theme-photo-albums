@@ -6,6 +6,14 @@ const getChildren = (path, data) => {
   data.allDirectory.edges.forEach(edge => {
     // Add leading slash to filesystem path to be consistent with current location path
     const fsPath = '/' + edge.node.relativePath
+    if (currentPath !== fsPath && startsWith(currentPath, fsPath)
+        && level(currentPath) + 1 === level(fsPath) && fsPath !== '/') {
+      folders.push(fsPath)
+    }
+  })
+  data.allFiles.edges.forEach(edge => {
+    // Add leading slash to filesystem path to be consistent with current location path
+    const fsPath = '/' + edge.node.relativePath
     console.log('FS fsPath', level(fsPath), fsPath, 'browser currentPath', level(currentPath), currentPath)
     if (currentPath !== fsPath && startsWith(currentPath, fsPath)
         && level(currentPath) + 1 === level(fsPath) && fsPath !== '/') {
@@ -14,7 +22,7 @@ const getChildren = (path, data) => {
   })
   const children = {
     folders,
-    files: []
+    files
   };
   console.log('getChildren path', path, 'data', data, 'children', children);
   return children;
