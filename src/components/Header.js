@@ -4,8 +4,8 @@ import { Link } from "gatsby"
 
 import breadcrumbs from '../util/breadcrumbs'
 
-const Header = ({ path }) => {
-  const links = breadcrumbs(path)
+const Header = ({ path, rootTitle }) => {
+  const links = breadcrumbs(path, rootTitle)
   return (
     <header>
       <nav>{
@@ -21,6 +21,11 @@ const Header = ({ path }) => {
 
 Header.propTypes = {
   path: PropTypes.string.isRequired,
+  rootTitle: PropTypes.string,
+}
+
+Header.defaultProps = { 
+  rootTitle: 'Home',
 }
 
 export default Header;
