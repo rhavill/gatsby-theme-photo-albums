@@ -1,10 +1,10 @@
 import React from "react";
-import { graphql } from "gatsby"
+import {graphql} from "gatsby"
 import Header from '../components/Header';
-import { getChildren } from "../util/source-filesystem-children";
+import getChildren from "../util/source-filesystem-children";
 
 
-export default ({ data, location/*, pageContext*/ }) => {
+export default ({data, location/*, pageContext*/}) => {
   const children = getChildren(location.pathname, data);
   return (
     <div>
