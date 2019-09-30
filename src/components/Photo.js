@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 import Header from './Header';
 
-export default ({location}) => {
+const Photo =  ({location}) => {
   console.log('Photo location', location)
   return (
     <div>
@@ -13,6 +13,10 @@ export default ({location}) => {
   )
 }
 
-Header.propTypes = {
-  location: PropTypes.string.isRequired,
+Photo.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 }
+
+export default Photo
