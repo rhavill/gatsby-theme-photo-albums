@@ -28,9 +28,6 @@ export const query = graphql`
       edges {
         node {
           relativePath
-          base
-          name
-          dir
           relativeDirectory
         }
       }

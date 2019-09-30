@@ -1,6 +1,6 @@
 const breadcrumbs = (path, rootTitle = 'Home') => {
   // Set path to empty string for root directory. 
-  // Also, remove trailing slash for consistency.
+  // Also, remove trailing slash (if it exists) for consistency.
   const parts = path === '/' ? [''] : path.replace(/\/$/, '').split('/')
   return parts
     .map((folder, i) => ({
