@@ -32,4 +32,11 @@ describe("breadcrumbs", () => {
     expect(crumbs[1].title).toBe('Level One')
     expect(crumbs[2].title).toBe('Level Two')
   })
+  it("removes file extension from breadcrumb", () => {
+    const crumbs = breadcrumbs('/level-one/level-two/my-file.jpg')
+    expect(crumbs.length).toBe(4)
+    expect(crumbs[1].title).toBe('Level One')
+    expect(crumbs[2].title).toBe('Level Two')
+    expect(crumbs[3].title).toBe('My File')
+  })
 })

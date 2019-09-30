@@ -4,7 +4,8 @@ const breadcrumbs = (path, rootTitle = 'Home') => {
   const parts = path === '/' ? [''] : path.replace(/\/$/, '').split('/')
   return parts
     .map((folder, i) => ({
-      title: folder === '' ? rootTitle : toTitleCase(folder),
+      // convert to "title case" and remove file extension
+      title: folder === '' ? rootTitle : toTitleCase(folder).replace(/\.[^/.]+$/, ''),
       path: folder === '' ? '/' : parts.filter((part, j) => j <= i).join('/') 
     }))
 }
