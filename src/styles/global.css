@@ -1,0 +1,22 @@
+html {
+  background-color: #4f4f4f;
+  color: #9e9e9e;
+  /*color: #dbdbdb;*/
+}
+
+header {
+  background-color: #3c3c3c;
+}
+
+a {
+  color: #9e9e9e;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+a:visited {
+  color: #9e9e9e;
+}
