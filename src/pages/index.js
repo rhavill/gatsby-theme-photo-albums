@@ -3,13 +3,30 @@ import {graphql} from "gatsby"
 import Header from '../components/Header';
 import getChildren from "../util/source-filesystem-children";
 
-
 export default ({data, location/*, pageContext*/}) => {
   const children = getChildren(location.pathname, data);
   return (
     <div>
-      <Header path={location.pathname}/>
-      <div>hello index</div>
+        <Header path={location.pathname}/>
+      <div className="container">
+        <section>
+          <article></article>
+          <article></article>
+          <article></article>
+          <article></article>
+          <article></article>
+          <article></article>
+          <article></article>
+          <article></article>
+          <article></article>
+          <article></article>
+          <article></article>
+          <article></article>
+          <article></article>
+          <article></article>
+          <article></article>
+        </section>
+      </div>
     </div>
   );
 }
