@@ -1,10 +1,10 @@
-html {
+body {
   background-color: #4f4f4f;
   color: #9e9e9e;
+  width: 100%;
 }
 
 header {
-  width: 95%;
   background-color: #3c3c3c;
 }
 
@@ -24,6 +24,9 @@ a:visited {
 .container {
   display: flex;
   flex-wrap: wrap;
+}
+
+.container .page {
   justify-content: center;
 }
 
@@ -31,7 +34,7 @@ section {
   flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 15px;
+  grid-gap: 0;
   justify-content: center;
 }
 

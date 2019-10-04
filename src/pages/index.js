@@ -6,9 +6,9 @@ import getChildren from "../util/source-filesystem-children";
 export default ({data, location/*, pageContext*/}) => {
   const children = getChildren(location.pathname, data);
   return (
-    <div>
+    <div className='wrapper'>
         <Header path={location.pathname}/>
-      <div className="container">
+      <div className="container page">
         <section>
           <article></article>
           <article></article>

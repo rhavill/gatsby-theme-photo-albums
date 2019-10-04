@@ -8,7 +8,7 @@ const Header = ({ path, rootTitle }) => {
   const links = breadcrumbs(path, rootTitle)
   return (
     <header>
-      <nav>{
+      <nav className='container'>{
          links.map((crumb, i) => (
           <Link key={i} to={crumb.path}>
             {crumb.title}&nbsp;
