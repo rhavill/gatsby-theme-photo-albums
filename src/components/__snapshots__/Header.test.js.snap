@@ -2,12 +2,13 @@
 
 exports[`Header renders correctly 1`] = `
 <header>
-  <nav>
+  <nav
+    className="container"
+  >
     <a
       href="/"
     >
       Home
-       
     </a>
   </nav>
 </header>
