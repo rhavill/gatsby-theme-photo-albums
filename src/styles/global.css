@@ -1,12 +1,14 @@
 body {
   background-color: #4f4f4f;
   color: #9e9e9e;
+  margin: 0;
   width: 100%;
+  font-family: "PT Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 
 header {
   background-color: #3c3c3c;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 a {
