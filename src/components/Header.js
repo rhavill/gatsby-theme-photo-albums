@@ -11,9 +11,9 @@ const Header = ({ path, rootTitle }) => {
       <nav className='container'>{
          links.map((crumb, i) => (
           <Link key={i} to={crumb.path}>
-            {crumb.title}&nbsp;
+            {crumb.title}
           </Link>))
-        }
+      }
       </nav>
     </header>
   )
