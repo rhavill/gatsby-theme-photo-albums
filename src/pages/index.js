@@ -24,6 +24,15 @@ export default ({data, location/*, pageContext*/}) => {
               </Link>
             )
           })}
+          {children.files.map((file, i) => {
+            return (
+              <Link key={i} to={file.fsPath}>
+                <article className='file'>
+                  <Img fixed={{src: file.src, width: file.width, height: file.height}} />
+                </article>
+              </Link>
+            )
+          })}
         </section>
       </div>
     </div>
@@ -40,11 +49,16 @@ export const query = graphql`
         }
       }
     }
-    allFile {
+    allFile(filter: {relativePath: {ne: "folder.png"}}) {
       edges {
         node {
           relativePath
           relativeDirectory
+          childImageSharp {
+            fixed(width: 250, height: 250) {
+              ...GatsbyImageSharpFixed
+            }
+          }
         }
       }
     }

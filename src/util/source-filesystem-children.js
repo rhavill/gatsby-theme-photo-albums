@@ -16,8 +16,11 @@ const getChildren = (path, data) => {
     // Add leading slash to filesystem file and directory to be consistent with current location path
     const fsPath = '/' + edge.node.relativePath
     const fsDir = '/' + edge.node.relativeDirectory
+    const src = edge.node.childImageSharp.fixed.src;
+    const width = edge.node.childImageSharp.fixed.width;
+    const height = edge.node.childImageSharp.fixed.height;
     if (fsDir === currentPath || (fsDir === '/' && currentPath === '')) {
-      files.push(fsPath)
+      files.push({fsPath, src, width, height})
     }
   })
   const children = {
