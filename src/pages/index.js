@@ -1,4 +1,5 @@
 import React from "react"
+import Img from "gatsby-image"
 import {graphql, Link} from "gatsby"
 import Header from '../components/Header'
 import getChildren from "../util/source-filesystem-children"
@@ -9,34 +10,20 @@ export default ({data, location/*, pageContext*/}) => {
   console.log('index children', children);
   return (
     <div className='wrapper'>
-        <Header path={location.pathname}/>
+      <Header path={location.pathname}/>
       <div className="container page">
         <section>
           {children.folders.map((folder, i) => {
             const title = toTitleCase(folder.replace(/.*\/([^/]+)$/, '$1'))
             return (
               <Link key={i} to={folder}>
-                <article className='folder' key={i}>
-                  {title}
+                <article className='folder'>
+                  <Img fixed={data.file.childImageSharp.fixed} alt={title} />
+                  <div className="folder-title">{title}</div>
                 </article>
               </Link>
             )
           })}
-          <article></article>
-          <article></article>
-          <article></article>
-          <article></article>
-          <article></article>
-          <article></article>
-          <article></article>
-          <article></article>
-          <article></article>
-          <article></article>
-          <article></article>
-          <article></article>
-          <article></article>
-          <article></article>
-          <article></article>
         </section>
       </div>
     </div>
@@ -58,6 +45,13 @@ export const query = graphql`
         node {
           relativePath
           relativeDirectory
+        }
+      }
+    }
+    file(relativePath: { eq: "folder.png" }) {
+      childImageSharp {
+        fixed(width: 250, height: 250) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

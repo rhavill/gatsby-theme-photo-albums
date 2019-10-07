@@ -53,13 +53,12 @@ section {
   justify-content: center;
 }
 
-article {
-  height: 200px;
-  width: 100%;
-}
+/* article {
+  height: 160px;
+  width: 160px;
+} */
 
 .folder {
-  background-image: url("/folder.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -68,4 +67,9 @@ article {
   align-items: center;
   color: #3c3c3c;
   font-size: 1.25rem;
+  position: relative;
+}
+
+.folder-title {
+  position: absolute;
 }
