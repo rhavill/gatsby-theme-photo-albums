@@ -15,8 +15,8 @@ export default ({data, location/*, pageContext*/}) => {
           {children.folders.map((folder, i) => {
             const title = toTitleCase(folder.replace(/.*\/([^/]+)$/, '$1'))
             return (
-              <article className='folder'>
-                <Link key={i} to={folder}>
+              <article key={i} className='folder'>
+                <Link to={folder}>
                   <Img fixed={data.file.childImageSharp.fixed} alt={title} />
                   <div className="folder-title">{title}</div>
                 </Link>
@@ -25,8 +25,8 @@ export default ({data, location/*, pageContext*/}) => {
           })}
           {children.files.map((file, i) => {
             return (
-              <article className='file'>
-                <Link key={i} to={file.fsPath}>
+              <article key={i} className='file'>
+                <Link to={file.fsPath}>
                   <Img fixed={{src: file.src, width: file.width, height: file.height}} />
                 </Link>
               </article>
