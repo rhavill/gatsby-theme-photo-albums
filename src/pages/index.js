@@ -16,21 +16,21 @@ export default ({data, location/*, pageContext*/}) => {
           {children.folders.map((folder, i) => {
             const title = toTitleCase(folder.replace(/.*\/([^/]+)$/, '$1'))
             return (
-              <Link key={i} to={folder}>
-                <article className='folder'>
+              <article className='folder'>
+                <Link key={i} to={folder}>
                   <Img fixed={data.file.childImageSharp.fixed} alt={title} />
                   <div className="folder-title">{title}</div>
-                </article>
-              </Link>
+                </Link>
+              </article>
             )
           })}
           {children.files.map((file, i) => {
             return (
-              <Link key={i} to={file.fsPath}>
-                <article className='file'>
+              <article className='file'>
+                <Link key={i} to={file.fsPath}>
                   <Img fixed={{src: file.src, width: file.width, height: file.height}} />
-                </article>
-              </Link>
+                </Link>
+              </article>
             )
           })}
         </section>
