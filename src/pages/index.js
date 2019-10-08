@@ -1,7 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 import {graphql, Link} from "gatsby"
-import Header from '../components/Header'
+import Layout from '../components/Layout'
 import getChildren from "../util/source-filesystem-children"
 import toTitleCase from '../util/to-title-case'
 
@@ -9,9 +9,8 @@ export default ({data, location/*, pageContext*/}) => {
   const children = getChildren(location.pathname, data);
   console.log('index children', children);
   return (
-    <div className='wrapper'>
-      <Header path={location.pathname}/>
-      <div className="container page">
+    <Layout location={location}>
+      <div className="listing-page">
         <section>
           {children.folders.map((folder, i) => {
             const title = toTitleCase(folder.replace(/.*\/([^/]+)$/, '$1'))
@@ -35,7 +34,7 @@ export default ({data, location/*, pageContext*/}) => {
           })}
         </section>
       </div>
-    </div>
+    </Layout>
   );
 }
 

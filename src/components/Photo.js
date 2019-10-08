@@ -1,15 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types"
 
-import Header from './Header';
+import Layout from '../components/Layout'
 
 const Photo =  ({location}) => {
   console.log('Photo location', location)
   return (
-    <div>
-      <Header path={location.pathname}/>
-      <div>photo</div>
+    <Layout location={location}>
+    <div className='photo-page'>
+      photo
     </div>
+    </Layout>
   )
 }
 
