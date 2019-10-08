@@ -64,6 +64,16 @@ section {
   justify-content: center;
 }
 
+.gatsby-image-wrapper  {
+ -webkit-border-radius: .5rem;
+ -moz-border-radius: .5rem;
+ border-radius: .5rem;
+ -webkit-box-shadow: 0.25rem 0.25rem .5rem .1rem #000000;
+ -moz-box-shadow:0.25rem 0.25rem .5rem .1rem #000000;
+ box-shadow: 0.25rem 0.25rem .5rem .1rem #000000;
+
+}
+
 .folder a {
   display: flex;
   justify-content: center;
@@ -75,8 +85,4 @@ section {
 
 .folder-title {
   position: absolute;
-}
-
-.file {
-  box-shadow: 0.25rem 0.25rem .5rem .1rem #000000;
 }
