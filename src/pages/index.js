@@ -7,7 +7,7 @@ import toTitleCase from '../util/to-title-case'
 
 export default ({data, location/*, pageContext*/}) => {
   const children = getChildren(location.pathname, data);
-  console.log('index children', children);
+
   return (
     <Layout location={location}>
       <div className="listing-page">
@@ -27,7 +27,7 @@ export default ({data, location/*, pageContext*/}) => {
             return (
               <article key={i} className='file'>
                 <Link to={file.fsPath}>
-                  <Img fixed={{src: file.src, width: file.width, height: file.height}} />
+                  <Img fixed={file.fixed} />
                 </Link>
               </article>
             )

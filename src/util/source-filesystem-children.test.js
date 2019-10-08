@@ -30,9 +30,11 @@ describe("source-filesystem-children", () => {
     const expectedFiles =  [
       {
         fsPath: '/level-one/level-two/3.jpg', 
-        src: '/static/blah/blah/3.jpg', 
-        width: 250, 
-        height: 250
+        fixed: {
+          src: '/static/blah/blah/3.jpg', 
+          width: 250, 
+          height: 250
+        }
       }
     ]
     expect(children.files).toEqual(expectedFiles)
@@ -44,9 +46,11 @@ describe("source-filesystem-children", () => {
     const expectedFiles = [
       {
         fsPath: '/1.jpg', 
-        src: '/static/blah/blah/1.jpg', 
-        width: 250, 
-        height: 250
+        fixed: {
+          src: '/static/blah/blah/1.jpg', 
+          width: 250, 
+          height: 250
+        }
       }
     ]
     expect(children.files).toEqual(expectedFiles)
