@@ -89,3 +89,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 }
+
+exports.onCreatePage = ({ page, actions }) => {
+  // Allow paged results functionality on index page
+  const { createPage, deletePage } = actions
+  if (page.path === '/') {
+    // const photosPerPage = result.data.site.siteMetadata.photosPerPage 
+    // getPagerData(node.relativePath, result.data, photosPerPage)
+    //   .forEach((pagerData, i) => {
+    // console.log('onCreatePage page', page)
+    deletePage(page)
+    createPage({
+      ...page,
+      context: {
+        ...page.context,
+        currentPage: 1,
+        numPages: 1,
+        limit: 15,
+        skip: 0,
+      },
+    })  }
+
+}
