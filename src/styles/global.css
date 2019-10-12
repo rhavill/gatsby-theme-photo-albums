@@ -89,3 +89,8 @@ section {
 .folder-title {
   position: absolute;
 }
+
+.pager {
+  margin: .5rem;
+  text-align: center;
+}

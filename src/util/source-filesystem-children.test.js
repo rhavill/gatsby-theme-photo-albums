@@ -1,4 +1,4 @@
-import getChildren from './source-filesystem-children'
+import {getChildren} from './source-filesystem-children'
 import filesystemData from './source-filesytem-test-data';
 
 describe("source-filesystem-children", () => {  

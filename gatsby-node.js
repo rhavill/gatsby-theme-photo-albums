@@ -1,4 +1,21 @@
-const path = require(`path`);
+const path = require(`path`)
+const {getChildren} = require('./src/util/source-filesystem-children')
+
+const getPagerData = (directory, data, photosPerPage) => {
+  const pagerData = []
+  const children = getChildren(`/${directory}`, data)
+  const childCount = children.folders.length + children.files.length
+  const numPages = Math.ceil(childCount / photosPerPage)
+  Array.from({ length: numPages }).forEach((_, i) => {
+    pagerData.push({
+      limit: photosPerPage,
+      skip: i * photosPerPage,
+      numPages,
+      currentPage: i + 1
+    })
+  })
+  return pagerData
+}
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   // **Note:** The graphql function call returns a Promise
@@ -6,37 +23,59 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const result = await graphql(`
     query {
-      allDirectory {
+      allDirectory(filter: {base: {ne: "images"}}) {
         edges {
           node {
             base
             relativePath
+            name
           }
         }
       }
-      allFile {
+      allFile(filter: {relativePath: {ne: "folder.png"}}) {
         edges {
           node {
             relativePath
-            base
-            name
-            dir
             relativeDirectory
+            childImageSharp {
+              fixed(width: 250, height: 250) {
+                width
+                height
+                src
+              }
+            }
           }
+        }
+      }
+      site {
+        siteMetadata {
+          photosPerPage
         }
       }
     }
   `)
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
   result.data.allDirectory.edges.forEach(({ node }) => {
-    createPage({
-      path: node.relativePath || '/',
-      component: path.resolve(`./src/pages/index.js`),
-      context: {
-        // Data passed to context is available
-        // in page queries as GraphQL variables.
-        
-      },
-    })
+    const photosPerPage = result.data.site.siteMetadata.photosPerPage 
+    getPagerData(node.relativePath, result.data, photosPerPage)
+      .forEach((pagerData, i) => {
+        let url = '/' + node.relativePath
+        if (i > 0 && url !== '/') {
+          url += '/'
+        }
+        if (i > 0) {
+          url += i + 1
+        }
+        createPage({
+          path: url,
+          component: path.resolve(`./src/pages/index.js`),
+          context: pagerData,
+        })
+      }
+    )
   })
   result.data.allFile.edges.forEach(({ node }) => {
     createPage({
