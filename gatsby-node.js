@@ -26,9 +26,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allDirectory(filter: {base: {ne: "images"}}) {
         edges {
           node {
-            base
             relativePath
-            name
           }
         }
       }
@@ -36,7 +34,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         edges {
           node {
             relativePath
-            relativeDirectory
             childImageSharp {
               fixed(width: 250, height: 250) {
                 width
@@ -94,10 +91,6 @@ exports.onCreatePage = ({ page, actions }) => {
   // Allow paged results functionality on index page
   const { createPage, deletePage } = actions
   if (page.path === '/') {
-    // const photosPerPage = result.data.site.siteMetadata.photosPerPage 
-    // getPagerData(node.relativePath, result.data, photosPerPage)
-    //   .forEach((pagerData, i) => {
-    // console.log('onCreatePage page', page)
     deletePage(page)
     createPage({
       ...page,

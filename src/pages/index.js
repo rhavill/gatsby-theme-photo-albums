@@ -43,18 +43,18 @@ export default ({data, location, pageContext}) => {
         </section>
       </div>
       <div className='pager'>
-          {!isFirst && (
-            <Link to={prevPage} rel="prev">
-              ← Previous Page
-            </Link>
-          )}
-          {!isLast && (
-            <Link to={nextPage} rel="next">
-              Next Page →
-            </Link>
-          )}
-       </div>
-
+        {!isFirst && (
+          <Link to={prevPage} rel="prev">
+            ← Previous Page
+          </Link>
+        )}
+        {!isLast && (
+          <Link to={nextPage} rel="next">
+            Next Page →
+          </Link>
+        )}
+      </div>
+      <br/>
     </Layout>
   );
 }
@@ -64,7 +64,6 @@ export const query = graphql`
     allDirectory {
       edges {
         node {
-          base
           relativePath
         }
       }
@@ -73,7 +72,6 @@ export const query = graphql`
       edges {
         node {
           relativePath
-          relativeDirectory
           childImageSharp {
             fixed(width: 250, height: 250) {
               ...GatsbyImageSharpFixed
