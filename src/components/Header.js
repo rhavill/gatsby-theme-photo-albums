@@ -28,4 +28,4 @@ Header.defaultProps = {
   rootTitle: 'Home',
 }
 
-export default Header;
+export default Header

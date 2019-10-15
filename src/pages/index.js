@@ -2,19 +2,13 @@ import React from "react"
 import Img from "gatsby-image"
 import {graphql, Link} from "gatsby"
 import Layout from '../components/Layout'
+import Pager from '../components/Pager'
 import {getChildren} from "../util/source-filesystem-children"
 import toTitleCase from '../util/to-title-case'
 
 export default ({data, location, pageContext}) => {
   const children = getChildren(location.pathname, data);
-  const pathWithoutPageNumber = location.pathname.replace(/\/?\d+$/, '')
   const { currentPage, numPages } = pageContext
-  const isFirst = currentPage === 1
-  const isLast = currentPage === numPages
-  const prevPage = currentPage - 1 === 1 
-    ? pathWithoutPageNumber 
-    : pathWithoutPageNumber + '/' + (currentPage - 1).toString()
-  const nextPage = pathWithoutPageNumber + '/' + (currentPage + 1).toString()
 
   return (
     <Layout path={location.pathname}>
@@ -42,18 +36,7 @@ export default ({data, location, pageContext}) => {
           })}
         </section>
       </div>
-      <div className='pager'>
-        {!isFirst && (
-          <Link to={prevPage} rel="prev">
-            ← Previous Page
-          </Link>
-        )}
-        {!isLast && (
-          <Link to={nextPage} rel="next">
-            Next Page →
-          </Link>
-        )}
-      </div>
+      <Pager path={location.pathname} currentPage={currentPage} numPages={numPages} />
       <br/>
     </Layout>
   );
