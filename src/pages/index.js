@@ -17,7 +17,7 @@ export default ({data, location, pageContext}) => {
   const nextPage = pathWithoutPageNumber + '/' + (currentPage + 1).toString()
 
   return (
-    <Layout location={location}>
+    <Layout path={location.pathname}>
       <div className="listing-page">
         <section>
           {children.folders.map((folder, i) => {

@@ -1,11 +1,22 @@
 import React from "react"
+import PropTypes from "prop-types"
 import Header from './Header';
 
-export default ({children, location}) => (
+const Layout =  ({children, path}) => (
   <div className='wrapper'>
-    <Header path={location.pathname}/>
+    <Header path={path}/>
     <div className="container page">
       {children}
     </div>
   </div>
 )
+
+Layout.propTypes = {
+  path: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+]).isRequired
+}
+
+export default Layout

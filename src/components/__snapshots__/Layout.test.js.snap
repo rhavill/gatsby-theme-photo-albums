@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders correctly 1`] = `
+<div
+  className="wrapper"
+>
+  <header>
+    <nav
+      className="container"
+    >
+      <a
+        href="/"
+      >
+        Home
+      </a>
+    </nav>
+  </header>
+  <div
+    className="container page"
+  >
+    <div>
+      hello
+    </div>
+  </div>
+</div>
+`;
