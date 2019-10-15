@@ -1,14 +1,14 @@
 import React from 'react'
-import {graphql, Link} from 'gatsby'
-import Img from "gatsby-image"
+import {graphql} from 'gatsby'
 import Layout from '../components/Layout'
 import Folder from '../components/Folder'
+import Thumbnail from '../components/Thumbnail'
 import Pager from '../components/Pager'
 import {getChildren} from "../util/source-filesystem-children"
 
 export default ({data, location, pageContext}) => {
   const children = getChildren(location.pathname, data);
-  const { currentPage, numPages } = pageContext
+  const {currentPage, numPages} = pageContext
 
   return (
     <Layout path={location.pathname}>
@@ -18,15 +18,9 @@ export default ({data, location, pageContext}) => {
             <Folder key={i} path={folder} 
             fixedImageData={data.file} />
           )}
-          {children.files.map((file, i) => {
-            return (
-              <article key={i} className='file'>
-                <Link to={file.fsPath}>
-                  <Img fixed={file.fixed} />
-                </Link>
-              </article>
-            )
-          })}
+          {children.files.map((file, i) => 
+            <Thumbnail key={i} fileData={file} />
+          )}
         </section>
       </div>
       <Pager path={location.pathname} currentPage={currentPage} numPages={numPages} />
@@ -45,16 +39,7 @@ export const query = graphql`
       }
     }
     allFile(filter: {relativePath: {ne: "folder.png"}} limit: $limit skip: $skip) {
-      edges {
-        node {
-          relativePath
-          childImageSharp {
-            fixed(width: 250, height: 250) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-      }
+      ...ThumbnailFragment
     }
     file(relativePath: { eq: "folder.png" }) {
       ...FolderFragment
