@@ -1,29 +1,27 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 import Layout from '../components/Layout'
-import Folder from '../components/Folder'
+import Folders from '../components/Folders'
 import Thumbnail from '../components/Thumbnail'
 import Pager from '../components/Pager'
 import {getChildren} from "../util/source-filesystem-children"
 
 export default ({data, location, pageContext}) => {
-  const children = getChildren(location.pathname, data);
+  const path = location.pathname
+  const children = getChildren(path, data)
   const {currentPage, numPages} = pageContext
 
   return (
-    <Layout path={location.pathname}>
+    <Layout path={path}>
       <div className="listing-page">
         <section>
-          {children.folders.map((folder, i) => 
-            <Folder key={i} path={folder} 
-            fixedImageData={data.file} />
-          )}
+          <Folders path={path} data={data} />
           {children.files.map((file, i) => 
             <Thumbnail key={i} fileData={file} />
           )}
         </section>
       </div>
-      <Pager path={location.pathname} currentPage={currentPage} numPages={numPages} />
+      <Pager path={path} currentPage={currentPage} numPages={numPages} />
       <br/>
     </Layout>
   );
@@ -41,8 +39,6 @@ export const query = graphql`
     allFile(filter: {relativePath: {ne: "folder.png"}} limit: $limit skip: $skip) {
       ...ThumbnailFragment
     }
-    file(relativePath: { eq: "folder.png" }) {
-      ...FolderFragment
-    }
+      ...FoldersFragment
   }
 `

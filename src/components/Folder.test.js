@@ -20,14 +20,16 @@ const imageData = {
 describe("Folder", () => {
   it("renders correctly", () => {
     const tree = renderer
-      .create(<Folder path='/folder-name' fixedImageData={imageData} />)
+      .create(<Folder path='/folder-name' imageData={imageData} />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
   it("displays \"title case\" text for folder name", () => {
     const {getByText} = render(
-      <Folder path='/first-dir/second-dir/folder-name' fixedImageData={imageData} />
+      <Folder path='/first-dir/second-dir/folder-name' imageData={imageData} />
     );
     expect(getByText('Folder Name')).toBeTruthy()
   })
 })
+
+export default imageData

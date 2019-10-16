@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Folder renders correctly 1`] = `
+<article
+  className="folder"
+>
+  <a
+    href="/folder-name"
+  >
+    <div
+      className=" gatsby-image-wrapper"
+      style={
+        Object {
+          "display": "inline-block",
+          "height": 250,
+          "overflow": "hidden",
+          "position": "relative",
+          "width": 250,
+        }
+      }
+    >
+      <picture>
+        <source
+          srcSet="/static/hash/f17d3/folder.png 1x"
+        />
+        <img
+          alt="Folder Name"
+          height={250}
+          loading="lazy"
+          onLoad={[Function]}
+          src="/static/hash/f17d3/folder.png"
+          srcSet="/static/hash/f17d3/folder.png 1x"
+          style={
+            Object {
+              "height": "100%",
+              "left": 0,
+              "objectFit": "cover",
+              "objectPosition": "center",
+              "opacity": 0,
+              "position": "absolute",
+              "top": 0,
+              "transition": "opacity 500ms",
+              "width": "100%",
+            }
+          }
+          width={250}
+        />
+      </picture>
+      <noscript
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<picture><source srcset=\\"/static/hash/f17d3/folder.png 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/hash/f17d3/folder.png 1x\\" src=\\"/static/hash/f17d3/folder.png\\" alt=\\"Folder Name\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+          }
+        }
+      />
+    </div>
+    <div
+      className="folder-title"
+    >
+      Folder Name
+    </div>
+  </a>
+</article>
+`;
+
+exports[`Folders renders correctly 1`] = `
+Array [
+  <article
+    className="folder"
+  >
+    <a
+      href="/level-one/level-two"
+    >
+      <div
+        className=" gatsby-image-wrapper"
+        style={
+          Object {
+            "display": "inline-block",
+            "height": 250,
+            "overflow": "hidden",
+            "position": "relative",
+            "width": 250,
+          }
+        }
+      >
+        <picture>
+          <source
+            srcSet="/static/hash/f17d3/folder.png 1x"
+          />
+          <img
+            alt="Level Two"
+            height={250}
+            loading="lazy"
+            onLoad={[Function]}
+            src="/static/hash/f17d3/folder.png"
+            srcSet="/static/hash/f17d3/folder.png 1x"
+            style={
+              Object {
+                "height": "100%",
+                "left": 0,
+                "objectFit": "cover",
+                "objectPosition": "center",
+                "opacity": 0,
+                "position": "absolute",
+                "top": 0,
+                "transition": "opacity 500ms",
+                "width": "100%",
+              }
+            }
+            width={250}
+          />
+        </picture>
+        <noscript
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<picture><source srcset=\\"/static/hash/f17d3/folder.png 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/hash/f17d3/folder.png 1x\\" src=\\"/static/hash/f17d3/folder.png\\" alt=\\"Level Two\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+            }
+          }
+        />
+      </div>
+      <div
+        className="folder-title"
+      >
+        Level Two
+      </div>
+    </a>
+  </article>,
+  <article
+    className="folder"
+  >
+    <a
+      href="/level-one/another-level-two"
+    >
+      <div
+        className=" gatsby-image-wrapper"
+        style={
+          Object {
+            "display": "inline-block",
+            "height": 250,
+            "overflow": "hidden",
+            "position": "relative",
+            "width": 250,
+          }
+        }
+      >
+        <picture>
+          <source
+            srcSet="/static/hash/f17d3/folder.png 1x"
+          />
+          <img
+            alt="Another Level Two"
+            height={250}
+            loading="lazy"
+            onLoad={[Function]}
+            src="/static/hash/f17d3/folder.png"
+            srcSet="/static/hash/f17d3/folder.png 1x"
+            style={
+              Object {
+                "height": "100%",
+                "left": 0,
+                "objectFit": "cover",
+                "objectPosition": "center",
+                "opacity": 0,
+                "position": "absolute",
+                "top": 0,
+                "transition": "opacity 500ms",
+                "width": "100%",
+              }
+            }
+            width={250}
+          />
+        </picture>
+        <noscript
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<picture><source srcset=\\"/static/hash/f17d3/folder.png 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/hash/f17d3/folder.png 1x\\" src=\\"/static/hash/f17d3/folder.png\\" alt=\\"Another Level Two\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+            }
+          }
+        />
+      </div>
+      <div
+        className="folder-title"
+      >
+        Another Level Two
+      </div>
+    </a>
+  </article>,
+]
+`;

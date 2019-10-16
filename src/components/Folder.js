@@ -4,12 +4,12 @@ import {graphql, Link} from "gatsby"
 import Img from "gatsby-image"
 import toTitleCase from '../util/to-title-case'
 
-const Folder = ({path, fixedImageData}) => {
+const Folder = ({path, imageData}) => {
   const title = toTitleCase(path.replace(/.*\/([^/]+)$/, '$1'))
   return (
     <article className='folder'>
       <Link to={path}>
-        <Img fixed={fixedImageData.childImageSharp.fixed} alt={title} />
+        <Img fixed={imageData.childImageSharp.fixed} alt={title} />
         <div className="folder-title">{title}</div>
       </Link>
     </article>
@@ -28,7 +28,7 @@ export const query = graphql`
 
 Folder.propTypes = {
   path: PropTypes.string.isRequired,
-  fixedImageData: PropTypes.shape({
+  imageData: PropTypes.shape({
     childImageSharp: PropTypes.shape({
       fixed: PropTypes.shape({
         src: PropTypes.string.isRequired,
