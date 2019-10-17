@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Thumbnail renders correctly 1`] = `
+exports[`Thumbnails renders correctly 1`] = `
 <article
   className="file"
 >
   <a
-    href="/level-one/level-two/3.jpg"
+    href="/level-one/2.jpg"
   >
     <div
       className=" gatsby-image-wrapper"
@@ -21,15 +21,15 @@ exports[`Thumbnail renders correctly 1`] = `
     >
       <picture>
         <source
-          srcSet="/static/hash/f17d3/folder.png 1x"
+          srcSet="/static/blah/blah/1.jpg 1x"
         />
         <img
-          alt="3"
+          alt="2"
           height={250}
           loading="lazy"
           onLoad={[Function]}
-          src="/static/hash/f17d3/folder.png"
-          srcSet="/static/hash/f17d3/folder.png 1x"
+          src="/static/blah/blah/1.jpg"
+          srcSet="/static/blah/blah/1.jpg 1x"
           style={
             Object {
               "height": "100%",
@@ -49,7 +49,7 @@ exports[`Thumbnail renders correctly 1`] = `
       <noscript
         dangerouslySetInnerHTML={
           Object {
-            "__html": "<picture><source srcset=\\"/static/hash/f17d3/folder.png 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/hash/f17d3/folder.png 1x\\" src=\\"/static/hash/f17d3/folder.png\\" alt=\\"3\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+            "__html": "<picture><source srcset=\\"/static/blah/blah/1.jpg 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/blah/blah/1.jpg 1x\\" src=\\"/static/blah/blah/1.jpg\\" alt=\\"2\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
           }
         }
       />

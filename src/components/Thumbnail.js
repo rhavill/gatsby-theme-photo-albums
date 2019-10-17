@@ -2,37 +2,37 @@ import React from "react"
 import PropTypes from "prop-types"
 import {graphql, Link} from "gatsby"
 import Img from "gatsby-image"
+import toTitleCase from '../util/to-title-case'
 
-const Thumbnail = ({fileData}) =>  
-  <article className='file'>
-    <Link to={fileData.fsPath}>
-      <Img fixed={fileData.fixed} />
+const Thumbnail = ({path, imageData}) => {
+  const title = toTitleCase(path.replace(/.*\/([^/]+)$/, '$1').replace(/\.[^/.]+$/, ''))
+  return <article className='file'>
+    <Link to={path}>
+      <Img fixed={imageData.childImageSharp.fixed}  alt={title}/>
     </Link>
   </article>
-  
+}
+
 export const query = graphql`
-  fragment ThumbnailFragment on FileConnection {
-    edges {
-      node {
-        relativePath
-        childImageSharp {
-          fixed(width: 250, height: 250) {
-            ...GatsbyImageSharpFixed
-          }
-        }
+  fragment ThumbnailFragment on File {
+    childImageSharp {
+      fixed(width: 250, height: 250) {
+        ...GatsbyImageSharpFixed
       }
     }
   }
 `
 
 Thumbnail.propTypes = {
-  fileData: PropTypes.shape({
-    fsPath: PropTypes.string.isRequired,
-    fixed: PropTypes.shape({
-      src: PropTypes.string.isRequired,
-      srcSet: PropTypes.string.isRequired,
-      width: PropTypes.number.isRequired,
-      height: PropTypes.number.isRequired,
+  path: PropTypes.string.isRequired,
+  imageData: PropTypes.shape({
+    childImageSharp: PropTypes.shape({
+      fixed: PropTypes.shape({
+        src: PropTypes.string.isRequired,
+        srcSet: PropTypes.string.isRequired,
+        width: PropTypes.number.isRequired,
+        height: PropTypes.number.isRequired,
+      }).isRequired
     }).isRequired
   }).isRequired  
 }

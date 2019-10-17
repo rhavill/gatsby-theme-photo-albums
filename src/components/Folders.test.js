@@ -1,6 +1,6 @@
 import React from "react"
 import renderer from "react-test-renderer"
-import {cleanup, render} from '@testing-library/react';
+import {cleanup} from '@testing-library/react';
 import Folders from "./Folders"
 import imageData from './Folder.test'
 

@@ -2,13 +2,11 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import Layout from '../components/Layout'
 import Folders from '../components/Folders'
-import Thumbnail from '../components/Thumbnail'
+import Thumbnails from '../components/Thumbnails'
 import Pager from '../components/Pager'
-import {getChildren} from "../util/source-filesystem-children"
 
 export default ({data, location, pageContext}) => {
   const path = location.pathname
-  const children = getChildren(path, data)
   const {currentPage, numPages} = pageContext
 
   return (
@@ -16,9 +14,7 @@ export default ({data, location, pageContext}) => {
       <div className="listing-page">
         <section>
           <Folders path={path} data={data} />
-          {children.files.map((file, i) => 
-            <Thumbnail key={i} fileData={file} />
-          )}
+          <Thumbnails path={path} data={data} />
         </section>
       </div>
       <Pager path={path} currentPage={currentPage} numPages={numPages} />
@@ -36,9 +32,14 @@ export const query = graphql`
         }
       }
     }
-    allFile(filter: {relativePath: {ne: "folder.png"}} limit: $limit skip: $skip) {
-      ...ThumbnailFragment
+    # This dummy query is a workaround for the error: Variable "$skip" is never 
+    # used in operation "indexQuery"
+    dummy: allFile(limit: $limit skip: $skip) {
+      nodes {
+        relativePath
+      }
     }
-      ...FoldersFragment
+    ...FoldersFragment
+    ...ThumbnailsFragment
   }
 `

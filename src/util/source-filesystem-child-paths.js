@@ -7,7 +7,7 @@ const match = require('ramda/src/match')
 const replace = require('ramda/src/replace')
 
 /**
- * When provided with a Gatsby location path some gatsby-source-filesystem 
+ * When provided with a Gatsby location path and some gatsby-source-filesystem 
  * relativePath values, determines the Gatsby-compatible location paths of the 
  * child directories.
  * @param {string} currentPath The Gatsby location path of a possible parent directory. 
