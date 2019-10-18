@@ -25,21 +25,12 @@ export default ({data, location, pageContext}) => {
 
 export const query = graphql`
   query indexQuery($skip: Int!, $limit: Int!) {
-    allDirectory {
-      edges {
-        node {
-          relativePath
-        }
-      }
-    }
-    # This dummy query is a workaround for the error: Variable "$skip" is never 
-    # used in operation "indexQuery"
-    dummy: allFile(limit: $limit skip: $skip) {
-      nodes {
-        relativePath
-      }
+    # Ideally, the next line of this query would be part of ThumbnailsFragment, 
+    # but putting the line in that fragment caused the error: 'Variable "$skip" 
+    # is never used in operation "indexQuery"'
+    photos: allFile(filter: {relativePath: {ne: "folder.png"}} limit: $limit skip: $skip) {
+      ...ThumbnailsFragment
     }
     ...FoldersFragment
-    ...ThumbnailsFragment
   }
 `

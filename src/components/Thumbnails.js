@@ -20,12 +20,10 @@ const Thumbnails = ({path, data}) =>
   )(data.photos.nodes)
 
 export const query = graphql`
-  fragment ThumbnailsFragment on Query {
-    photos: allFile(filter: {relativePath: {ne: "folder.png"}} limit: $limit skip: $skip) {
-      nodes {
-        relativePath
-        ...ThumbnailFragment
-      }
+  fragment ThumbnailsFragment on FileConnection {
+    nodes {
+      relativePath
+      ...ThumbnailFragment
     }
   }
 `
