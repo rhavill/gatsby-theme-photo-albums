@@ -1,5 +1,5 @@
 import {getChildren} from './source-filesystem-children'
-import filesystemData from './source-filesytem-test-data';
+import filesystemData from './source-filesystem-test-data';
 
 describe("source-filesystem-children", () => {  
 
