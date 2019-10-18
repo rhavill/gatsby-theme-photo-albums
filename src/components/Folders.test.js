@@ -2,7 +2,6 @@ import React from "react"
 import renderer from "react-test-renderer"
 import {cleanup} from '@testing-library/react';
 import Folders from "./Folders"
-import imageData from './Folder.test'
 import folderData from '../test-data/source-filesystem-folder-data'
 
 // automatically unmount and cleanup DOM after the test is finished.
