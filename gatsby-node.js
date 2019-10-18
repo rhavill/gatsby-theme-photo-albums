@@ -1,7 +1,12 @@
 const path = require(`path`)
 const {getChildren} = require('./src/util/source-filesystem-children')
 
-const getPagerData = (directory, data, photosPerPage) => {
+// photosPerPage is defined here because I was not able to access graphql from
+// the onCreatePage function, which needs this value. Ideally, this value would
+// be defined in gatsby-config.js
+const photosPerPage = 15;
+
+const getPagerData = (directory, data) => {
   const pagerData = []
   const children = getChildren(`/${directory}`, data)
   const childCount = children.folders.length + children.files.length
@@ -44,11 +49,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
-      site {
-        siteMetadata {
-          photosPerPage
-        }
-      }
     }
   `)
   if (result.errors) {
@@ -56,8 +56,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
   result.data.allDirectory.edges.forEach(({ node }) => {
-    const photosPerPage = result.data.site.siteMetadata.photosPerPage 
-    getPagerData(node.relativePath, result.data, photosPerPage)
+    getPagerData(node.relativePath, result.data)
       .forEach((pagerData, i) => {
         let url = '/' + node.relativePath
         if (i > 0 && url !== '/') {
@@ -98,7 +97,7 @@ exports.onCreatePage = ({ page, actions }) => {
         ...page.context,
         currentPage: 1,
         numPages: 1,
-        limit: 15,
+        limit: photosPerPage,
         skip: 0,
       },
     })  }
