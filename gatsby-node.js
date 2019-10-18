@@ -1,10 +1,8 @@
 const path = require(`path`)
 const {getChildren} = require('./src/util/source-filesystem-children')
-
-// photosPerPage is defined here because I was not able to access graphql from
-// the onCreatePage function, which needs this value. Ideally, this value would
-// be defined in gatsby-config.js
-const photosPerPage = 15;
+// /^2019-puerto-rico\/jayuya\/[^/]+$/
+let photosPerPage // set from graphql query that searches gatsby-config.js
+let indexPagerData // used by onCreatePage to set pager data for index page
 
 const getPagerData = (directory, data) => {
   const pagerData = []
@@ -28,7 +26,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const result = await graphql(`
     query {
-      allDirectory {
+      site {
+        siteMetadata {
+          photosPerPage
+        }
+      }
+      allDirectory(filter: {name: {ne: "images"}}) {
         edges {
           node {
             relativePath
@@ -55,6 +58,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
+  photosPerPage = result.data.site.siteMetadata.photosPerPage
+
   result.data.allDirectory.edges.forEach(({ node }) => {
     getPagerData(node.relativePath, result.data)
       .forEach((pagerData, i) => {
@@ -64,6 +69,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
         if (i > 0) {
           url += i + 1
+        }
+        if (url === '/') {
+          indexPagerData = pagerData
         }
         createPage({
           path: url,
@@ -95,11 +103,8 @@ exports.onCreatePage = ({ page, actions }) => {
       ...page,
       context: {
         ...page.context,
-        currentPage: 1,
-        numPages: 1,
-        limit: photosPerPage,
-        skip: 0,
+        ...indexPagerData
       },
-    })  }
-
+    })  
+  }
 }

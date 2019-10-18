@@ -5,6 +5,9 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    photosPerPage: 15,
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
