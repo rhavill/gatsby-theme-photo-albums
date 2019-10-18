@@ -5,7 +5,7 @@ import Folders from '../components/Folders'
 import Thumbnails from '../components/Thumbnails'
 import Pager from '../components/Pager'
 
-export default ({data, location, pageContext}) => {
+const Index = ({data, location, pageContext}) => {
   const path = location.pathname
   const {currentPage, numPages} = pageContext
 
@@ -34,3 +34,4 @@ export const query = graphql`
     ...FoldersFragment
   }
 `
+export default Index
