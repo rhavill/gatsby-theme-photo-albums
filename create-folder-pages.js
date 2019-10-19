@@ -1,4 +1,5 @@
 const path = require(`path`)
+const emitter = require('./src/util/event-emitter')
 const {getPagerData} = require('./src/util/source-filesystem-pager-data')
 
 const createFolderPages = (photosPerPage, createPage, files, folders) => {
@@ -13,10 +14,9 @@ const createFolderPages = (photosPerPage, createPage, files, folders) => {
         if (i > 0) {
           url += i + 1
         }
-        // TODO: set indexPagerData
-        // if (url === '/') {
-        //   indexPagerData = pagerData
-        // }
+        if (url === '/') {
+          emitter.emit('indexPagerData', pagerData)
+        }
         createPage({
           path: url,
           component: path.resolve(`./src/pages/index.js`),

@@ -1,11 +1,9 @@
+const emitter = require('./src/util/event-emitter')
 const createPages = require('./create-pages')
 
-let indexPagerData = {  // used by onCreatePage to set pager data for index page
-  limit: 15,
-  skip: 15,
-  numPages: 1,
-  currentPage: 1
-}
+let indexPagerData
+
+emitter.on('indexPagerData', data => indexPagerData = data)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
