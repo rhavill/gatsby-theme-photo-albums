@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import {cleanup} from '@testing-library/react';
+import {cleanup, render} from '@testing-library/react';
 import Thumbnails from './Thumbnails'
 import fileData from '../test-data/source-filesystem-file-data'
 
@@ -13,6 +13,12 @@ describe("Thumbnails", () => {
       .create(<Thumbnails path='/level-one' data={fileData} />)
       .toJSON()
     expect(tree).toMatchSnapshot()
+  })
+  it("displays the correct number of thumbnail images", () => {
+    const {getAllByRole} = render(
+      <Thumbnails path='/level-one/level-two/level-three' data={fileData} />
+    );
+    expect(getAllByRole('file').length).toBe(17)
   })
 
 })

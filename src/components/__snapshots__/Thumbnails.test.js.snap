@@ -3,6 +3,7 @@
 exports[`Thumbnails renders correctly 1`] = `
 <article
   className="file"
+  role="file"
 >
   <a
     href="/level-one/2.jpg"

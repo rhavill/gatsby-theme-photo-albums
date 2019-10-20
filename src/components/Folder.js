@@ -7,7 +7,7 @@ import toTitleCase from '../util/to-title-case'
 const Folder = ({path, imageData}) => {
   const title = toTitleCase(path.replace(/.*\/([^/]+)$/, '$1'))
   return (
-    <article className='folder'>
+    <article className='folder' role='folder'>
       <Link to={path}>
         <Img fixed={imageData.childImageSharp.fixed} alt={title} />
         <div className="folder-title">{title}</div>

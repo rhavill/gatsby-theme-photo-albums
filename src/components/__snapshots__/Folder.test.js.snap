@@ -3,6 +3,7 @@
 exports[`Folder renders correctly 1`] = `
 <article
   className="folder"
+  role="folder"
 >
   <a
     href="/folder-name"
