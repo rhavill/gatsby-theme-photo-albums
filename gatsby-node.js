@@ -1,9 +1,9 @@
 const emitter = require('./src/util/event-emitter')
 const createPages = require('./create-pages')
 
-let indexPagerData
+let indexContext
 
-emitter.on('indexPagerData', data => indexPagerData = data)
+emitter.on('indexContext', data => indexContext = data)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -19,7 +19,7 @@ exports.onCreatePage = ({ page, actions }) => {
       ...page,
       context: {
         ...page.context,
-        ...indexPagerData
+        ...indexContext
       },
     })  
   }

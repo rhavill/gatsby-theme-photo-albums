@@ -2,7 +2,6 @@ const path = require(`path`)
 const createFolderPages = require('./create-folder-pages')
 const {objectArrayToPropArray} = require('./src/util/ramda-utils')
 
-// /^2019-puerto-rico\/jayuya\/[^/]+$/
 const query = `
   query {
     site {

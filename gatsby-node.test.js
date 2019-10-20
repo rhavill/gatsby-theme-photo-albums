@@ -22,9 +22,9 @@ describe("gatsby-node", () => {
     expect(deletePage.mock.calls.length).toBe(1)
   })
 
-  it('listens to indexPagerData and sets pager data for index page accordingly', () => {
+  it('listens to indexContext and sets pager data for index page accordingly', () => {
     const pagerData = {limit: 4, skip: 8, numPages: 10, currentPage: 5}
-    emitter.emit('indexPagerData', pagerData)
+    emitter.emit('indexContext', pagerData)
     onCreatePage({page, actions})
     const context = compose(prop('context'), last, last)(createPage.mock.calls)
     expect(context).toEqual(pagerData)
