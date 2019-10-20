@@ -6,7 +6,7 @@ import toTitleCase from '../util/to-title-case'
 
 const Thumbnail = ({path, imageData}) => {
   const title = toTitleCase(path.replace(/.*\/([^/]+)$/, '$1').replace(/\.[^/.]+$/, ''))
-  return <article className='file' role='file'>
+  return <article className='file' data-testid='file'>
     <Link to={path}>
       <Img fixed={imageData.childImageSharp.fixed}  alt={title}/>
     </Link>

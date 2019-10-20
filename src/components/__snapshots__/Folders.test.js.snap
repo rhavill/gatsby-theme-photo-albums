@@ -4,7 +4,7 @@ exports[`Folders renders correctly 1`] = `
 Array [
   <article
     className="folder"
-    role="folder"
+    data-testid="folder"
   >
     <a
       href="/level-one/level-two"
@@ -65,7 +65,7 @@ Array [
   </article>,
   <article
     className="folder"
-    role="folder"
+    data-testid="folder"
   >
     <a
       href="/level-one/another-level-two"

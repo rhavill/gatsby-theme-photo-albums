@@ -15,9 +15,9 @@ describe("Folders", () => {
     expect(tree).toMatchSnapshot()
   })
   it("displays the correct number of folder icons", () => {
-    const {getAllByRole} = render(
+    const {getAllByTestId} = render(
       <Folders path='/level-one' data={folderData} />
     );
-    expect(getAllByRole('folder').length).toBe(2)
+    expect(getAllByTestId('folder').length).toBe(2)
   })
 })

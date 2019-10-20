@@ -15,10 +15,10 @@ describe("Thumbnails", () => {
     expect(tree).toMatchSnapshot()
   })
   it("displays the correct number of thumbnail images", () => {
-    const {getAllByRole} = render(
+    const {getAllByTestId} = render(
       <Thumbnails path='/level-one/level-two/level-three' data={fileData} />
     );
-    expect(getAllByRole('file').length).toBe(17)
+    expect(getAllByTestId('file').length).toBe(17)
   })
 
 })

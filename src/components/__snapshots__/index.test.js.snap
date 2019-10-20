@@ -24,7 +24,7 @@ exports[`Index renders correctly 1`] = `
       <section>
         <article
           className="folder"
-          role="folder"
+          data-testid="folder"
         >
           <a
             href="/2019-puerto-rico"
@@ -85,7 +85,7 @@ exports[`Index renders correctly 1`] = `
         </article>
         <article
           className="file"
-          role="file"
+          data-testid="file"
         >
           <a
             href="/IMG_20190810_110416612-small.jpg"
