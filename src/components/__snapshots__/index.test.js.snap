@@ -20,6 +20,7 @@ exports[`Index renders correctly 1`] = `
   >
     <div
       className="listing-page"
+      data-testid="/"
     >
       <section>
         <article

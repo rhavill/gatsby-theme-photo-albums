@@ -6,12 +6,12 @@ import Thumbnails from '../components/Thumbnails'
 import Pager from '../components/Pager'
 
 const Index = ({data, location, pageContext}) => {
-  const path = location.pathname
+  const path = decodeURIComponent(location.pathname)
   const {currentPage, numPages} = pageContext
 
   return (
     <Layout path={path}>
-      <div className="listing-page">
+      <div className="listing-page" data-testid={path}>
         <section>
           <Folders path={path} data={data} />
           <Thumbnails path={path} data={data} />
