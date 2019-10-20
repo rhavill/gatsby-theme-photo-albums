@@ -28,7 +28,9 @@ export const query = graphql`
     # Ideally, the next line of this query would be part of ThumbnailsFragment, 
     # but putting the line in that fragment caused the error: 'Variable "$skip" 
     # is never used in operation "indexQuery"'
-    photos: allFile(filter: {relativePath: {ne: "folder.png", regex: $regexFilter}} limit: $limit skip: $skip) {
+    photos: allFile(filter: {
+        relativePath: {ne: "folder.png", regex: $regexFilter}}, 
+        sort: {fields: relativePath} limit: $limit skip: $skip) {
       ...ThumbnailsFragment
     }
     ...FoldersFragment

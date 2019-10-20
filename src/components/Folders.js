@@ -24,7 +24,8 @@ export const query = graphql`
     folderIcon: file(relativePath: { eq: "folder.png" }) {
       ...FolderFragment
     }
-    folders: allDirectory {
+    folders: allDirectory(filter: {name: {ne: "images"}}, 
+        sort: {fields: relativePath}) {
       nodes {
         relativePath
       }
