@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {graphql} from 'gatsby'
 import Layout from '../components/Layout'
 import Folders from '../components/Folders'
@@ -36,4 +37,18 @@ export const query = graphql`
     ...FoldersFragment
   }
 `
+
+Index.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired
+  }).isRequired,
+  data: PropTypes.shape({
+    photos: PropTypes.object.isRequired,
+  }).isRequired,
+  pageContext: PropTypes.shape({
+    currentPage: PropTypes.number.isRequired,
+    numPages: PropTypes.number.isRequired,
+  }).isRequired
+}
+
 export default Index
