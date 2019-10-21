@@ -2,17 +2,19 @@ import React from "react";
 import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import Layout from '../components/Layout'
+import {pathToFileTitle} from '../util/text-utils'
 
 const Photo =  ({data, path, pageContext}) => {
+  const title = pathToFileTitle(path)
   return (
     <Layout path={path}>
-    <div className='photo-page'>
-      <Img fluid={data.photo.childImageSharp.fluid}  alt={'fixme'}/>
-    </div>
+      <div className='photo-page'>
+        <Img fluid={data.photo.childImageSharp.fluid}  alt={title} title={title} />
+      </div>
     </Layout>
   )
 }
-// set "fit" to CONTAIN or COVER?
+// set "fit" property to CONTAIN or COVER?
 export const query = graphql`
   query photoQuery($relativePath: String!) {
     photo: file(relativePath: {eq: $relativePath}) {

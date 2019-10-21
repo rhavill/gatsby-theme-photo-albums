@@ -2,13 +2,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import {graphql, Link} from "gatsby"
 import Img from "gatsby-image"
-import {toTitleCase} from '../util/text-utils'
+import {pathToFileTitle} from '../util/text-utils'
 
 const Thumbnail = ({path, imageData}) => {
-  const title = toTitleCase(path.replace(/.*\/([^/]+)$/, '$1').replace(/\.[^/.]+$/, ''))
+  const title = pathToFileTitle(path)
   return <article className='file' data-testid='file'>
     <Link to={path}>
-      <Img fixed={imageData.childImageSharp.fixed}  alt={title}/>
+      <Img fixed={imageData.childImageSharp.fixed} alt={title} title={title}/>
     </Link>
   </article>
 }

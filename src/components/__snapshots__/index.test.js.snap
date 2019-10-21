@@ -66,13 +66,14 @@ exports[`Index renders correctly 1`] = `
                       "width": "100%",
                     }
                   }
+                  title="2019 Puerto Rico"
                   width={250}
                 />
               </picture>
               <noscript
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "<picture><source srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" src=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png\\" alt=\\"2019 Puerto Rico\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+                    "__html": "<picture><source srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" src=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png\\" alt=\\"2019 Puerto Rico\\" title=\\"2019 Puerto Rico\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
                   }
                 }
               />
@@ -127,13 +128,14 @@ exports[`Index renders correctly 1`] = `
                       "width": "100%",
                     }
                   }
+                  title="Img 20190810 110416612 Small"
                   width={250}
                 />
               </picture>
               <noscript
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "<picture><source srcset=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x\\" src=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg\\" alt=\\"Img 20190810 110416612 Small\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+                    "__html": "<picture><source srcset=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x\\" src=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg\\" alt=\\"Img 20190810 110416612 Small\\" title=\\"Img 20190810 110416612 Small\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
                   }
                 }
               />
