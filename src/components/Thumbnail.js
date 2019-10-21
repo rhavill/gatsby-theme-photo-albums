@@ -16,7 +16,7 @@ const Thumbnail = ({path, imageData}) => {
 export const query = graphql`
   fragment ThumbnailFragment on File {
     childImageSharp {
-      fixed(width: 250, height: 250) {
+      fixed(width: 250, height: 250, cropFocus: CENTER) {
         ...GatsbyImageSharpFixed
       }
     }
