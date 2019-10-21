@@ -43,8 +43,7 @@ const createPhotoPages = (createPage, files) => {
       path: file,
       component: path.resolve(`./src/pages/Photo.js`),
       context: {
-        // Data passed to context is available
-        // in page queries as GraphQL variables.
+        relativePath: file
       },
     })
   })

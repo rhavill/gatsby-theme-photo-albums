@@ -1,7 +1,9 @@
+const allPass = require('ramda/src/allPass')
 const compose = require('ramda/src/compose')
 const equals = require('ramda/src/equals')
 const head = require('ramda/src/head')
 const last = require('ramda/src/last')
+const path = require('ramda/src/path')
 const prop = require('ramda/src/prop')
 const reduce = require('ramda/src/reduce')
 const takeLast = require('ramda/src/takeLast')
@@ -63,10 +65,16 @@ describe("create-pages", () => {
     // result in nested data structures.
     const lastFour = takeLast(4, createPage.mock.calls)
     const allPagesPassTest = reduce(
-      (acc, page) => equals(
-        head(page), 
-        compose(prop('path'), head, last)(page)
-      ) 
+      (acc, page) => allPass([
+        equals(
+          head(page), 
+          compose(prop('path'), head, last)(page)
+        ),
+        equals(
+          head(page), 
+          compose(path(['context', 'relativePath']), head, last)(page)
+        ),
+      ])
       ? acc 
       : false, true)(zip(exptectedPaths, lastFour))
     
