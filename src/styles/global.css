@@ -43,13 +43,37 @@ nav a:first-child::before {
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 300px;
   margin-left: auto;
   margin-right: auto;
 }
 
+@media screen and (min-width: 620px) {
+  .container {
+    max-width: 620px;
+  }
+}
+
+@media screen and (min-width: 930px) {
+  .container {
+    max-width: 930px;
+  }
+}
+
+@media screen and (min-width: 1240px) {
+  .container {
+    max-width: 1240px;
+  }
+}
+
+@media screen and (min-width: 1550px) {
+  .container {
+    max-width: 1550px;
+  }
+}
+
 .container.page {
-  top: 4.75rem;
+  top: 6.5rem;
   position: relative;
 }
 
