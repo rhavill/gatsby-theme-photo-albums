@@ -1,6 +1,6 @@
-import toTitleCase from './to-title-case';
+import toTitleCase from './text-utils';
 
-describe("to-title-case", () => {  
+describe("text-utils", () => {  
   it("replaces hyphens with space and capitalizes first letter of each word", () => {
     const text = 'one-two-three'
     const expectedText = 'One Two Three'
