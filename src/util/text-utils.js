@@ -1,7 +1,9 @@
 const toTitleCase = text => 
   text.toLowerCase()
-    .split('-')
+    .split(/[-_]+/)
     .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
     .join(' ');
 
-export default toTitleCase
+export {
+  toTitleCase
+}

@@ -108,7 +108,7 @@ exports[`Index renders correctly 1`] = `
                   srcSet="/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x"
                 />
                 <img
-                  alt="Img_20190810_110416612 Small"
+                  alt="Img 20190810 110416612 Small"
                   height={250}
                   loading="lazy"
                   onLoad={[Function]}
@@ -133,7 +133,7 @@ exports[`Index renders correctly 1`] = `
               <noscript
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "<picture><source srcset=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x\\" src=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg\\" alt=\\"Img_20190810_110416612 Small\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+                    "__html": "<picture><source srcset=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x\\" src=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg\\" alt=\\"Img 20190810 110416612 Small\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
                   }
                 }
               />
