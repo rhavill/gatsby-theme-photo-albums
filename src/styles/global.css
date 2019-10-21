@@ -26,8 +26,11 @@ nav {
   padding: 1rem;
 }
 
-nav a:hover {
+nav a:hover, .pager a:hover {
   color: #ffffff;
+}
+.pager a {
+  text-decoration: underline;
 }
 
 a:visited {
