@@ -41,7 +41,7 @@ const createPhotoPages = (createPage, files) => {
   files.forEach(file => {
     createPage({
       path: file,
-      component: path.resolve(`./src/components/Photo.js`),
+      component: path.resolve(`./src/pages/Photo.js`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.

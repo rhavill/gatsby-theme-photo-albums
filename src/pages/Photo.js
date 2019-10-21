@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types"
-
+import Img from "gatsby-image"
 import Layout from '../components/Layout'
 
-const Photo =  ({location}) => {
-  console.log('Photo location', location)
+const Photo =  ({path}) => {
+  console.log('Photo path', path)
   return (
-    <Layout location={location}>
+    <Layout path={path}>
     <div className='photo-page'>
       photo
     </div>
@@ -15,9 +15,7 @@ const Photo =  ({location}) => {
 }
 
 Photo.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }).isRequired,
+  path: PropTypes.string.isRequired,
 }
 
 export default Photo
