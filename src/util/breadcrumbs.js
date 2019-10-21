@@ -1,4 +1,4 @@
-import toTitleCase from './text-utils';
+import {toTitleCase} from './text-utils';
 
 const breadcrumbs = (path, rootTitle = 'Home') => {
   // Set path to empty string for root directory. 

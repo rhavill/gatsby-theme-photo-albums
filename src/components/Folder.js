@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import {graphql, Link} from "gatsby"
 import Img from "gatsby-image"
-import toTitleCase from '../util/text-utils'
+import {toTitleCase} from '../util/text-utils'
 
 const Folder = ({path, imageData}) => {
   const title = toTitleCase(path.replace(/.*\/([^/]+)$/, '$1'))
