@@ -41,7 +41,7 @@ const createPhotoPages = (createPage, files) => {
   files.forEach(file => {
     createPage({
       path: file,
-      component: path.resolve('./src/pages/Photo.js'),
+      component: path.resolve('./src/pages/photo.js'),
       context: {
         relativePath: file
       },

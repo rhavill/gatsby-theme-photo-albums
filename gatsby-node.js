@@ -23,4 +23,7 @@ exports.onCreatePage = ({ page, actions }) => {
       },
     })  
   }
+  if (page.path === '/photo/') {
+    deletePage(page)
+  }
 }
