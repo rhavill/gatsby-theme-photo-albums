@@ -7,9 +7,9 @@ import fileData from '../test-data/source-filesystem-file-data'
 const folders = map(prop('relativePath'), folderData.folders.nodes)
 const files = map(prop('relativePath'), fileData.photos.nodes)
 
-describe("source-filesystem-child-paths", () => {  
+describe('source-filesystem-child-paths', () => {  
 
-  it("returns child directories of current path", () => {
+  it('returns child directories of current path', () => {
     const path = '/level-one'
     const children = getChildPaths(path, folders)
     const expectedFolders =  [
@@ -19,7 +19,7 @@ describe("source-filesystem-child-paths", () => {
     expect(children).toEqual(expectedFolders)
   })
 
-  it("returns all top-level directories of root path", () => {
+  it('returns all top-level directories of root path', () => {
     const path = ''
     const children = getChildPaths(path, folders)
     const expectedFolders = [
@@ -30,7 +30,7 @@ describe("source-filesystem-child-paths", () => {
     expect(children).toEqual(expectedFolders)
   })
 
-  it("returns child files of current path", () => {
+  it('returns child files of current path', () => {
     const path = '/level-one'
     const children = getChildPaths(path, files)
     const expectedFiles =  [
@@ -39,7 +39,7 @@ describe("source-filesystem-child-paths", () => {
     expect(children).toEqual(expectedFiles)
   })
 
-  it("returns all files of root path", () => {
+  it('returns all files of root path', () => {
     const path = ''
     const children = getChildPaths(path, files)
     const expectedFolders = [

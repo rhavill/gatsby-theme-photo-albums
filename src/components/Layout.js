@@ -1,11 +1,11 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 import Header from './Header'
 
 const Layout =  ({children, path}) => (
   <div className='wrapper'>
     <Header path={path}/>
-    <div className="container page">
+    <div className='container'>
       {children}
     </div>
   </div>

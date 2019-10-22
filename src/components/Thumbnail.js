@@ -1,7 +1,7 @@
-import React from "react"
-import PropTypes from "prop-types"
-import {graphql, Link} from "gatsby"
-import Img from "gatsby-image"
+import React from 'react'
+import PropTypes from 'prop-types'
+import {graphql, Link} from 'gatsby'
+import Img from 'gatsby-image'
 import {pathToFileTitle} from '../util/text-utils'
 
 const Thumbnail = ({path, imageData}) => {

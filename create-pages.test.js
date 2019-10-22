@@ -35,23 +35,23 @@ beforeAll(() => graphql().then(() => {
     .catch(e => { console.error('createPages test suite failed.', e) })
 }))
 
-describe("create-pages", () => {
+describe('create-pages', () => {
 
-  it("has 15 photos per page, 4 files and 4 folders", () => {
+  it('has 15 photos per page, 4 files and 4 folders', () => {
     expect(photosPerPage).toBe(15)
     expect(files.length).toBe(4)
     expect(folders.length).toBe(4)
   })
 
-  it("calls graphql function", () => {
+  it('calls graphql function', () => {
     expect(graphql.mock.calls.length).toBe(1)
   })
 
-  it("does not call reporter.panicOnBuild function", () => {
+  it('does not call reporter.panicOnBuild function', () => {
     expect(reporter.panicOnBuild.mock.calls.length).toBe(0)
   })
 
-  it("calls the createPage correctly", () => {
+  it('calls the createPage correctly', () => {
     const exptectedPaths = [
       '2019-puerto-rico/jayuya/IMG_20190814_113735817-small.jpg', 
       '2019-puerto-rico/jayuya/IMG_20190814_102958452-small.jpg', 
@@ -75,8 +75,8 @@ describe("create-pages", () => {
           compose(path(['context', 'relativePath']), head, last)(page)
         ),
       ])
-      ? acc 
-      : false, true)(zip(exptectedPaths, lastFour))
+        ? acc 
+        : false, true)(zip(exptectedPaths, lastFour))
     
     expect(lastFour.length).toBe(4)
     expect(createPage.mock.calls.length).toBe(8)

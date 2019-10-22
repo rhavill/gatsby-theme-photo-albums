@@ -21,7 +21,7 @@ const Index = ({data, location, pageContext}) => {
       <Pager path={path} currentPage={currentPage} numPages={numPages} />
       <br/>
     </Layout>
-  );
+  )
 }
 
 export const query = graphql`

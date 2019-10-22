@@ -14,9 +14,9 @@ const page = {
   path: '/'
 }
 
-describe("gatsby-node", () => {
+describe('gatsby-node', () => {
 
-  it("onCreatePage calls createPage and deletePage if page path is \"/\"", () => {
+  it('onCreatePage calls createPage and deletePage if page path is "/"', () => {
     onCreatePage({page, actions})
     expect(createPage.mock.calls.length).toBe(1)
     expect(deletePage.mock.calls.length).toBe(1)

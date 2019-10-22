@@ -1,5 +1,5 @@
 import compose from 'ramda/src/compose'
-import {removeFileExtension, toTitleCase} from './text-utils';
+import {removeFileExtension, toTitleCase} from './text-utils'
 
 const breadcrumbs = (path, rootTitle = 'Home') => {
   // Set path to empty string for root directory. 

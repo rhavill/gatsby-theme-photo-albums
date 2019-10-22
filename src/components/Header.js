@@ -1,6 +1,6 @@
-import React from "react"
-import PropTypes from "prop-types"
-import {Link} from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
+import {Link} from 'gatsby'
 
 import breadcrumbs from '../util/breadcrumbs'
 
@@ -9,7 +9,7 @@ const Header = ({ path, rootTitle }) => {
   return (
     <header>
       <nav className='container'>{
-         links.map((crumb, i) => (
+        links.map((crumb, i) => (
           <Link key={i} to={crumb.path}>
             {crumb.title}
           </Link>))

@@ -1,10 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types"
-import Img from "gatsby-image"
+import React from 'react'
+import PropTypes from 'prop-types'
+import {graphql} from 'gatsby'
+import Img from 'gatsby-image'
 import Layout from '../components/Layout'
 import {pathToFileTitle} from '../util/text-utils'
 
-const Photo =  ({data, path, pageContext}) => {
+const Photo =  ({data, path}) => {
   const title = pathToFileTitle(path)
   return (
     <Layout path={path}>
@@ -29,9 +30,6 @@ export const query = graphql`
 
 Photo.propTypes = {
   path: PropTypes.string.isRequired,
-  pageContext: PropTypes.shape({
-    relativePath: PropTypes.string.isRequired,
-  }),
   data: PropTypes.shape({
     photo: PropTypes.shape({
       childImageSharp: PropTypes.shape({

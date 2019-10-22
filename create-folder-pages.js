@@ -1,4 +1,4 @@
-const path = require(`path`)
+const path = require('path')
 const add = require('ramda/src/add')
 const and = require('ramda/src/and')
 const compose = require('ramda/src/compose')
@@ -18,6 +18,7 @@ const pageIndexToPageNumber = add(1)
 const createFolderPages = (photosPerPage, createPage, files, folders) => {
   folders.forEach(folder => {
     const pagerData = getPagerData(folder, files, photosPerPage)
+    // eslint-disable-next-line no-useless-escape
     const regexFilter = '/^' + folder + (folder ? '\/' : '') + '[^/]+$/'
     pagerData.forEach((pagerData, i) => {
       let url = pathToUrl(folder)
@@ -35,7 +36,7 @@ const createFolderPages = (photosPerPage, createPage, files, folders) => {
       }
       createPage({
         path: url,
-        component: path.resolve(`./src/pages/index.js`),
+        component: path.resolve('./src/pages/index.js'),
         context: {
           ...pagerData,
           regexFilter

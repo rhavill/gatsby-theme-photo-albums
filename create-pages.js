@@ -1,4 +1,4 @@
-const path = require(`path`)
+const path = require('path')
 const createFolderPages = require('./create-folder-pages')
 const {objectArrayToPropArray} = require('./src/util/ramda-utils')
 
@@ -25,7 +25,7 @@ const query = `
 const getQueryResults = async (graphql, reporter) => {
   const result = await graphql(query)
   if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    reporter.panicOnBuild('Error while running GraphQL query.')
     return
   }
   const photosPerPage = result.data.site.siteMetadata.photosPerPage
@@ -41,7 +41,7 @@ const createPhotoPages = (createPage, files) => {
   files.forEach(file => {
     createPage({
       path: file,
-      component: path.resolve(`./src/pages/Photo.js`),
+      component: path.resolve('./src/pages/Photo.js'),
       context: {
         relativePath: file
       },

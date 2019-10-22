@@ -10,21 +10,21 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `photos`,
-        path: `${__dirname}/photos/`,
+        name: 'photos',
+        path: `${__dirname}/photos/`, // eslint-disable-line no-undef
         useMozJpeg: true,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `images`,
-        path: `${__dirname}/images/`,
+        name: 'images',
+        path: `${__dirname}/images/`, // eslint-disable-line no-undef
       },
     },
-    `gatsby-transformer-sharp`, 
-    `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp', 
+    'gatsby-plugin-sharp',
   ]
 }

@@ -4,8 +4,8 @@ import fileData from '../test-data/source-filesystem-file-data'
 
 const files = objectArrayToPropArray('relativePath', fileData.photos.nodes)
 
-describe("source-filesystem-pager-data", () => {  
-  it("returns pager data of 4 pages of files in a directory", () => {
+describe('source-filesystem-pager-data', () => {  
+  it('returns pager data of 4 pages of files in a directory', () => {
     const path = 'level-one/level-two/level-three'
     const data = getPagerData(path, files, 5)
     const expectedResult =  [
@@ -16,7 +16,7 @@ describe("source-filesystem-pager-data", () => {
     ]
     expect(data).toEqual(expectedResult)
   })
-  it("returns pager data of a single file in the root directory", () => {
+  it('returns pager data of a single file in the root directory', () => {
     const path = ''
     const data = getPagerData(path, files, 5)
     const expectedResult =  [
@@ -24,7 +24,7 @@ describe("source-filesystem-pager-data", () => {
     ]
     expect(data).toEqual(expectedResult)
   })
-  it("returns pager data of a single folder in the root directory", () => {
+  it('returns pager data of a single folder in the root directory', () => {
     const path = ''
     const files = []
     const data = getPagerData(path, files, 5)

@@ -1,10 +1,10 @@
-import React from "react"
-import renderer from "react-test-renderer"
-import {cleanup} from '@testing-library/react';
-import Thumbnail from "./Thumbnail"
+import React from 'react'
+import renderer from 'react-test-renderer'
+import {cleanup} from '@testing-library/react'
+import Thumbnail from './Thumbnail'
 
 // automatically unmount and cleanup DOM after the test is finished.
-afterEach(cleanup);
+afterEach(cleanup)
 
 const fileData = {
   childImageSharp: {
@@ -17,8 +17,8 @@ const fileData = {
   }
 }
 
-describe("Thumbnail", () => {
-  it("renders correctly", () => {
+describe('Thumbnail', () => {
+  it('renders correctly', () => {
     const tree = renderer
       .create(<Thumbnail path='/level-one/level-two/3.jpg' imageData={fileData} />)
       .toJSON()

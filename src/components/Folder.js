@@ -1,7 +1,7 @@
-import React from "react"
-import PropTypes from "prop-types"
-import {graphql, Link} from "gatsby"
-import Img from "gatsby-image"
+import React from 'react'
+import PropTypes from 'prop-types'
+import {graphql, Link} from 'gatsby'
+import Img from 'gatsby-image'
 import {pathToFileTitle} from '../util/text-utils'
 
 const Folder = ({path, imageData}) => {
@@ -10,7 +10,7 @@ const Folder = ({path, imageData}) => {
     <article className='folder' data-testid='folder'>
       <Link to={path}>
         <Img fixed={imageData.childImageSharp.fixed} alt={title} title={title} />
-        <div className="folder-title">{title}</div>
+        <div className='folder-title'>{title}</div>
       </Link>
     </article>
   )
