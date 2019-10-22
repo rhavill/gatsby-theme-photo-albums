@@ -48,6 +48,7 @@ Index.propTypes = {
   pageContext: PropTypes.shape({
     currentPage: PropTypes.number.isRequired,
     numPages: PropTypes.number.isRequired,
+    regexFilter: PropTypes.string.isRequired,
   }).isRequired
 }
 
