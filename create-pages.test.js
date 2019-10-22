@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const allPass = require('ramda/src/allPass')
 const compose = require('ramda/src/compose')
 const equals = require('ramda/src/equals')
