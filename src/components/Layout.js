@@ -5,7 +5,7 @@ import Header from './Header'
 const Layout =  ({children, path}) => (
   <div className='wrapper'>
     <Header path={path}/>
-    <div className='container'>
+    <div className='container page'>
       {children}
     </div>
   </div>

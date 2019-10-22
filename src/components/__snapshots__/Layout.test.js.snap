@@ -16,7 +16,7 @@ exports[`Layout renders correctly 1`] = `
     </nav>
   </header>
   <div
-    className="container"
+    className="container page"
   >
     <div>
       hello

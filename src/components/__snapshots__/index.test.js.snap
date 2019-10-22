@@ -16,7 +16,7 @@ exports[`Index renders correctly 1`] = `
     </nav>
   </header>
   <div
-    className="container"
+    className="container page"
   >
     <div
       className="listing-page"
