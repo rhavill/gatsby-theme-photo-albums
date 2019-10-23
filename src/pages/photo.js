@@ -5,10 +5,7 @@ import Img from 'gatsby-image'
 import Layout from '../components/Layout'
 import {pathToFileTitle} from '../util/text-utils'
 
-// pageContext is actually used in the graphql query, but eslint thinks it is
-// unused
-/* eslint-disable-next-line no-unused-vars */
-const Photo =  ({data, path, pageContext}) => {
+const Photo =  ({data, path}) => {
   const title = pathToFileTitle(path)
   return (
     <Layout path={path}>
