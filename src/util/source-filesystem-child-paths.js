@@ -30,7 +30,7 @@ const filterChildPaths = currentPath =>
     )(currentPath)
   )
 
-// remove trailing slash and digit if it they exist.
+// remove trailing slash and digit if they exist.
 const removeTrailingSlashAndPageNumber = replace(/\/\d+$/, '')
 
 const addLeadingSlash = concat('/')
