@@ -1,6 +1,9 @@
 const data = `
 {
   "data": {
+    "site": {
+      "pathPrefix": "/path-prefix"
+    },
     "photos": {
       "nodes": [
         {

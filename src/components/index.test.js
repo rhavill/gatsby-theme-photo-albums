@@ -28,4 +28,11 @@ describe('Index', () => {
     )
     expect(getAllByTestId('/san-sebastián').length).toBe(1)
   })
+  it('passes path to child components without pathPrefix config variable', () => {
+    const pageContext = {numPages: 1, currentPage: 1, regexFilter: '/^top-level[^/]+$/'}
+    const {getAllByTestId} = render(
+      <Index location={{pathname: '/path-prefix/top-level'}} data={queryResults.data} pageContext={pageContext}/>
+    )
+    expect(getAllByTestId('/top-level').length).toBe(1)
+  })
 })

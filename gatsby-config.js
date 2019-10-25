@@ -5,6 +5,7 @@
  */
 
 module.exports = {
+  pathPrefix: '/photo-gallery',
   siteMetadata: {
     photosPerPage: 15,
   },

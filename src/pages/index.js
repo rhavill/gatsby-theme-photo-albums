@@ -1,13 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {graphql} from 'gatsby'
+import compose from 'ramda/src/compose'
+import rPath from 'ramda/src/path'
+import replace from 'ramda/src/replace'
 import Layout from '../components/Layout'
 import Folders from '../components/Folders'
 import Thumbnails from '../components/Thumbnails'
 import Pager from '../components/Pager'
 
 const Index = ({data, location, pageContext}) => {
-  const path = decodeURIComponent(location.pathname)
+  const removePathPrefix = replace(
+    rPath(['site', 'pathPrefix'], data), 
+    ''
+  )
+  
+  const path = compose(
+    removePathPrefix,
+    decodeURIComponent
+  )(location.pathname)
+  
   const {currentPage, numPages} = pageContext
 
   return (
@@ -35,6 +47,9 @@ export const query = graphql`
           ...ThumbnailsFragment
     }
     ...FoldersFragment
+    site {
+      pathPrefix
+    }
   }
 `
 
