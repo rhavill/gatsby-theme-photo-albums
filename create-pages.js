@@ -1,5 +1,6 @@
 const path = require('path')
 const createFolderPages = require('./create-folder-pages')
+const {getPhotoPathsWithPages} = require('./src/util/source-filesystem-photo-paths')
 const {objectArrayToPropArray} = require('./src/util/ramda-utils')
 
 const query = `
@@ -14,9 +15,11 @@ const query = `
         relativePath
       }
     }
-    photos: allFile(filter: {relativePath: {ne: "folder.png"}}) {
+    photos: allFile(filter: {relativePath: {ne: "folder.png"}}, sort: {fields: relativePath}) {
       nodes {
+        base
         relativePath
+        relativeDirectory
       }
     }
   }
@@ -31,19 +34,20 @@ const getQueryResults = async (graphql, reporter) => {
   const photosPerPage = result.data.site.siteMetadata.photosPerPage
 
   return {
-    files: objectArrayToPropArray('relativePath', result.data.photos.nodes),
-    folders: objectArrayToPropArray('relativePath', result.data.folders.nodes),
+    files: result.data.photos.nodes,
+    folders: result.data.folders.nodes,
     photosPerPage
   }
 }
 
-const createPhotoPages = (createPage, files) => {
+const createPhotoPages = (photosPerPage, createPage, files) => {
+  const photoPaths = getPhotoPathsWithPages(photosPerPage, files)
   files.forEach(file => {
     createPage({
-      path: file,
+      path: photoPaths[file.relativePath],
       component: path.resolve('./src/pages/photo.js'),
       context: {
-        relativePath: file
+        relativePath: file.relativePath
       },
     })
   })
@@ -51,8 +55,11 @@ const createPhotoPages = (createPage, files) => {
 
 const createPages = async (graphql, reporter, createPage) => {
   const {files, folders, photosPerPage} = await getQueryResults(graphql,reporter)
-  createFolderPages(photosPerPage, createPage, files, folders)
-  createPhotoPages(createPage, files)
+  createFolderPages(photosPerPage, createPage, 
+    objectArrayToPropArray('relativePath', files), 
+    objectArrayToPropArray('relativePath', folders)
+  )
+  createPhotoPages(photosPerPage, createPage, files)
 }
 
 module.exports = createPages
