@@ -17,7 +17,6 @@ const query = `
     }
     photos: allFile(filter: {relativePath: {ne: "folder.png"}}, sort: {fields: relativePath}) {
       nodes {
-        base
         relativePath
         relativeDirectory
       }

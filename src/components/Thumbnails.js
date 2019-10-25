@@ -29,8 +29,6 @@ export const query = graphql`
   fragment ThumbnailsFragment on FileConnection {
     nodes {
       relativePath
-      base
-      relativeDirectory
       ...ThumbnailFragment
     }
   }
