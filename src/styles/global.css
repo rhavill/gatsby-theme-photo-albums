@@ -85,7 +85,7 @@ nav a:first-child::before {
 }
 
 .container.page {
-  top: 6.5rem;
+  top: 8rem;
   position: relative;
 }
 
