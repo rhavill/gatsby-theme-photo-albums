@@ -1,4 +1,5 @@
-import {toTitleCase, pathToFile, pathToFileTitle, removeFileExtension} from './text-utils'
+import {toTitleCase, pathToFile, pathToFileTitle, removeFileExtension,
+  gatsbyPathnameToChildComponentPath} from './text-utils'
 
 describe('text-utils', () => {  
   it('replaces hyphens and underscores with space and capitalizes first letter of each word', () => {
@@ -20,5 +21,17 @@ describe('text-utils', () => {
     const path = 'level-one/level-two/level-three/my-picture.jpg'
     const expected = 'My Picture'
     expect(pathToFileTitle(path)).toEqual(expected)
+  })
+  it('gatsbyPathnameToChildComponentPath decodes url', () => {
+    const path = '/level-one/san-sebasti%c3%a1n.jpg'
+    const graphqlData = {site: {pathPrefix: '/some-prefix'}}
+    const expected = '/level-one/san-sebastián.jpg'
+    expect(gatsbyPathnameToChildComponentPath(path, graphqlData)).toEqual(expected)
+  })
+  it('gatsbyPathnameToChildComponentPath removes pathPrefix config variable from url', () => {
+    const path = '/some-prefix/level-one/my-picture.jpg'
+    const graphqlData = {site: {pathPrefix: '/some-prefix'}}
+    const expected = '/level-one/my-picture.jpg'
+    expect(gatsbyPathnameToChildComponentPath(path, graphqlData)).toEqual(expected)
   })
 })

@@ -1,4 +1,5 @@
 import compose from 'ramda/src/compose'
+import path from 'ramda/src/path'
 import replace from 'ramda/src/replace'
 
 const toTitleCase = text => 
@@ -13,9 +14,18 @@ const pathToFile = replace(/.*\/([^/]+$)/, '$1')
 
 const pathToFileTitle = compose(toTitleCase, removeFileExtension, pathToFile)
 
+const removePathPrefix = data => replace(
+  path(['site', 'pathPrefix'], data), 
+  ''
+)
+
+const gatsbyPathnameToChildComponentPath = (pathname, graphqlData) =>
+  compose(removePathPrefix(graphqlData), decodeURIComponent)(pathname)
+
 export {
   pathToFile,
   pathToFileTitle,
   removeFileExtension,
   toTitleCase,
+  gatsbyPathnameToChildComponentPath,
 }

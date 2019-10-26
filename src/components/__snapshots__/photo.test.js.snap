@@ -20,6 +20,7 @@ exports[`Photo renders correctly 1`] = `
   >
     <div
       className="photo-page"
+      data-testid="1.jpg"
     >
       <div
         className=" gatsby-image-wrapper"

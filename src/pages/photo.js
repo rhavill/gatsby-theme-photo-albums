@@ -3,14 +3,16 @@ import PropTypes from 'prop-types'
 import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import Layout from '../components/Layout'
-import {pathToFileTitle} from '../util/text-utils'
+import {gatsbyPathnameToChildComponentPath, pathToFileTitle} 
+  from '../util/text-utils'
 
 const Photo =  ({data, path}) => {
-  path = decodeURIComponent(path)
+  path = gatsbyPathnameToChildComponentPath(path, data)
   const title = pathToFileTitle(path)
+
   return (
     <Layout path={path}>
-      <div className='photo-page'>
+      <div className='photo-page' data-testid={path}>
         <Img fluid={data.photo.childImageSharp.fluid}  alt={title} title={title} />
       </div>
     </Layout>
@@ -25,6 +27,9 @@ export const query = graphql`
           ...GatsbyImageSharpFluid
         }
       }
+    }
+    site {
+      pathPrefix
     }
   }
 `

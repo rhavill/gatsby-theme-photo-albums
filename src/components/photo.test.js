@@ -25,4 +25,22 @@ describe('Photo', () => {
     const expected = pathToFileTitle(path)
     expect(getAllByTitle(expected).length).toBe(2)
   })
+  it('passes decoded url to child components', () => {
+    const relativePath = photoData.data.photo.childImageSharp.fluid.src
+    const pageContext = {relativePath}
+    const path = '/san-sebasti%c3%a1n/san-sebasti%c3%a1n.jpg'  
+    const {getAllByTestId} = render(
+      <Photo path={path} data={photoData.data} pageContext={pageContext}/>
+    )
+    expect(getAllByTestId('/san-sebastián/san-sebastián.jpg').length).toBe(1)
+  })
+  it('passes path to child components without pathPrefix config variable', () => {
+    const relativePath = photoData.data.photo.childImageSharp.fluid.src
+    const pageContext = {relativePath}
+    const path = '/path-prefix/top-level/file.jpg'  
+    const {getAllByTestId} = render(
+      <Photo path={path} data={photoData.data} pageContext={pageContext}/>
+    )
+    expect(getAllByTestId('/top-level/file.jpg').length).toBe(1)
+  })
 })

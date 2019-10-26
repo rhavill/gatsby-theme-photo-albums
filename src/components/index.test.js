@@ -21,7 +21,7 @@ describe('Index', () => {
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
-  it('passes decoded urls to child components', () => {
+  it('passes decoded url to child components', () => {
     const pageContext = {numPages: 1, currentPage: 1, regexFilter: '/^san-sebastián[^/]+$/'}
     const {getAllByTestId} = render(
       <Index location={{pathname: '/san-sebasti%c3%a1n'}} data={queryResults.data} pageContext={pageContext}/>

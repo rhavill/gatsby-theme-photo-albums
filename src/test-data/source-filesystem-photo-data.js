@@ -1,6 +1,9 @@
 const photoData = JSON.parse(`
   {
     "data": {
+      "site": {
+        "pathPrefix": "/path-prefix"
+      },
       "photo": {
         "childImageSharp": {
           "fluid": {

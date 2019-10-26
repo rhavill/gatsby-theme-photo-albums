@@ -1,25 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {graphql} from 'gatsby'
-import compose from 'ramda/src/compose'
-import rPath from 'ramda/src/path'
-import replace from 'ramda/src/replace'
 import Layout from '../components/Layout'
 import Folders from '../components/Folders'
 import Thumbnails from '../components/Thumbnails'
 import Pager from '../components/Pager'
+import {gatsbyPathnameToChildComponentPath} from '../util/text-utils'
 
 const Index = ({data, location, pageContext}) => {
-  const removePathPrefix = replace(
-    rPath(['site', 'pathPrefix'], data), 
-    ''
-  )
-  
-  const path = compose(
-    removePathPrefix,
-    decodeURIComponent
-  )(location.pathname)
-  
+  const path = gatsbyPathnameToChildComponentPath(location.pathname, data)
   const {currentPage, numPages} = pageContext
 
   return (
