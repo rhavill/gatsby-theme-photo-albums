@@ -126,10 +126,10 @@ section {
 }
 
 .pager {
-  margin: .5rem;
+  margin: .25rem;
   text-align: center;
 }
 
 .pager a {
-  padding: 1.25rem
+  padding: .75rem
 }
