@@ -46,43 +46,72 @@ nav a:first-child::before {
 }
 
 .container {
-  max-width: 300px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .photo-page {
+  max-width: 80%;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 4rem;
 }
 
-@media screen and (min-width: 620px) {
+@media screen and (min-width: 640px) {
   .container {
-    max-width: 620px;
-  }
-}
-
-@media screen and (min-width: 930px) {
-  .container {
-    max-width: 930px;
-  }
-}
-
-@media screen and (min-width: 1240px) {
-  .container {
-    max-width: 1240px;
+    max-width: 640px;
   }
   .photo-page {
-    max-width: 1024px;
+    max-width: 540px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+  .photo-page {
+    max-width: 668px;
   }
 }
 
-@media screen and (min-width: 1550px) {
+@media screen and (min-width: 1024px) {
   .container {
-    max-width: 1550px;
+    max-width: 1024px;
+  }
+  .photo-page {
+    max-width: 924px;
   }
 }
+
+@media screen and (min-width: 1366px) {
+  .container {
+    max-width: 1366px;
+  }
+  .photo-page {
+    max-width: 1266px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .container {
+    max-width: 1600px;
+  }
+  .photo-page {
+    max-width: 1500px;
+  }
+
+}
+
+/* @media screen and (min-width: 1920px) {
+  .container {
+    max-width: 1920px;
+  }
+  .photo-page {
+    max-width: 1820px;
+  }
+
+} */
 
 .container.page {
   top: 8rem;

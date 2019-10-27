@@ -19,6 +19,7 @@ const Photo =  ({data, path}) => {
   )
 }
 // set "fit" property to CONTAIN or COVER?
+// add maxWidth values for 1280 and 1536?
 export const query = graphql`
   query photoQuery($relativePath: String!) {
     photo: file(relativePath: {eq: $relativePath}) {
