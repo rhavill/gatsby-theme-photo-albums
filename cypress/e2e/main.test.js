@@ -10,7 +10,7 @@ describe('Home page', function() {
   })
   it('Counts 15 photos on Jayuya sub-album page 1', function() {
     // scroll to bottom of page to make sure all images load
-    cy.scrollTo('bottom')
+    cy.scrollTo('bottom', { duration: 100 })
     cy.get('picture'/*, { timeout: 500 }*/).should('have.length', 15)
   })
   it('Visits Jayuya sub-album page 2', function() {
