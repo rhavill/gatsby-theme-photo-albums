@@ -24,7 +24,7 @@ export const query = graphql`
   query photoQuery($relativePath: String!) {
     photo: file(relativePath: {eq: $relativePath}) {
       childImageSharp {
-        fluid(maxWidth: 1024, srcSetBreakpoints: [512, 614, 819, 1024], fit: COVER) {
+        fluid(maxWidth: 1024, srcSetBreakpoints: [512, 614, 819, 1024], fit: CONTAIN) {
           ...GatsbyImageSharpFluid
         }
       }
