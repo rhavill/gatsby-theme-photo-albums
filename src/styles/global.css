@@ -88,30 +88,10 @@ nav a:first-child::before {
   .container {
     max-width: 1366px;
   }
-  .photo-page {
+  /* .photo-page {
     max-width: 1266px;
-  }
+  } */
 }
-
-@media screen and (min-width: 1600px) {
-  .container {
-    max-width: 1600px;
-  }
-  .photo-page {
-    max-width: 1500px;
-  }
-
-}
-
-/* @media screen and (min-width: 1920px) {
-  .container {
-    max-width: 1920px;
-  }
-  .photo-page {
-    max-width: 1820px;
-  }
-
-} */
 
 .container.page {
   top: 8rem;
