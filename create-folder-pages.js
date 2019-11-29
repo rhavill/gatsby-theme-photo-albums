@@ -1,4 +1,3 @@
-const path = require('path')
 const add = require('ramda/src/add')
 const and = require('ramda/src/and')
 const compose = require('ramda/src/compose')
@@ -36,7 +35,7 @@ const createFolderPages = (photosPerPage, createPage, files, folders) => {
       }
       createPage({
         path: url,
-        component: path.resolve('./src/pages/index.js'),
+        component: require.resolve('./src/pages/index.js'),
         context: {
           ...pagerData,
           regexFilter

@@ -1,4 +1,3 @@
-const path = require('path')
 const createFolderPages = require('./create-folder-pages')
 const {getPhotoPathsWithPages} = require('./src/util/source-filesystem-photo-paths')
 const {objectArrayToPropArray} = require('./src/util/ramda-utils')
@@ -44,7 +43,7 @@ const createPhotoPages = (photosPerPage, createPage, files) => {
   files.forEach(file => {
     createPage({
       path: photoPaths[file.relativePath],
-      component: path.resolve('./src/pages/photo.js'),
+      component: require.resolve('./src/pages/photo.js'),
       context: {
         relativePath: file.relativePath
       },
