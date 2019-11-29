@@ -13,7 +13,7 @@ const pageCreator = () => {
 describe('create-folder-pages', () => {
   it('creates folder pages from graphql data', () => {
     // This test assumes photosPerPage is 15
-    const photosPerPage = queryResults.data.site.siteMetadata.photosPerPage
+    const photosPerPage = 15
     const files = objectArrayToPropArray('relativePath', queryResults.data.photos.nodes)
     const folders = objectArrayToPropArray('relativePath', queryResults.data.folders.nodes)
     const creator = pageCreator()

@@ -5,9 +5,9 @@ let indexContext
 
 emitter.on('indexContext', data => indexContext = data)
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions, reporter }, { photosPerPage = 15 }) => {
   const { createPage } = actions
-  createPages(graphql, reporter, createPage)
+  createPages(photosPerPage, graphql, reporter, createPage)
 }
 
 exports.onCreatePage = ({ page, actions }) => {

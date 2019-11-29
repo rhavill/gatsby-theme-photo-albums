@@ -13,7 +13,6 @@ const zip = require('ramda/src/zip')
 const createPages = require('./create-pages')
 const {objectArrayToPropArray} = require('./src/util/ramda-utils')
 const queryResults = require('./src/test-data/create-pages-graphql-results-small')
-let photosPerPage
 let files
 let folders
 
@@ -28,18 +27,17 @@ const graphql = jest.fn(() =>
 )
 
 beforeAll(() => graphql().then(() => {
-  photosPerPage = queryResults.data.site.siteMetadata.photosPerPage
   files = objectArrayToPropArray('relativePath', queryResults.data.photos.nodes)
   folders = objectArrayToPropArray('relativePath', queryResults.data.folders.nodes)
   graphql.mockClear()
-  createPages(graphql, reporter, createPage)
+  const photosPerPage = 15
+  createPages(photosPerPage, graphql, reporter, createPage)
     .catch(e => { console.error('createPages test suite failed.', e) })
 }))
 
 describe('create-pages', () => {
 
-  it('has 15 photos per page, 4 files and 4 folders', () => {
-    expect(photosPerPage).toBe(15)
+  it('has 4 files and 4 folders', () => {
     expect(files.length).toBe(4)
     expect(folders.length).toBe(4)
   })

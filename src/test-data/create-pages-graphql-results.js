@@ -1,10 +1,5 @@
 const queryResults = `{
   "data": {
-    "site": {
-      "siteMetadata": {
-        "photosPerPage": 15
-      }
-    },
     "folders": {
       "nodes": [
         {

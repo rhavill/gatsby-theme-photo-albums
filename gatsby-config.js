@@ -6,9 +6,6 @@
 
 module.exports = {
   pathPrefix: '/photo-gallery',
-  siteMetadata: {
-    photosPerPage: 15,
-  },
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',

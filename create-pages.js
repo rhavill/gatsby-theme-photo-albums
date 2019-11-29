@@ -4,11 +4,6 @@ const {objectArrayToPropArray} = require('./src/util/ramda-utils')
 
 const query = `
   query {
-    site {
-      siteMetadata {
-        photosPerPage
-      }
-    }
     folders: allDirectory(filter: {name: {ne: "images"}}) {
       nodes {
         relativePath
@@ -29,12 +24,10 @@ const getQueryResults = async (graphql, reporter) => {
     reporter.panicOnBuild('Error while running GraphQL query.')
     return
   }
-  const photosPerPage = result.data.site.siteMetadata.photosPerPage
 
   return {
     files: result.data.photos.nodes,
     folders: result.data.folders.nodes,
-    photosPerPage
   }
 }
 
@@ -51,8 +44,8 @@ const createPhotoPages = (photosPerPage, createPage, files) => {
   })
 }
 
-const createPages = async (graphql, reporter, createPage) => {
-  const {files, folders, photosPerPage} = await getQueryResults(graphql,reporter)
+const createPages = async (photosPerPage, graphql, reporter, createPage) => {
+  const {files, folders} = await getQueryResults(graphql,reporter)
   createFolderPages(photosPerPage, createPage, 
     objectArrayToPropArray('relativePath', files), 
     objectArrayToPropArray('relativePath', folders)
