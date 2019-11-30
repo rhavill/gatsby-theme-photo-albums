@@ -4,14 +4,14 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-module.exports = {
+module.exports = ({albumsPath = 'ablums'}) => ({
   pathPrefix: '/photo-gallery',
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'photos',
-        path: `${__dirname}/photos/`, // eslint-disable-line no-undef
+        path: `${__dirname}/${albumsPath}/`, // eslint-disable-line no-undef
         useMozJpeg: true,
       },
     },
@@ -25,4 +25,4 @@ module.exports = {
     'gatsby-transformer-sharp', 
     'gatsby-plugin-sharp',
   ]
-}
+})
