@@ -1,9 +1,19 @@
+const fs = require('fs')
+const themeConfig = require('./theme-config')
 const emitter = require('./src/util/event-emitter')
 const createPages = require('./create-pages')
 
 let indexContext
 
 emitter.on('indexContext', data => indexContext = data)
+
+exports.onPreBootstrap = ({ reporter }, options) => {
+  const albumsPath = options.albumsPath || themeConfig.defaultAlbumsPath
+  if (!fs.existsSync(albumsPath)) {
+    reporter.info(`creating the ${albumsPath} directory`)
+    fs.mkdirSync(albumsPath)
+  }
+}
 
 exports.createPages = async ({ graphql, actions, reporter }, { photosPerPage = 15 }) => {
   const { createPage } = actions
