@@ -8,6 +8,7 @@ const themeConfig = require('./theme-config')
 module.exports = ({albumsPath = themeConfig.defaultAlbumsPath}) => ({
   pathPrefix: '/photo-gallery',
   plugins: [
+    'gatsby-plugin-theme-ui',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

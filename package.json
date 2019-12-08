@@ -11,18 +11,23 @@
     "debug": "node --nolazy --inspect-brk node_modules/.bin/gatsby develop",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "lint": "./node_modules/.bin/eslint *.js src/**/*.js",
+    "lint": "./node_modules/.bin/eslint *.js src/*.js src/**/*.js",
     "serve": "gatsby serve",
     "start": "npm run develop",
     "test": "jest",
     "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
+    "@mdx-js/react": "^1.5.1",
     "gatsby-image": "^2.2.29",
     "gatsby-plugin-sharp": "^2.2.32",
+    "gatsby-plugin-theme-ui": "^0.2.43",
     "gatsby-source-filesystem": "^2.1.33",
     "gatsby-transformer-sharp": "^2.3.0",
-    "ramda": "^0.26.1"
+    "ramda": "^0.26.1",
+    "theme-ui": "^0.2.49"
   },
   "peerDependencies": {
     "gatsby": "^2.17.4",
