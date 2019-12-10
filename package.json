@@ -44,7 +44,7 @@
     "cypress-axe": "^0.5.1",
     "eslint": "^6.6.0",
     "eslint-plugin-react": "^7.16.0",
-    "gatsby": "^2.17.4",
+    "gatsby": "^2.18.10",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "npm-check": "^5.9.0",
