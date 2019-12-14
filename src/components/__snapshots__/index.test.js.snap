@@ -2,12 +2,12 @@
 
 exports[`Index renders correctly 1`] = `
 <div
-  className="wrapper"
+  className="css-1czag6s-Layout"
 >
-  <header>
-    <nav
-      className="container"
-    >
+  <header
+    className="css-1upivqb-Header"
+  >
+    <nav>
       <a
         href="/"
       >
@@ -15,8 +15,8 @@ exports[`Index renders correctly 1`] = `
       </a>
     </nav>
   </header>
-  <div
-    className="container page"
+  <main
+    className="css-11l540n-Main"
   >
     <div
       className="listing-page"
@@ -148,6 +148,6 @@ exports[`Index renders correctly 1`] = `
       className="pager"
     />
     <br />
-  </div>
+  </main>
 </div>
 `;

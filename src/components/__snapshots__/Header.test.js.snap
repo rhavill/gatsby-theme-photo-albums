@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header renders correctly 1`] = `
-<header>
-  <nav
-    className="container"
-  >
+<header
+  className="css-1upivqb-Header"
+>
+  <nav>
     <a
       href="/"
     >

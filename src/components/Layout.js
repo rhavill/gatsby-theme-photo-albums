@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Header from './Header'
-import {Layout as ThemeLayout} from 'theme-ui'
+import {Layout as ThemeLayout, Main} from 'theme-ui'
 
 const Layout =  ({children, path}) => (
   <ThemeLayout>
     <Header path={path}/>
-    <div className='container page'>
+    <Main>
       {children}
-    </div>
+    </Main>
   </ThemeLayout>
 )
 

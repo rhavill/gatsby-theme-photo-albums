@@ -2,12 +2,12 @@
 
 exports[`Photo renders correctly 1`] = `
 <div
-  className="wrapper"
+  className="css-1czag6s-Layout"
 >
-  <header>
-    <nav
-      className="container"
-    >
+  <header
+    className="css-1upivqb-Header"
+  >
+    <nav>
       <a
         href="1.jpg"
       >
@@ -15,8 +15,8 @@ exports[`Photo renders correctly 1`] = `
       </a>
     </nav>
   </header>
-  <div
-    className="container page"
+  <main
+    className="css-11l540n-Main"
   >
     <div
       className="photo-page"
@@ -106,6 +106,6 @@ exports[`Photo renders correctly 1`] = `
         />
       </div>
     </div>
-  </div>
+  </main>
 </div>
 `;

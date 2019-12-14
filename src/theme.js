@@ -1,71 +1,116 @@
 export const theme = {
-  space: [0, 4, 8, 16, 32],
+  breakpoints: ['640px', '768px', '1024px', '1200px', '1366px'],
   fonts: {
-    body: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
+    body: 'PT Sans, -apple-system, BlinkMacSystemFont, Segoe UI ,Roboto, Helvetica Neue, Arial, sans-serif',
   },
-  fontSizes: [16, 18, 20, 22, 27, 36],
-  lineHeights: {
-    body: 1.45,
-    heading: 1.1,
-  },
+  fontSizes: [16, 20],
   colors: {
-    gray: ['#efefef', '#ddd', '#333', '#111'],
+    text: '#000',
     background: '#fff',
-    primary: 'rebeccapurple',
-  },
-  sizes: {
-    default: '90vw',
-    max: '540px',
+    primary: '#6bccf9',
+    secondary: '#000',
+    accent: '#fff',
+    muted: '#f6f6f6f',
+    modes: {
+      dark: {
+        text: '#3c3c3c',
+        background: '#4f4f4f',
+        primary: '#3c3c3c',
+        secondary: '#9e9e9e',
+        accent: '#fff',
+        muted: '#f6f6f6f',
+      }
+    }
   },
   styles: {
     Layout: {
-      color: 'gray.2',
+      backgroundColor: 'background',
+      color: 'text',
       fontFamily: 'body',
-      fontSize: 1,
-      lineHeight: 'body',
+      fontSize: 0,
+      position: 'relative',
+      a: {
+        color: 'inherit',
+        textDecoration: 'none',
+        ':hover': {
+          color: 'accent',
+        }
+      },
+      '.listing-page': {
+        display: 'flex',
+        flexWrap: 'wrap',
+      }
     },
     Header: {
       backgroundColor: 'primary',
-      color: 'background',
+      color: 'secondary',
       fontWeight: 'bold',
-      margin: '0 auto',
-      maxWidth: 'max',
-      padding: 3,
-      width: 'default',
-      a: {
-        color: 'inherit',
+      position: 'fixed',
+      width: '100%',
+      zIndex: 2,
+      nav: {
+        padding: '1rem',
+        maxWidth: [640, 768, 1024, 1200, 1366, '100%'],
+        a: {
+          '::before': {
+            content: '"\\00A0/\\00A0"'
+          },
+          ':first-child': {
+            '::before': {
+              content: 'none'
+            }
+          }
+        }
       },
     },
     Main: {
-      margin: '0 auto',
-      maxWidth: 'max',
-      width: 'default',
-    },
-    Container: {
-      padding: 3,
-    },
-    h1: {
-      color: 'gray.3',
-      fontSize: 5,
-      fontWeight: 'bold',
-      lineHeight: 'heading',
-      margin: '1rem 0 0',
-    },
-    ul: {
-      borderTop: '1px solid',
-      borderColor: 'gray.0',
-      listStyle: 'none',
-      padding: 0,
-    },
-    li: {
-      borderBottom: '1px solid',
-      borderColor: 'gray.1',
-      padding: 2,
-      '&:focus-within,&:hover': {
-        backgroundColor: 'gray.0',
+      maxWidth: [640, 768, 1024, 1200, 1366, '100%'],
+      top: '8rem',
+      position: 'relative',
+      section: {
+        flexGrow: 1,
+        justifyContent: 'center',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, 250px)',
+        gridTemplateRows: 'repeat(auto-fill, 250px)',
+        gridGap: '1rem'
       },
+      '.folder': {
+        a: {
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: 1,
+          position: 'relative',
+          '.folder-title': {
+            position: 'absolute'
+          }
+        }
+      },
+      '.pager': {
+        margin: '1rem',
+        textAlign: 'center',
+        a: {
+          padding: '.75rem',
+          textDecoration: 'none',
+          ':hover': {
+            color: 'text',
+            textDecoration: 'underline',
+          }
+        }
+      },
+      '.gatsby-image-wrapper':  {
+        borderRadius: '.5rem',
+        boxShadow: '0.25rem 0.25rem .5rem .1rem #000',
+      },
+      '.photo-page': {
+        maxWidth: '80%',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        paddingBottom: '4rem'
+      }
     },
-  },
+  }
 }
 
 export default theme

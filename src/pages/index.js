@@ -13,7 +13,7 @@ const Index = ({data, location, pageContext}) => {
 
   return (
     <Layout path={path}>
-      <div className="listing-page" data-testid={path}>
+      <div className="listing-page" data-testid={path} >
         <section>
           <Folders path={path} data={data} />
           <Thumbnails path={path} data={data} currentPage={currentPage} />
