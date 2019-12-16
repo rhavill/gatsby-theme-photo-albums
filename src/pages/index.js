@@ -9,14 +9,15 @@ import {gatsbyPathnameToChildComponentPath} from '../util/text-utils'
 
 const Index = ({data, location, pageContext}) => {
   const path = gatsbyPathnameToChildComponentPath(location.pathname, data)
-  const {currentPage, numPages} = pageContext
+  const {currentPage, numPages, basePath} = pageContext
 
   return (
     <Layout path={path}>
       <div className="listing-page" data-testid={path} >
         <section>
           <Folders path={path} data={data} />
-          <Thumbnails path={path} data={data} currentPage={currentPage} />
+          <Thumbnails path={path} data={data} currentPage={currentPage} 
+            basePath={basePath} />
         </section>
       </div>
       <Pager path={path} currentPage={currentPage} numPages={numPages} />
@@ -50,6 +51,7 @@ Index.propTypes = {
     photos: PropTypes.object.isRequired,
   }).isRequired,
   pageContext: PropTypes.shape({
+    basePath: PropTypes.string.isRequired,
     currentPage: PropTypes.number.isRequired,
     numPages: PropTypes.number.isRequired,
     regexFilter: PropTypes.string.isRequired,

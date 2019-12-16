@@ -13,23 +13,25 @@ beforeEach(() => {
   )
 })
 
+const basePath = '/'
+
 describe('Index', () => {
   it('renders correctly', () => {
-    const pageContext = {numPages: 1, currentPage: 1, regexFilter: '/^[^/]+$/'}
+    const pageContext = {numPages: 1, currentPage: 1, regexFilter: '/^[^/]+$/', basePath}
     const tree = renderer
       .create(<Index location={{pathname: '/'}} data={queryResults.data} pageContext={pageContext}/>)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
   it('passes decoded url to child components', () => {
-    const pageContext = {numPages: 1, currentPage: 1, regexFilter: '/^san-sebastián[^/]+$/'}
+    const pageContext = {numPages: 1, currentPage: 1, regexFilter: '/^san-sebastián[^/]+$/', basePath}
     const {getAllByTestId} = render(
       <Index location={{pathname: '/san-sebasti%c3%a1n'}} data={queryResults.data} pageContext={pageContext}/>
     )
     expect(getAllByTestId('/san-sebastián').length).toBe(1)
   })
   it('passes path to child components without pathPrefix config variable', () => {
-    const pageContext = {numPages: 1, currentPage: 1, regexFilter: '/^top-level[^/]+$/'}
+    const pageContext = {numPages: 1, currentPage: 1, regexFilter: '/^top-level[^/]+$/', basePath}
     const {getAllByTestId} = render(
       <Index location={{pathname: '/path-prefix/top-level'}} data={queryResults.data} pageContext={pageContext}/>
     )

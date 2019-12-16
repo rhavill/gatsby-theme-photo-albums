@@ -10,14 +10,15 @@ afterEach(cleanup)
 describe('Thumbnails', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<Thumbnails path='/level-one' data={fileData} currentPage={1} />)
+      .create(<Thumbnails path='/level-one' data={fileData} currentPage={1} 
+        basePath='/' />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
   it('displays the correct number of thumbnail images', () => {
     const {getAllByTestId} = render(
       <Thumbnails path='/level-one/level-two/level-three' data={fileData} 
-        currentPage={2} />
+        currentPage={2} basePath='/' />
     )
     expect(getAllByTestId('file').length).toBe(17)
   })

@@ -15,9 +15,10 @@ exports.onPreBootstrap = ({ reporter }, options) => {
   }
 }
 
-exports.createPages = async ({ graphql, actions, reporter }, { photosPerPage = 15 }) => {
+exports.createPages = async ({ graphql, actions, reporter }, 
+  { basePath = '/', photosPerPage = 15 }) => {
   const { createPage } = actions
-  createPages(photosPerPage, graphql, reporter, createPage)
+  createPages(basePath, photosPerPage, graphql, reporter, createPage)
 }
 
 exports.onCreatePage = ({ page, actions }) => {

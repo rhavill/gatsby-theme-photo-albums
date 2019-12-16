@@ -31,7 +31,8 @@ beforeAll(() => graphql().then(() => {
   folders = objectArrayToPropArray('relativePath', queryResults.data.folders.nodes)
   graphql.mockClear()
   const photosPerPage = 15
-  createPages(photosPerPage, graphql, reporter, createPage)
+  const basePath = '/'
+  createPages(basePath, photosPerPage, graphql, reporter, createPage)
     .catch(e => { console.error('createPages test suite failed.', e) })
 }))
 

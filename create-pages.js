@@ -31,8 +31,8 @@ const getQueryResults = async (graphql, reporter) => {
   }
 }
 
-const createPhotoPages = (photosPerPage, createPage, files) => {
-  const photoPaths = getPhotoPathsWithPages(photosPerPage, files)
+const createPhotoPages = (basePath, photosPerPage, createPage, files) => {
+  const photoPaths = getPhotoPathsWithPages(basePath, photosPerPage, files)
   files.forEach(file => {
     createPage({
       path: photoPaths[file.relativePath],
@@ -44,13 +44,13 @@ const createPhotoPages = (photosPerPage, createPage, files) => {
   })
 }
 
-const createPages = async (photosPerPage, graphql, reporter, createPage) => {
+const createPages = async (basePath, photosPerPage, graphql, reporter, createPage) => {
   const {files, folders} = await getQueryResults(graphql,reporter)
-  createFolderPages(photosPerPage, createPage, 
+  createFolderPages(basePath, photosPerPage, createPage, 
     objectArrayToPropArray('relativePath', files), 
     objectArrayToPropArray('relativePath', folders)
   )
-  createPhotoPages(photosPerPage, createPage, files)
+  createPhotoPages(basePath, photosPerPage, createPage, files)
 }
 
 module.exports = createPages

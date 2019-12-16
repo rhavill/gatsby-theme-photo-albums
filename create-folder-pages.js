@@ -7,30 +7,30 @@ const not = require('ramda/src/not')
 const emitter = require('./src/util/event-emitter')
 const {getPagerData} = require('./src/util/source-filesystem-pager-data')
 
-const pathToUrl = concat('/')
+const pathToUrl = (basePath, folder) => concat(basePath, folder)
 const isFirstPage = pageIndex => equals(0, pageIndex)
 const isNotFirstPage = compose(not, isFirstPage)
-const isRootUrl = equals('/')
-const isNotRootUrl = compose(not, isRootUrl)
+const isBaseUrl = (basePath, url) => basePath === url
 const pageIndexToPageNumber = add(1)
 
-const createFolderPages = (photosPerPage, createPage, files, folders) => {
+const createFolderPages = (basePath, photosPerPage, createPage, files, folders) => {
   folders.forEach(folder => {
     const pagerData = getPagerData(folder, files, photosPerPage)
     // eslint-disable-next-line no-useless-escape
     const regexFilter = '/^' + folder + (folder ? '\/' : '') + '[^/]+$/'
     pagerData.forEach((pagerData, i) => {
-      let url = pathToUrl(folder)
-      if (and(isNotFirstPage(i), isNotRootUrl(url))) {
+      let url = pathToUrl(basePath, folder)
+      if (and(isNotFirstPage(i), !isBaseUrl(basePath, url))) {
         url = concat(url, '/')
       }
       if (isNotFirstPage(i)) {
         url = concat(url, `${pageIndexToPageNumber(i)}`)
       }
-      if (url === '/') {
+      if (url === basePath) {
         emitter.emit('indexContext', {
           ...pagerData,
-          regexFilter
+          regexFilter,
+          basePath
         })
       }
       createPage({
@@ -38,7 +38,8 @@ const createFolderPages = (photosPerPage, createPage, files, folders) => {
         component: require.resolve('./src/pages/index.js'),
         context: {
           ...pagerData,
-          regexFilter
+          regexFilter,
+          basePath
         }
       })
     })

@@ -15,7 +15,7 @@ const byRelativeDirectory = groupBy(prop('relativeDirectory'))
  * from the original files array and whose values are Gatsby location filepaths 
  * (URLs).
  */
-const getPhotoPathsWithPages = (photosPerPage, fileData) => {
+const getPhotoPathsWithPages = (basePath, photosPerPage, fileData) => {
   const photoPaths = {}
   const groupedFiles = byRelativeDirectory(fileData)
   forEach(
@@ -23,7 +23,7 @@ const getPhotoPathsWithPages = (photosPerPage, fileData) => {
       (file, i) => {
         const pageNumber = Math.ceil((i + 1) / photosPerPage)
         photoPaths[file.relativePath] = getPhotoPathWithPage(
-          pageNumber, file.relativePath
+          basePath, pageNumber, file.relativePath
         )
       }, 
       groupedFiles[relativeDirectory]
@@ -33,14 +33,14 @@ const getPhotoPathsWithPages = (photosPerPage, fileData) => {
   return photoPaths
 }
 
-const getPhotoPathWithPage = (pageNumber, relativePath) => {
-  let path =  ''
+const getPhotoPathWithPage = (basePath, pageNumber, relativePath) => {
+  let path = basePath
   const matches = match(/^(.+\/)([^/]+)$/, relativePath)
   if (matches && matches[1] && matches[2]) {
-    path = `/${matches[1]}` + (pageNumber > 1 ? `${pageNumber}/` : '') + matches[2]
+    path += `${matches[1]}` + (pageNumber > 1 ? `${pageNumber}/` : '') + matches[2]
   }
   else {
-    path = '/' + (pageNumber > 1 ? `${pageNumber}/` : '') + relativePath
+    path = path + (pageNumber > 1 ? `${pageNumber}/` : '') + relativePath
   }
   return path
 }
