@@ -8,14 +8,14 @@ import Pager from '../components/Pager'
 import {gatsbyPathnameToChildComponentPath} from '../util/text-utils'
 
 const Index = ({data, location, pageContext}) => {
-  const path = gatsbyPathnameToChildComponentPath(location.pathname, data)
   const {currentPage, numPages, basePath} = pageContext
+  const path = gatsbyPathnameToChildComponentPath(basePath, location.pathname, data)
 
   return (
     <Layout path={path}>
       <div className="listing-page" data-testid={path} >
         <section>
-          <Folders path={path} data={data} />
+          <Folders path={path} data={data} basePath={basePath} />
           <Thumbnails path={path} data={data} currentPage={currentPage} 
             basePath={basePath} />
         </section>

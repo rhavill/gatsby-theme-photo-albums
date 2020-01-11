@@ -1,4 +1,5 @@
 import compose from 'ramda/src/compose'
+import curry from 'ramda/src/curry'
 import path from 'ramda/src/path'
 import replace from 'ramda/src/replace'
 
@@ -19,12 +20,33 @@ const removePathPrefix = data => replace(
   ''
 )
 
-const gatsbyPathnameToChildComponentPath = (pathname, graphqlData) =>
-  compose(removePathPrefix(graphqlData), decodeURIComponent)(pathname)
+const removeBasePath = (basePath, path) => {
+  const newPath = replace(
+    // Remove trailing slash (if it exists)
+    basePath.replace(/\/$/, ''), 
+    ''
+  )(path)
+  return newPath
+}
+
+const prependBasePath = curry((basePath, path) => {
+  // Remove leading slash and trailing slash (if they exist)
+  const base = basePath.replace(/^\//, '').replace(/\/$/, '')
+  if (base) {
+    return `/${base}${path}`
+  }
+  return path
+})
+
+const gatsbyPathnameToChildComponentPath = (basePath, pathname, graphqlData) => {
+  const path = compose(removePathPrefix(graphqlData), decodeURIComponent)(pathname)
+  return removeBasePath(basePath, path)
+}
 
 export {
   pathToFile,
   pathToFileTitle,
+  prependBasePath,
   removeFileExtension,
   toTitleCase,
   gatsbyPathnameToChildComponentPath,
