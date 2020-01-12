@@ -10,13 +10,13 @@ afterEach(cleanup)
 describe('Folders', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<Folders path='/level-one' data={folderData} />)
+      .create(<Folders basePath='/' path='/level-one' data={folderData} />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
   it('displays the correct number of folder icons', () => {
     const {getAllByTestId} = render(
-      <Folders path='/level-one' data={folderData} />
+      <Folders basePath='/' path='/level-one' data={folderData} />
     )
     expect(getAllByTestId('folder').length).toBe(2)
   })

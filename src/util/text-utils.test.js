@@ -23,15 +23,17 @@ describe('text-utils', () => {
     expect(pathToFileTitle(path)).toEqual(expected)
   })
   it('gatsbyPathnameToChildComponentPath decodes url', () => {
+    const basePath = '/'
     const path = '/level-one/san-sebasti%c3%a1n.jpg'
     const graphqlData = {site: {pathPrefix: '/some-prefix'}}
     const expected = '/level-one/san-sebastián.jpg'
-    expect(gatsbyPathnameToChildComponentPath(path, graphqlData)).toEqual(expected)
+    expect(gatsbyPathnameToChildComponentPath(basePath, path, graphqlData)).toEqual(expected)
   })
   it('gatsbyPathnameToChildComponentPath removes pathPrefix config variable from url', () => {
+    const basePath = '/'
     const path = '/some-prefix/level-one/my-picture.jpg'
     const graphqlData = {site: {pathPrefix: '/some-prefix'}}
     const expected = '/level-one/my-picture.jpg'
-    expect(gatsbyPathnameToChildComponentPath(path, graphqlData)).toEqual(expected)
+    expect(gatsbyPathnameToChildComponentPath(basePath, path, graphqlData)).toEqual(expected)
   })
 })
