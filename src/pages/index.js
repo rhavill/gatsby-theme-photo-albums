@@ -12,7 +12,7 @@ const Index = ({data, location, pageContext}) => {
   const path = gatsbyPathnameToChildComponentPath(basePath, location.pathname, data)
 
   return (
-    <Layout path={path}>
+    <Layout path={location.pathname}>
       <div className="listing-page" data-testid={path} >
         <section>
           <Folders path={path} data={data} basePath={basePath} />
@@ -20,7 +20,7 @@ const Index = ({data, location, pageContext}) => {
             basePath={basePath} />
         </section>
       </div>
-      <Pager path={path} currentPage={currentPage} numPages={numPages} />
+      <Pager path={location.pathname} currentPage={currentPage} numPages={numPages} />
       <br/>
     </Layout>
   )

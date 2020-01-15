@@ -6,6 +6,7 @@ import breadcrumbs from '../util/breadcrumbs'
 
 const Header = ({ path, rootTitle }) => {
   const links = breadcrumbs(path, rootTitle)
+
   return (
     <ThemeHeader>
       <nav>{
