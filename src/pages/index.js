@@ -8,16 +8,16 @@ import Pager from '../components/Pager'
 import {gatsbyPathnameToChildComponentPath} from '../util/text-utils'
 
 const Index = ({data, location, pageContext}) => {
-  const {currentPage, numPages, basePath} = pageContext
-  const path = gatsbyPathnameToChildComponentPath(basePath, location.pathname, data)
+  const {currentPage, numPages, baseUrl} = pageContext
+  const path = gatsbyPathnameToChildComponentPath(baseUrl, location.pathname, data)
 
   return (
     <Layout path={location.pathname}>
       <div className="listing-page" data-testid={path} >
         <section>
-          <Folders path={path} data={data} basePath={basePath} />
+          <Folders path={path} data={data} baseUrl={baseUrl} />
           <Thumbnails path={path} data={data} currentPage={currentPage} 
-            basePath={basePath} />
+            baseUrl={baseUrl} />
         </section>
       </div>
       <Pager path={location.pathname} currentPage={currentPage} numPages={numPages} />
@@ -51,7 +51,7 @@ Index.propTypes = {
     photos: PropTypes.object.isRequired,
   }).isRequired,
   pageContext: PropTypes.shape({
-    basePath: PropTypes.string.isRequired,
+    baseUrl: PropTypes.string.isRequired,
     currentPage: PropTypes.number.isRequired,
     numPages: PropTypes.number.isRequired,
     regexFilter: PropTypes.string.isRequired,

@@ -1,7 +1,7 @@
 const createFolderPages = require('./create-folder-pages')
 const emitter = require('./src/util/event-emitter')
 const {objectArrayToPropArray} = require('./src/util/ramda-utils')
-const queryResults = require('./src/test-data/create-pages-graphql-results')
+const queryResults = require('./src/test-data/create-pages-graphql-results-small')
 
 const pageCreator = () => {
   let pages = []
@@ -10,83 +10,65 @@ const pageCreator = () => {
   return {getPages, createPage}
 }
 
-const basePath = '/'
+const baseUrl = '/base/'
 
 describe('create-folder-pages', () => {
   it('creates folder pages from graphql data', () => {
     // This test assumes photosPerPage is 15
     const photosPerPage = 15
-    const files = objectArrayToPropArray('relativePath', queryResults.data.photos.nodes)
-    const folders = objectArrayToPropArray('relativePath', queryResults.data.folders.nodes)
+    const files = objectArrayToPropArray('url', queryResults.data.photos.nodes)
+    const folders = objectArrayToPropArray('url', queryResults.data.folders.nodes)
     const creator = pageCreator()
     const exptected = [
       {
-        path: '/', 
+        path: '/base/', 
         component: 'dummy', 
-        context: {limit: photosPerPage, skip: 0, numPages: 1, currentPage: 1, regexFilter: '/^[^/]+$/', basePath}
+        context: {limit: photosPerPage, skip: 0, numPages: 1, currentPage: 1, regexFilter: '/^/base//[^/]+$/', baseUrl}
       },
       {
-        path: '/2019-puerto-rico', 
+        path: '/base/2019-puerto-rico', 
         component: 'dummy', 
         // eslint-disable-next-line no-useless-escape
-        context: {limit: photosPerPage, skip: 0, numPages: 1, currentPage: 1, regexFilter: '/^2019-puerto-rico\/[^/]+$/', basePath}
+        context: {limit: photosPerPage, skip: 0, numPages: 1, currentPage: 1, regexFilter: '/^/base/2019-puerto-rico\/[^/]+$/', baseUrl}
       },
       {
-        path: '/2019-puerto-rico/jayuya', 
+        path: '/base/2019-puerto-rico/jayuya', 
         component: 'dummy',
         // eslint-disable-next-line no-useless-escape
-        context: {limit: photosPerPage, skip: 0, numPages: 4, currentPage: 1, regexFilter: '/^2019-puerto-rico\/jayuya\/[^/]+$/', basePath}
+        context: {limit: photosPerPage, skip: 0, numPages: 1, currentPage: 1, regexFilter: '/^/base/2019-puerto-rico\/jayuya\/[^/]+$/', baseUrl}
       },
       {
-        path: '/2019-puerto-rico/jayuya/2', 
+        path: '/base/2019-puerto-rico/san-juan', 
         component: 'dummy',
         // eslint-disable-next-line no-useless-escape
-        context: {limit: photosPerPage, skip: 15, numPages: 4, currentPage: 2, regexFilter: '/^2019-puerto-rico\/jayuya\/[^/]+$/', basePath}
-      },
-      {
-        path: '/2019-puerto-rico/jayuya/3', 
-        component: 'dummy',
-        // eslint-disable-next-line no-useless-escape
-        context: {limit: photosPerPage, skip: 30, numPages: 4, currentPage: 3, regexFilter: '/^2019-puerto-rico\/jayuya\/[^/]+$/', basePath}
-      },
-      {
-        path: '/2019-puerto-rico/jayuya/4', 
-        component: 'dummy',
-        // eslint-disable-next-line no-useless-escape 
-        context: {limit: photosPerPage, skip: 45, numPages: 4, currentPage: 4, regexFilter: '/^2019-puerto-rico\/jayuya\/[^/]+$/', basePath}
-      },
-      {
-        path: '/2019-puerto-rico/san-juan', 
-        component: 'dummy',
-        // eslint-disable-next-line no-useless-escape 
-        context: {limit: photosPerPage, skip: 0, numPages: 1, currentPage: 1, regexFilter: '/^2019-puerto-rico\/san-juan\/[^/]+$/', basePath}
+        context: {limit: photosPerPage, skip: 0, numPages: 1, currentPage: 1, regexFilter: '/^/base/2019-puerto-rico\/san-juan\/[^/]+$/', baseUrl}
       },
     ]
-    createFolderPages(basePath, photosPerPage, creator.createPage, files, folders)
+    createFolderPages(baseUrl, photosPerPage, creator.createPage, files, folders)
     expect(creator.getPages()).toEqual(exptected)
   })  
   it('creates folder page for index page with single folder', () => {
     const creator = pageCreator()
     const exptected = [
       {
-        path: '/', 
+        path: '/base/', 
         component: 'dummy', 
-        context: {limit: 5, skip: 0, numPages: 1, currentPage: 1, regexFilter: '/^[^/]+$/', basePath}
+        context: {limit: 5, skip: 0, numPages: 1, currentPage: 1, regexFilter: '/^/base//[^/]+$/', baseUrl}
       },
       {
-        path: '/sub-folder', 
+        path: '/base/sub-folder', 
         component: 'dummy', 
-        context: {limit: 5, skip: 0, numPages: 1, currentPage: 1, regexFilter: '/^sub-folder/[^/]+$/', basePath}
+        context: {limit: 5, skip: 0, numPages: 1, currentPage: 1, regexFilter: '/^/base/sub-folder/[^/]+$/', baseUrl}
       },
     ]
-    createFolderPages(basePath, 5, creator.createPage, [], ['', 'sub-folder'])
+    createFolderPages(baseUrl, 5, creator.createPage, [], ['/base/', '/base/sub-folder'])
     expect(creator.getPages()).toEqual(exptected)
   })
   it('emits an "indexContext" event when the index page is created', () => {
     const listener = jest.fn()
     const createPage = jest.fn()
     emitter.on('indexContext', listener)
-    createFolderPages(basePath, 5, createPage, [], [''])
+    createFolderPages(baseUrl, 5, createPage, [], ['/base/'])
     expect(listener.mock.calls.length).toBe(1)
   })  
 })

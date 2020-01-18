@@ -2,6 +2,7 @@ const fs = require('fs')
 const themeConfig = require('./theme-config')
 const emitter = require('./src/util/event-emitter')
 const createPages = require('./create-pages')
+const {prependbaseUrl, ensureLeadingAndTrailingSlash} = require('./src/util/text-utils')
 
 let indexContext
 
@@ -16,9 +17,10 @@ exports.onPreBootstrap = ({ reporter }, options) => {
 }
 
 exports.createPages = async ({ graphql, actions, reporter }, 
-  { basePath = '/', photosPerPage = 15 }) => {
+  { baseUrl = '/', photosPerPage = 15 }) => {
+  baseUrl = ensureLeadingAndTrailingSlash(baseUrl)
   const { createPage } = actions
-  createPages(basePath, photosPerPage, graphql, reporter, createPage)
+  createPages(baseUrl, photosPerPage, graphql, reporter, createPage)
 }
 
 exports.onCreatePage = ({ page, actions }) => {
@@ -37,4 +39,29 @@ exports.onCreatePage = ({ page, actions }) => {
   if (page.path === '/photo/') {
     deletePage(page)
   }
+}
+
+exports.createSchemaCustomization = ({actions}, {baseUrl = '/'}) => {
+  const {createFieldExtension, createTypes} = actions
+  baseUrl = ensureLeadingAndTrailingSlash(baseUrl)
+  
+  createFieldExtension({
+    name: 'url',
+    extend() {
+      return {
+        resolve(source) {
+          return prependbaseUrl(baseUrl, source.relativePath)
+        },
+      }
+    },
+  })
+
+  createTypes(`
+    type File implements Node {
+      url: String @url
+    }
+    type Directory implements Node {
+      url: String @url
+    }
+  `)
 }

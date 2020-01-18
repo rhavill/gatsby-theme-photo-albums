@@ -1,7 +1,8 @@
-import compose from 'ramda/src/compose'
-import curry from 'ramda/src/curry'
-import path from 'ramda/src/path'
-import replace from 'ramda/src/replace'
+const compose = require('ramda/src/compose')
+const concat = require('ramda/src/concat')
+const curry = require('ramda/src/curry')
+const path = require('ramda/src/path')
+const replace = require('ramda/src/replace')
 
 const toTitleCase = text => 
   text.toLowerCase()
@@ -20,34 +21,37 @@ const removePathPrefix = data => replace(
   ''
 )
 
-const removeBasePath = (basePath, path) => {
+const removebaseUrl = (baseUrl, path) => {
   const newPath = replace(
     // Remove trailing slash (if it exists)
-    basePath.replace(/\/$/, ''), 
+    baseUrl.replace(/\/$/, ''), 
     ''
   )(path)
   return newPath
 }
 
-const prependBasePath = curry((basePath, path) => {
-  // Remove leading slash and trailing slash (if they exist)
-  const base = basePath.replace(/^\//, '').replace(/\/$/, '')
-  if (base) {
-    return `/${base}${path}`
-  }
-  return path
+const prependbaseUrl = curry((baseUrl, relativePath) => {
+  // Make sure baseUrl starts and ends with slash (for consistency)
+  const base = ensureLeadingAndTrailingSlash(baseUrl)
+  return concat(base, relativePath)
 })
 
-const gatsbyPathnameToChildComponentPath = (basePath, pathname, graphqlData) => {
+const ensureTrailingSlash = text => text.slice(-1) === '/' ? text : text + '/'
+
+const ensureLeadingSlash = text => text.charAt(0) === '/' ? text : '/' + text
+
+const ensureLeadingAndTrailingSlash = compose(ensureLeadingSlash, ensureTrailingSlash)
+const gatsbyPathnameToChildComponentPath = (baseUrl, pathname, graphqlData) => {
   const path = compose(removePathPrefix(graphqlData), decodeURIComponent)(pathname)
-  return removeBasePath(basePath, path)
+  return removebaseUrl(baseUrl, path)
 }
 
-export {
+module.exports = {
   pathToFile,
   pathToFileTitle,
-  prependBasePath,
+  prependbaseUrl,
   removeFileExtension,
   toTitleCase,
   gatsbyPathnameToChildComponentPath,
+  ensureLeadingAndTrailingSlash,
 }

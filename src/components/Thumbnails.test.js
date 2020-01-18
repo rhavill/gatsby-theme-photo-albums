@@ -11,14 +11,14 @@ describe('Thumbnails', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(<Thumbnails path='/level-one' data={fileData} currentPage={1} 
-        basePath='/' />)
+        baseUrl='/' />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
   it('displays the correct number of thumbnail images', () => {
     const {getAllByTestId} = render(
       <Thumbnails path='/level-one/level-two/level-three' data={fileData} 
-        currentPage={2} basePath='/' />
+        currentPage={2} baseUrl='/' />
     )
     expect(getAllByTestId('file').length).toBe(17)
   })

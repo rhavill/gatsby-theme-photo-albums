@@ -3,16 +3,20 @@ const queryResults = `{
     "folders": {
       "nodes": [
         {
-          "relativePath": ""
+          "relativePath": "",
+          "url": "/"
         },
         {
-          "relativePath": "2019-puerto-rico"
+          "relativePath": "2019-puerto-rico",
+          "url": "/2019-puerto-rico"
         },
         {
-          "relativePath": "2019-puerto-rico/jayuya"
+          "relativePath": "2019-puerto-rico/jayuya",
+          "url": "/2019-puerto-rico/jayuya"
         },
         {
-          "relativePath": "2019-puerto-rico/san-juan"
+          "relativePath": "2019-puerto-rico/san-juan",
+          "url": "2019-puerto-rico/san-juan"
         }
       ]
     },
@@ -21,12 +25,14 @@ const queryResults = `{
         {
           "relativePath": "2019-puerto-rico/jayuya/IMG_20190814_113735817-small.jpg",
           "relativeDirectory": "2019-puerto-rico/jayuya",
-          "base": "IMG_20190814_113735817-small.jpg"
+          "base": "IMG_20190814_113735817-small.jpg",
+          "url": "/2019-puerto-rico/jayuya/IMG_20190814_113735817-small.jpg"
         },
         {
           "relativePath": "2019-puerto-rico/jayuya/IMG_20190814_102958452-small.jpg",
           "relativeDirectory": "2019-puerto-rico/jayuya",
-          "base": "IMG_20190814_102958452-small.jpg"
+          "base": "IMG_20190814_102958452-small.jpg",
+          "url": "/2019-puerto-rico/jayuya/IMG_20190814_102958452-small.jpg"
         },
         {
           "relativePath": "2019-puerto-rico/jayuya/IMG_20190814_103213316-small.jpg",

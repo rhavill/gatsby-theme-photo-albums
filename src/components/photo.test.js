@@ -10,14 +10,14 @@ afterEach(cleanup)
 
 describe('Photo', () => {
   it('renders correctly', () => {
-    const pageContext = {basePath: '/'}
+    const pageContext = {baseUrl: '/'}
     const tree = renderer
       .create(<Photo path='1.jpg' data={photoData.data} pageContext={pageContext}/>)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
   it('displays images with "title" attributes containing a title-case version of the photo file name', () => {
-    const pageContext = {basePath: '/'}
+    const pageContext = {baseUrl: '/'}
     const path = photoData.data.photo.childImageSharp.fluid.src
     const {getAllByTitle} = render(
       <Photo path={path} data={photoData.data} pageContext={pageContext}/>
@@ -26,7 +26,7 @@ describe('Photo', () => {
     expect(getAllByTitle(expected).length).toBe(2)
   })
   it('passes decoded url to child components', () => {
-    const pageContext = {basePath: '/'}
+    const pageContext = {baseUrl: '/'}
     const path = '/san-sebasti%c3%a1n/san-sebasti%c3%a1n.jpg'  
     const {getAllByTestId} = render(
       <Photo path={path} data={photoData.data} pageContext={pageContext}/>
@@ -34,7 +34,7 @@ describe('Photo', () => {
     expect(getAllByTestId('/san-sebastián/san-sebastián.jpg').length).toBe(1)
   })
   it('passes path to child components without pathPrefix config variable', () => {
-    const pageContext = {basePath: '/'}
+    const pageContext = {baseUrl: '/'}
     const path = '/path-prefix/top-level/file.jpg'  
     const {getAllByTestId} = render(
       <Photo path={path} data={photoData.data} pageContext={pageContext}/>

@@ -7,16 +7,16 @@ import map from 'ramda/src/map'
 import prop from 'ramda/src/prop'
 import Folder from './Folder'
 import getChildPaths from '../util/source-filesystem-child-paths'
-import {prependBasePath} from '../util/text-utils'
+import {prependbaseUrl} from '../util/text-utils'
 
 const mapIndexed = addIndex(map)
 
-const Folders = ({basePath, path, data}) => {
+const Folders = ({baseUrl, path, data}) => {
   return compose(
     mapIndexed((folder, i) => 
       <Folder key={i} path={folder} imageData={data.folderIcon} />
     ),
-    map(prependBasePath(basePath)),
+    map(prependbaseUrl(baseUrl)),
     getChildPaths(path),
     map(prop('relativePath'))
   )(data.folders.nodes)
@@ -37,7 +37,7 @@ export const query = graphql`
 `
 
 Folders.propTypes = {
-  basePath: PropTypes.string.isRequired,
+  baseUrl: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
   data: PropTypes.shape({
     folderIcon: PropTypes.object.isRequired,

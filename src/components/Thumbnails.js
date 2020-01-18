@@ -13,11 +13,11 @@ import {getPhotoPathWithPage} from '../util/source-filesystem-photo-paths'
 const mapIndexed = addIndex(map)
 const pathToRelativePath = tail
 
-const Thumbnails = ({path, data, currentPage, basePath}) => {
+const Thumbnails = ({path, data, currentPage, baseUrl}) => {
   return compose(
     mapIndexed((photoPath, i) => 
       <Thumbnail key={i} path={
-        getPhotoPathWithPage(basePath, currentPage, pathToRelativePath(photoPath))
+        getPhotoPathWithPage(baseUrl, currentPage, pathToRelativePath(photoPath))
       } imageData={data.photos.nodes[i]} />
     ),
     getChildPaths(path),
@@ -35,7 +35,7 @@ export const query = graphql`
 `
 
 Thumbnails.propTypes = {
-  basePath: PropTypes.string.isRequired,
+  baseUrl: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
   currentPage: PropTypes.number.isRequired,
   data: PropTypes.shape({

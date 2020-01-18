@@ -1,5 +1,5 @@
 import {toTitleCase, pathToFile, pathToFileTitle, removeFileExtension,
-  gatsbyPathnameToChildComponentPath} from './text-utils'
+  gatsbyPathnameToChildComponentPath, ensureLeadingAndTrailingSlash} from './text-utils'
 
 describe('text-utils', () => {  
   it('replaces hyphens and underscores with space and capitalizes first letter of each word', () => {
@@ -23,17 +23,27 @@ describe('text-utils', () => {
     expect(pathToFileTitle(path)).toEqual(expected)
   })
   it('gatsbyPathnameToChildComponentPath decodes url', () => {
-    const basePath = '/'
+    const baseUrl = '/'
     const path = '/level-one/san-sebasti%c3%a1n.jpg'
     const graphqlData = {site: {pathPrefix: '/some-prefix'}}
     const expected = '/level-one/san-sebastián.jpg'
-    expect(gatsbyPathnameToChildComponentPath(basePath, path, graphqlData)).toEqual(expected)
+    expect(gatsbyPathnameToChildComponentPath(baseUrl, path, graphqlData)).toEqual(expected)
   })
   it('gatsbyPathnameToChildComponentPath removes pathPrefix config variable from url', () => {
-    const basePath = '/'
+    const baseUrl = '/'
     const path = '/some-prefix/level-one/my-picture.jpg'
     const graphqlData = {site: {pathPrefix: '/some-prefix'}}
     const expected = '/level-one/my-picture.jpg'
-    expect(gatsbyPathnameToChildComponentPath(basePath, path, graphqlData)).toEqual(expected)
+    expect(gatsbyPathnameToChildComponentPath(baseUrl, path, graphqlData)).toEqual(expected)
+  })
+  it('ensureLeadingAndTrailingSlash adds slashes to a string not ending in a trailing slash', () => {
+    const text = 'something'
+    const expected = '/something/'
+    expect(ensureLeadingAndTrailingSlash(text)).toEqual(expected)
+  })
+  it('ensureLeadingAndTrailingSlash does not add slash to a string starting and ending in a trailing slash', () => {
+    const text = '/something/'
+    const expected = '/something/'
+    expect(ensureLeadingAndTrailingSlash(text)).toEqual(expected)
   })
 })

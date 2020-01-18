@@ -4,15 +4,19 @@ const {objectArrayToPropArray} = require('./src/util/ramda-utils')
 
 const query = `
   query {
-    folders: allDirectory(filter: {name: {ne: "images"}}) {
-      nodes {
+      #folders: allDirectory(filter: {name: {ne: "images"}}) {
+      folders: allDirectory {
+        nodes {
         relativePath
+        url
       }
     }
+    # photos: allFile(filter: {relativePath: {ne: "folder.png"}}, sort: {fields: relativePath}) {
     photos: allFile(filter: {relativePath: {ne: "folder.png"}}, sort: {fields: relativePath}) {
-      nodes {
+        nodes {
         relativePath
         relativeDirectory
+        url
       }
     }
   }
@@ -31,27 +35,26 @@ const getQueryResults = async (graphql, reporter) => {
   }
 }
 
-const createPhotoPages = (basePath, photosPerPage, createPage, files) => {
-  const photoPaths = getPhotoPathsWithPages(basePath, photosPerPage, files)
+const createPhotoPages = (photosPerPage, createPage, files) => {
+  const photoPaths = getPhotoPathsWithPages(photosPerPage, files)
   files.forEach(file => {
     createPage({
-      path: photoPaths[file.relativePath],
+      path: photoPaths[file.url],
       component: require.resolve('./src/pages/photo.js'),
       context: {
         relativePath: file.relativePath,
-        basePath
       },
     })
   })
 }
 
-const createPages = async (basePath, photosPerPage, graphql, reporter, createPage) => {
+const createPages = async (baseUrl, photosPerPage, graphql, reporter, createPage) => {
   const {files, folders} = await getQueryResults(graphql,reporter)
-  createFolderPages(basePath, photosPerPage, createPage, 
-    objectArrayToPropArray('relativePath', files), 
-    objectArrayToPropArray('relativePath', folders)
+  createFolderPages(baseUrl, photosPerPage, createPage, 
+    objectArrayToPropArray('url', files), 
+    objectArrayToPropArray('url', folders)
   )
-  createPhotoPages(basePath, photosPerPage, createPage, files)
+  createPhotoPages(photosPerPage, createPage, files)
 }
 
 module.exports = createPages

@@ -27,12 +27,12 @@ const graphql = jest.fn(() =>
 )
 
 beforeAll(() => graphql().then(() => {
-  files = objectArrayToPropArray('relativePath', queryResults.data.photos.nodes)
-  folders = objectArrayToPropArray('relativePath', queryResults.data.folders.nodes)
+  files = objectArrayToPropArray('url', queryResults.data.photos.nodes)
+  folders = objectArrayToPropArray('url', queryResults.data.folders.nodes)
   graphql.mockClear()
   const photosPerPage = 15
-  const basePath = '/'
-  createPages(basePath, photosPerPage, graphql, reporter, createPage)
+  const baseUrl = '/'
+  createPages(baseUrl, photosPerPage, graphql, reporter, createPage)
     .catch(e => { console.error('createPages test suite failed.', e) })
 }))
 
@@ -51,7 +51,7 @@ describe('create-pages', () => {
     expect(reporter.panicOnBuild.mock.calls.length).toBe(0)
   })
 
-  it('calls the createPage correctly', () => {
+  it('calls the createPage function correctly', () => {
     const exptectedPaths = [
       '2019-puerto-rico/jayuya/IMG_20190814_113735817-small.jpg', 
       '2019-puerto-rico/jayuya/IMG_20190814_102958452-small.jpg', 
