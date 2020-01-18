@@ -4,22 +4,18 @@ import {graphql} from 'gatsby'
 import addIndex from 'ramda/src/addIndex'
 import compose from 'ramda/src/compose'
 import map from 'ramda/src/map'
-import prop from 'ramda/src/prop'
 import Folder from './Folder'
-import getChildPaths from '../util/source-filesystem-child-paths'
-import {prependbaseUrl} from '../util/text-utils'
+import getChildPaths from '../util/files-folders'
 
 const mapIndexed = addIndex(map)
 
-const Folders = ({baseUrl, path, data}) => {
+const Folders = ({path, folders, icon}) => {
   return compose(
     mapIndexed((folder, i) => 
-      <Folder key={i} path={folder} imageData={data.folderIcon} />
+    <Folder key={i} path={folder} icon={icon} />
     ),
-    map(prependbaseUrl(baseUrl)),
-    getChildPaths(path),
-    map(prop('relativePath'))
-  )(data.folders.nodes)
+    getChildPaths(path)
+  )(folders)
 }
 
 export const query = graphql`
@@ -31,23 +27,22 @@ export const query = graphql`
         sort: {fields: relativePath}) {
       nodes {
         relativePath
+        url
       }
     }
   }
 `
 
 Folders.propTypes = {
-  baseUrl: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
-  data: PropTypes.shape({
-    folderIcon: PropTypes.object.isRequired,
-    folders: PropTypes.shape({
-      nodes: PropTypes.arrayOf(
-        PropTypes.shape({
-          relativePath: PropTypes.string.isRequired
-        }).isRequired   
-      ).isRequired
-    }).isRequired  
+  folders: PropTypes.arrayOf(
+    PropTypes.string.isRequired, 
+  ).isRequired,
+  icon: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    srcSet: PropTypes.string.isRequired,
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
   }).isRequired
 }
 

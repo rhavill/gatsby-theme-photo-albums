@@ -41,6 +41,7 @@ const ensureTrailingSlash = text => text.slice(-1) === '/' ? text : text + '/'
 const ensureLeadingSlash = text => text.charAt(0) === '/' ? text : '/' + text
 
 const ensureLeadingAndTrailingSlash = compose(ensureLeadingSlash, ensureTrailingSlash)
+
 const gatsbyPathnameToChildComponentPath = (baseUrl, pathname, graphqlData) => {
   const path = compose(removePathPrefix(graphqlData), decodeURIComponent)(pathname)
   return removebaseUrl(baseUrl, path)

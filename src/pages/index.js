@@ -1,26 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {graphql} from 'gatsby'
+import map from 'ramda/src/map'
+import prop from 'ramda/src/prop'
 import Layout from '../components/Layout'
 import Folders from '../components/Folders'
 import Thumbnails from '../components/Thumbnails'
 import Pager from '../components/Pager'
-import {gatsbyPathnameToChildComponentPath} from '../util/text-utils'
 
 const Index = ({data, location, pageContext}) => {
   const {currentPage, numPages, baseUrl} = pageContext
-  const path = gatsbyPathnameToChildComponentPath(baseUrl, location.pathname, data)
-
+  const path = location.pathname
+  const folders = map(prop('url'), data.folders.nodes)
+  const folderIcon = data.folderIcon.childImageSharp.fixed
+  
   return (
-    <Layout path={location.pathname}>
+    <Layout path={path}>
       <div className="listing-page" data-testid={path} >
         <section>
-          <Folders path={path} data={data} baseUrl={baseUrl} />
+          <Folders path={path} folders={folders} icon={folderIcon} />
           <Thumbnails path={path} data={data} currentPage={currentPage} 
-            baseUrl={baseUrl} />
+            baseUrl='/base' />
         </section>
       </div>
-      <Pager path={location.pathname} currentPage={currentPage} numPages={numPages} />
+      <Pager path={path} currentPage={currentPage} numPages={numPages} />
       <br/>
     </Layout>
   )
@@ -48,10 +51,26 @@ Index.propTypes = {
     pathname: PropTypes.string.isRequired
   }).isRequired,
   data: PropTypes.shape({
+    folderIcon: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fixed: PropTypes.shape({
+          src: PropTypes.string.isRequired,
+          srcSet: PropTypes.string.isRequired,
+          width: PropTypes.number.isRequired,
+          height: PropTypes.number.isRequired,
+        }).isRequired
+      }).isRequired       
+    }).isRequired,
+    folders: PropTypes.shape({
+      nodes: PropTypes.arrayOf(
+        PropTypes.shape({
+          relativePath: PropTypes.string.isRequired
+        }).isRequired   
+      ).isRequired
+    }).isRequired,
     photos: PropTypes.object.isRequired,
   }).isRequired,
   pageContext: PropTypes.shape({
-    baseUrl: PropTypes.string.isRequired,
     currentPage: PropTypes.number.isRequired,
     numPages: PropTypes.number.isRequired,
     regexFilter: PropTypes.string.isRequired,
