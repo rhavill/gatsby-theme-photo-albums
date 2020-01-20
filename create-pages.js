@@ -19,6 +19,14 @@ const query = `
         relativePath
         relativeDirectory
         url
+        childImageSharp {
+          fixed(width: 250, height: 250, cropFocus: CENTER) {
+            src
+            srcSet
+            width
+            height
+          }
+        }
       }
     }
   }
@@ -53,6 +61,10 @@ const createPhotoPages = (baseUrl, photosPerPage, createPage, createNode, files)
       relativeDirectoryUrl: prependbaseUrl(baseUrl, file.relativeDirectory),
       relativePath: file.relativePath,
       url: photoUrls[file.url],
+      childImageSharp: {
+        ...file.childImageSharp,
+        file: {...file}
+      }
     }
     const hash = md5(JSON.stringify(nodeData))
     

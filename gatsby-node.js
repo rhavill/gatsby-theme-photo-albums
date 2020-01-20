@@ -71,6 +71,7 @@ exports.createSchemaCustomization = ({actions, schema}, {baseUrl = '/'}) => {
         relativeDirectoryUrl: 'String!',
         relativePath: 'String!',
         url: 'String!',
+        childImageSharp: 'ImageSharp!'
       },
       interfaces: ['Node'],
       extensions: {
