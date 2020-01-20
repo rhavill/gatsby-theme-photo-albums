@@ -12,7 +12,7 @@ const mapIndexed = addIndex(map)
 const Folders = ({path, folders, icon}) => {
   return compose(
     mapIndexed((folder, i) => 
-    <Folder key={i} path={folder} icon={icon} />
+      <Folder key={i} path={folder} icon={icon} />
     ),
     getChildPaths(path)
   )(folders)

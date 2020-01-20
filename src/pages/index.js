@@ -9,7 +9,7 @@ import Thumbnails from '../components/Thumbnails'
 import Pager from '../components/Pager'
 
 const Index = ({data, location, pageContext}) => {
-  const {currentPage, numPages, baseUrl} = pageContext
+  const {currentPage, numPages} = pageContext
   const path = location.pathname
   const folders = map(prop('url'), data.folders.nodes)
   const folderIcon = data.folderIcon.childImageSharp.fixed

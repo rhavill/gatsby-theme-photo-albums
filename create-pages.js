@@ -1,4 +1,6 @@
+const md5 = require('md5')
 const createFolderPages = require('./create-folder-pages')
+const {prependbaseUrl} = require('./src/util/text-utils')
 const {getPhotoPathsWithPages} = require('./src/util/source-filesystem-photo-paths')
 const {objectArrayToPropArray} = require('./src/util/ramda-utils')
 
@@ -35,26 +37,48 @@ const getQueryResults = async (graphql, reporter) => {
   }
 }
 
-const createPhotoPages = (photosPerPage, createPage, files) => {
-  const photoPaths = getPhotoPathsWithPages(photosPerPage, files)
+const createPhotoPages = (baseUrl, photosPerPage, createPage, createNode, files) => {
+  const photoUrls = getPhotoPathsWithPages(photosPerPage, files)
   files.forEach(file => {
     createPage({
-      path: photoPaths[file.url],
+      path: photoUrls[file.url],
       component: require.resolve('./src/pages/photo.js'),
       context: {
         relativePath: file.relativePath,
+        url: photoUrls[file.url],
       },
+    })
+    
+    const nodeData = {
+      relativeDirectoryUrl: prependbaseUrl(baseUrl, file.relativeDirectory),
+      relativePath: file.relativePath,
+      url: photoUrls[file.url],
+    }
+    const hash = md5(JSON.stringify(nodeData))
+    
+    createNode({
+      // Data for the node.
+      ...nodeData,
+    
+      // Required fields.
+      id: file.relativePath,
+      parent: null, // or null if it's a source node without a parent
+      children: [],
+      internal: {
+        type: 'GalleryPhoto',
+        contentDigest: hash,
+      }
     })
   })
 }
 
-const createPages = async (baseUrl, photosPerPage, graphql, reporter, createPage) => {
+const createPages = async (baseUrl, photosPerPage, graphql, reporter, createPage, createNode) => {
   const {files, folders} = await getQueryResults(graphql,reporter)
   createFolderPages(baseUrl, photosPerPage, createPage, 
     objectArrayToPropArray('url', files), 
     objectArrayToPropArray('url', folders)
   )
-  createPhotoPages(photosPerPage, createPage, files)
+  createPhotoPages(baseUrl, photosPerPage, createPage, createNode, files)
 }
 
 module.exports = createPages

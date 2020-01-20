@@ -47,6 +47,7 @@
     "gatsby": "^2.18.10",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
+    "md5": "^2.2.1",
     "npm-check": "^5.9.0",
     "prettier": "^1.19.1",
     "react": "^16.12.0",

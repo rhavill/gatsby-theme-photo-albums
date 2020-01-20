@@ -19,8 +19,8 @@ exports.onPreBootstrap = ({ reporter }, options) => {
 exports.createPages = async ({ graphql, actions, reporter }, 
   { baseUrl = '/', photosPerPage = 15 }) => {
   baseUrl = ensureLeadingAndTrailingSlash(baseUrl)
-  const { createPage } = actions
-  createPages(baseUrl, photosPerPage, graphql, reporter, createPage)
+  const { createPage, createNode } = actions
+  createPages(baseUrl, photosPerPage, graphql, reporter, createPage, createNode)
 }
 
 exports.onCreatePage = ({ page, actions }) => {
@@ -41,7 +41,7 @@ exports.onCreatePage = ({ page, actions }) => {
   }
 }
 
-exports.createSchemaCustomization = ({actions}, {baseUrl = '/'}) => {
+exports.createSchemaCustomization = ({actions, schema}, {baseUrl = '/'}) => {
   const {createFieldExtension, createTypes} = actions
   baseUrl = ensureLeadingAndTrailingSlash(baseUrl)
   
@@ -55,7 +55,6 @@ exports.createSchemaCustomization = ({actions}, {baseUrl = '/'}) => {
       }
     },
   })
-
   createTypes(`
     type File implements Node {
       url: String @url
@@ -64,4 +63,21 @@ exports.createSchemaCustomization = ({actions}, {baseUrl = '/'}) => {
       url: String @url
     }
   `)
+
+  const typeDefs = [
+    schema.buildObjectType({
+      name: 'GalleryPhoto',
+      fields: {
+        relativeDirectoryUrl: 'String!',
+        relativePath: 'String!',
+        url: 'String!',
+      },
+      interfaces: ['Node'],
+      extensions: {
+        infer: false,
+      },
+    }),
+  ]
+  createTypes(typeDefs)
+
 }
