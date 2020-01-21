@@ -1,12 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import addIndex from 'ramda/src/addIndex'
 import compose from 'ramda/src/compose'
-import map from 'ramda/src/map'
 import Folder from './Folder'
 import getChildPaths from '../util/files-folders'
-
-const mapIndexed = addIndex(map)
+import {mapIndexed} from '../util/ramda-utils'
 
 const Folders = ({path, folders, icon}) => {
   return compose(

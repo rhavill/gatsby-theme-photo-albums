@@ -1,42 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import addIndex from 'ramda/src/addIndex'
-import compose from 'ramda/src/compose'
-import map from 'ramda/src/map'
-import prop from 'ramda/src/prop'
-import tail from 'ramda/src/tail'
 import Thumbnail from './Thumbnail'
-import getChildPaths from '../util/source-filesystem-child-paths'
+import {mapIndexed} from '../util/ramda-utils'
 import {getPhotoPathWithPage} from '../util/source-filesystem-photo-paths'
 
-const mapIndexed = addIndex(map)
-const pathToRelativePath = tail
-
-const Thumbnails = ({path, data, currentPage, baseUrl}) => {
-  return compose(
-    mapIndexed((photoPath, i) => 
-      <Thumbnail key={i} path={
-        getPhotoPathWithPage(baseUrl, currentPage, pathToRelativePath(photoPath))
-      } imageData={data.photos.nodes[i]} />
-    ),
-    getChildPaths(path),
-    map(prop('relativePath'))
-  )(data.photos.nodes)
+const Thumbnails = ({files, currentPage}) => {
+  return mapIndexed((file, i) => 
+    <Thumbnail key={i} path={getPhotoPathWithPage(currentPage, file.url)} 
+      imageData={file.imageData} />
+  )(files)
 }
 
 Thumbnails.propTypes = {
-  baseUrl: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
   currentPage: PropTypes.number.isRequired,
-  data: PropTypes.shape({
-    photos: PropTypes.shape({
-      nodes: PropTypes.arrayOf(
-        PropTypes.shape({
-          relativePath: PropTypes.string.isRequired,
-        }).isRequired   
-      ).isRequired
-    }).isRequired  
-  }).isRequired
+  files: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      imageData: PropTypes.object.isRequired,
+    }).isRequired   
+  ).isRequired
 }
 
 export default Thumbnails

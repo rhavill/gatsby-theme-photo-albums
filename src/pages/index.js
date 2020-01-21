@@ -9,9 +9,13 @@ import Thumbnails from '../components/Thumbnails'
 import Pager from '../components/Pager'
 
 const Index = ({data, location, pageContext}) => {
-  const {currentPage, numPages, baseUrl} = pageContext
+  const {currentPage, numPages} = pageContext
   const path = location.pathname
   const folders = map(prop('url'), data.folders.nodes)
+  const files = map(node => ({
+    url: node.url,
+    imageData: node.childImageSharp.fixed
+  }), data.photos.nodes)
   const folderIcon = data.folderIcon.childImageSharp.fixed
   
   return (
@@ -19,8 +23,7 @@ const Index = ({data, location, pageContext}) => {
       <div className="listing-page" data-testid={path} >
         <section>
           <Folders path={path} folders={folders} icon={folderIcon} />
-          <Thumbnails path={path} data={data} currentPage={currentPage} 
-            baseUrl='/base' />
+          <Thumbnails files={files} currentPage={currentPage} />
         </section>
       </div>
       <Pager path={path} currentPage={currentPage} numPages={numPages} />
@@ -31,14 +34,16 @@ const Index = ({data, location, pageContext}) => {
 
 export const query = graphql`
   query indexQuery($skip: Int!, $limit: Int!, $regexFilter: String!) {
-    # Ideally, the next few lines of this query would be part of ThumbnailsFragment, 
-    # but putting the line in that fragment caused the error: 'Variable "$skip" 
-    # is never used in operation "indexQuery"'
-    photos: allFile(filter: {
-        relativePath: {ne: "folder.png", regex: $regexFilter}}, 
-        sort: {fields: relativePath} limit: $limit skip: $skip) {
+    photos: allFile(
+      filter: {
+        relativePath: {ne: "folder.png"}, 
+        url: {regex: $regexFilter}
+      }, 
+      sort: {fields: relativePath} 
+      limit: $limit 
+      skip: $skip) {
       nodes {
-        relativePath
+        url
         childImageSharp {
           fixed(width: 250, height: 250, cropFocus: CENTER) {
             ...GatsbyImageSharpFixed
@@ -73,22 +78,26 @@ Index.propTypes = {
   data: PropTypes.shape({
     folderIcon: PropTypes.shape({
       childImageSharp: PropTypes.shape({
-        fixed: PropTypes.shape({
-          src: PropTypes.string.isRequired,
-          srcSet: PropTypes.string.isRequired,
-          width: PropTypes.number.isRequired,
-          height: PropTypes.number.isRequired,
-        }).isRequired
+        fixed: PropTypes.object.isRequired
       }).isRequired       
     }).isRequired,
     folders: PropTypes.shape({
       nodes: PropTypes.arrayOf(
         PropTypes.shape({
-          relativePath: PropTypes.string.isRequired
+          relativePath: PropTypes.string.isRequired,
         }).isRequired   
       ).isRequired
     }).isRequired,
-    photos: PropTypes.object.isRequired,
+    photos: PropTypes.shape({
+      nodes: PropTypes.arrayOf(
+        PropTypes.shape({
+          url: PropTypes.string.isRequired,
+          childImageSharp: PropTypes.shape({
+            fixed: PropTypes.object.isRequired,
+          })
+        }).isRequired   
+      ).isRequired
+    }).isRequired,
   }).isRequired,
   pageContext: PropTypes.shape({
     currentPage: PropTypes.number.isRequired,

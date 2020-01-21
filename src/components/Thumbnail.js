@@ -8,7 +8,7 @@ const Thumbnail = ({path, imageData}) => {
   const title = pathToFileTitle(path)
   return <article className='file' data-testid='file'>
     <Link to={path}>
-      <Img fixed={imageData.childImageSharp.fixed} alt={title} title={title}/>
+      <Img fixed={imageData} alt={title} title={title}/>
     </Link>
   </article>
 }
@@ -16,14 +16,10 @@ const Thumbnail = ({path, imageData}) => {
 Thumbnail.propTypes = {
   path: PropTypes.string.isRequired,
   imageData: PropTypes.shape({
-    childImageSharp: PropTypes.shape({
-      fixed: PropTypes.shape({
-        src: PropTypes.string.isRequired,
-        srcSet: PropTypes.string.isRequired,
-        width: PropTypes.number.isRequired,
-        height: PropTypes.number.isRequired,
-      }).isRequired
-    }).isRequired
+    src: PropTypes.string.isRequired,
+    srcSet: PropTypes.string.isRequired,
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
   }).isRequired  
 }
 

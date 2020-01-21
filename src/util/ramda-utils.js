@@ -1,3 +1,4 @@
+const addIndex = require('ramda/src/addIndex')
 const map = require('ramda/src/map')
 const prop = require('ramda/src/prop')
 
@@ -17,4 +18,11 @@ const prop = require('ramda/src/prop')
  *      const objects = [{name: 'Hilda', age: 33}, {name: 'José', age: 45}]
  *      objectArrayToPropArray('name', objects); //=> ['Hilda', 'José']
  */
-exports.objectArrayToPropArray =  (property, objects) => map(prop(property), objects)
+const objectArrayToPropArray = (property, objects) => map(prop(property), objects)
+
+const mapIndexed = addIndex(map)
+
+module.exports = {
+  objectArrayToPropArray,
+  mapIndexed,
+}
