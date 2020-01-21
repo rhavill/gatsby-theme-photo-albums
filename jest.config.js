@@ -13,4 +13,6 @@ module.exports = {
   },
   testURL: 'http://localhost',
   setupFiles: ['<rootDir>/loadershim.js'],
+  // Default: (/__tests__/.*|(\\.|/)(test|spec))\\.[jt]sx?$
+  testRegex: '/test/.*',
 }

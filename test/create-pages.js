@@ -10,9 +10,9 @@ const reduce = require('ramda/src/reduce')
 const takeLast = require('ramda/src/takeLast')
 const zip = require('ramda/src/zip')
 
-const createPages = require('./create-pages')
-const {objectArrayToPropArray} = require('./src/util/ramda-utils')
-const queryResults = require('./src/test-data/create-pages-graphql-results-small')
+const createPages = require('../create-pages')
+const {objectArrayToPropArray} = require('../src/util/ramda-utils')
+const queryResults = require('../src/test-data/create-pages-graphql-results-small')
 let files
 let folders
 
