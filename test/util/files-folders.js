@@ -1,8 +1,8 @@
 import map from 'ramda/src/map'
 import prop from 'ramda/src/prop'
-import getChildPaths from './files-folders'
-import folderData from '../test-data/source-filesystem-folder-data'
-import fileData from '../test-data/source-filesystem-file-data'
+import {getChildPaths} from '../../src/util/files-folders'
+import folderData from '../../test-data/source-filesystem-folder-data'
+import fileData from '../../test-data/source-filesystem-file-data'
 
 const folders = map(prop('url'), folderData.folders.nodes)
 const files = map(prop('url'), fileData.photos.nodes)

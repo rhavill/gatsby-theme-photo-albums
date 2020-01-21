@@ -38,5 +38,6 @@ const getPagerData = (currentPath, files, filesPerPage) => {
 }
 
 module.exports = {
+  getChildPaths,
   getPagerData,
 }
