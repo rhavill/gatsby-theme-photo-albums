@@ -1,7 +1,7 @@
 import {toTitleCase, pathToFile, pathToFileTitle, removeFileExtension,
-  gatsbyPathnameToChildComponentPath, ensureLeadingAndTrailingSlash} from './text-utils'
+  gatsbyPathnameToChildComponentPath, ensureLeadingAndTrailingSlash} from './url-text'
 
-describe('text-utils', () => {  
+describe('url-text', () => {  
   it('replaces hyphens and underscores with space and capitalizes first letter of each word', () => {
     const text = 'one-two_three'
     const expectedText = 'One Two Three'

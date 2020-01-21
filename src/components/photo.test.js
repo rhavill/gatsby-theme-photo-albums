@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 import {cleanup, render} from '@testing-library/react'
 import Photo from '../pages/photo'
 import photoData from '../test-data/source-filesystem-photo-data'
-import {pathToFileTitle} from '../util/text-utils'
+import {pathToFileTitle} from '../util/url-text'
 
 // automatically unmount and cleanup DOM after the test is finished.
 afterEach(cleanup)

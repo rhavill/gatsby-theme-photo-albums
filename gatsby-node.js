@@ -2,7 +2,7 @@ const fs = require('fs')
 const themeConfig = require('./theme-config')
 const emitter = require('./src/util/event-emitter')
 const createPages = require('./create-pages')
-const {prependbaseUrl, ensureLeadingAndTrailingSlash} = require('./src/util/text-utils')
+const {prependbaseUrl, ensureLeadingAndTrailingSlash} = require('./src/util/url-text')
 
 let indexContext
 

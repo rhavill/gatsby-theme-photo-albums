@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import Layout from '../components/Layout'
-import {pathToFileTitle} from '../util/text-utils'
+import {pathToFileTitle} from '../util/url-text'
 
 const Photo =  ({data, path}) => {
   const title = pathToFileTitle(path)
