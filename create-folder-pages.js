@@ -5,7 +5,7 @@ const concat = require('ramda/src/concat')
 const equals = require('ramda/src/equals')
 const not = require('ramda/src/not')
 const emitter = require('./src/util/event-emitter')
-const {getPagerData} = require('./src/util/source-filesystem-pager-data')
+const {getPagerData} = require('./src/util/files-folders')
 
 const isFirstPage = pageIndex => equals(0, pageIndex)
 const isNotFirstPage = compose(not, isFirstPage)
@@ -43,8 +43,7 @@ const createFolderPages = (baseUrl, photosPerPage, createPage, files, folders) =
         component: require.resolve('./src/pages/index.js'),
         context: {
           ...pagerData,
-          regexFilter,
-          baseUrl
+          regexFilter
         }
       })
     })

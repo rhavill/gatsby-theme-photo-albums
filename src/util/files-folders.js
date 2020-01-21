@@ -21,4 +21,22 @@ const isParentDirectoryOf = curry(
   }
 )
 
-module.exports = getChildPaths
+const getPagerData = (currentPath, files, filesPerPage) => {
+  const pagerData = []
+  const children = getChildPaths(currentPath, files)
+  const childCount = children.length
+  const numPages = Math.ceil(childCount / filesPerPage) || 1
+  Array.from({ length: numPages }).forEach((_, i) => {
+    pagerData.push({
+      limit: filesPerPage,
+      skip: i * filesPerPage,
+      numPages,
+      currentPage: i + 1
+    })
+  })
+  return pagerData
+}
+
+module.exports = {
+  getPagerData,
+}
