@@ -7,7 +7,6 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "cy:open": "cypress open",
     "debug": "node --nolazy --inspect-brk node_modules/.bin/gatsby develop",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
@@ -15,7 +14,6 @@
     "serve": "gatsby serve",
     "start": "npm run develop",
     "test": "jest",
-    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open"
   },
   "dependencies": {
     "@emotion/core": "^10.0.22",
