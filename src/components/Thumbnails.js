@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Thumbnail from './Thumbnail'
 import {mapIndexed} from '../util/ramda-utils'
-import {getPhotoPathWithPage} from '../util/source-filesystem-photo-paths'
+import {getPhotoPathWithPage} from '../util/photo-paths'
 
 const Thumbnails = ({files, currentPage}) => {
   return mapIndexed((file, i) => 

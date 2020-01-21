@@ -1,5 +1,5 @@
 const createFolderPages = require('./create-folder-pages')
-const {getPhotoPathsWithPages} = require('./src/util/source-filesystem-photo-paths')
+const {getPhotoPathsWithPages} = require('./src/util/photo-paths')
 const {objectArrayToPropArray} = require('./src/util/ramda-utils')
 
 const query = `

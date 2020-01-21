@@ -1,7 +1,7 @@
-import {getPhotoPathsWithPages, getPhotoPathWithPage} from './source-filesystem-photo-paths'
+import {getPhotoPathsWithPages, getPhotoPathWithPage} from './photo-paths'
 import queryResults from '../test-data/create-pages-graphql-results'
 
-describe('source-filesystem-photo-paths', () => {  
+describe('photo-paths', () => {  
   it('returns Gatsby location pathnames for some gatsby-source-filesystem files', () => {
     const photosPerPage = 10
     const baseUrl = '/'
