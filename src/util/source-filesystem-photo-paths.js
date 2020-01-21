@@ -30,18 +30,6 @@ const getPhotoPathsWithPages = (photosPerPage, fileData) => {
   return photoPaths
 }
 
-// const getPhotoPathWithPage = (baseUrl, pageNumber, relativePath) => {
-//   let path = baseUrl
-//   const matches = match(/^(.+\/)([^/]+)$/, relativePath)
-//   if (matches && matches[1] && matches[2]) {
-//     path += `${matches[1]}` + (pageNumber > 1 ? `${pageNumber}/` : '') + matches[2]
-//   }
-//   else {
-//     path = path + (pageNumber > 1 ? `${pageNumber}/` : '') + relativePath
-//   }
-//   return path
-// }
-
 const getPhotoPathWithPage = (pageNumber, url) => {
   const matches = match(/^(.+\/)([^/]+)$/, url)
   if (matches && matches[1] && matches[2]) {

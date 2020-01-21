@@ -58,10 +58,13 @@ export const query = graphql`
         }
       }
     }
-    folders: allDirectory(filter: {name: {ne: "images"}}, 
-        sort: {fields: relativePath}) {
+    folders: allDirectory(
+      filter: {
+        name: {ne: "images"},
+        url: {regex: $regexFilter}
+      }, 
+      sort: {fields: relativePath}) {
       nodes {
-        relativePath
         url
       }
     }
@@ -84,7 +87,7 @@ Index.propTypes = {
     folders: PropTypes.shape({
       nodes: PropTypes.arrayOf(
         PropTypes.shape({
-          relativePath: PropTypes.string.isRequired,
+          url: PropTypes.string.isRequired,
         }).isRequired   
       ).isRequired
     }).isRequired,

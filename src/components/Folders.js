@@ -1,21 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import compose from 'ramda/src/compose'
 import Folder from './Folder'
-import getChildPaths from '../util/files-folders'
 import {mapIndexed} from '../util/ramda-utils'
 
-const Folders = ({path, folders, icon}) => {
-  return compose(
-    mapIndexed((folder, i) => 
-      <Folder key={i} path={folder} icon={icon} />
-    ),
-    getChildPaths(path)
+const Folders = ({folders, icon}) => {
+  return mapIndexed((folder, i) => 
+    <Folder key={i} path={folder} icon={icon} />
   )(folders)
 }
 
 Folders.propTypes = {
-  path: PropTypes.string.isRequired,
   folders: PropTypes.arrayOf(
     PropTypes.string.isRequired, 
   ).isRequired,
