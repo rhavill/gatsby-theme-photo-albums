@@ -3,11 +3,9 @@ import PropTypes from 'prop-types'
 import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import Layout from '../components/Layout'
-import {pathToFileTitle} 
-  from '../util/text-utils'
+import {pathToFileTitle} from '../util/text-utils'
 
 const Photo =  ({data, path}) => {
-  // path = gatsbyPathnameToChildComponentPath(baseUrl, path, data)
   const title = pathToFileTitle(path)
 
   return (
@@ -37,9 +35,6 @@ export const query = graphql`
 
 Photo.propTypes = {
   path: PropTypes.string.isRequired,
-  pageContext: PropTypes.shape({
-    baseUrl: PropTypes.string.isRequired,
-  }),
   data: PropTypes.shape({
     photo: PropTypes.shape({
       childImageSharp: PropTypes.shape({
