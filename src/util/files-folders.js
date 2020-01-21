@@ -4,7 +4,6 @@ const match = require('ramda/src/match')
 
 const getChildPaths = curry(
   (currentPath, paths) => {
-    console.log('getChildPaths current', currentPath, 'paths', paths)
     return filter(isParentDirectoryOf(currentPath), paths)
   }
 )

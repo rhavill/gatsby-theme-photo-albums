@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {graphql} from 'gatsby'
 import addIndex from 'ramda/src/addIndex'
 import compose from 'ramda/src/compose'
 import map from 'ramda/src/map'

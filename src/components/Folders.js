@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {graphql} from 'gatsby'
 import addIndex from 'ramda/src/addIndex'
 import compose from 'ramda/src/compose'
 import map from 'ramda/src/map'
@@ -12,7 +11,7 @@ const mapIndexed = addIndex(map)
 const Folders = ({path, folders, icon}) => {
   return compose(
     mapIndexed((folder, i) => 
-    <Folder key={i} path={folder} icon={icon} />
+      <Folder key={i} path={folder} icon={icon} />
     ),
     getChildPaths(path)
   )(folders)
