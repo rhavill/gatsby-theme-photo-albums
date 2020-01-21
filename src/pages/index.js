@@ -37,9 +37,29 @@ export const query = graphql`
     photos: allFile(filter: {
         relativePath: {ne: "folder.png", regex: $regexFilter}}, 
         sort: {fields: relativePath} limit: $limit skip: $skip) {
-          ...ThumbnailsFragment
+      nodes {
+        relativePath
+        childImageSharp {
+          fixed(width: 250, height: 250, cropFocus: CENTER) {
+            ...GatsbyImageSharpFixed
+          }
+        }      
+      }
     }
-    ...FoldersFragment
+    folderIcon: file(relativePath: { eq: "folder.png" }) {
+      childImageSharp {
+        fixed(width: 250, height: 250) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    folders: allDirectory(filter: {name: {ne: "images"}}, 
+        sort: {fields: relativePath}) {
+      nodes {
+        relativePath
+        url
+      }
+    }
     site {
       pathPrefix
     }

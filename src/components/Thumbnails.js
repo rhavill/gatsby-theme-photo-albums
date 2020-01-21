@@ -25,15 +25,6 @@ const Thumbnails = ({path, data, currentPage, baseUrl}) => {
   )(data.photos.nodes)
 }
 
-export const query = graphql`
-  fragment ThumbnailsFragment on FileConnection {
-    nodes {
-      relativePath
-      ...ThumbnailFragment
-    }
-  }
-`
-
 Thumbnails.propTypes = {
   baseUrl: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,

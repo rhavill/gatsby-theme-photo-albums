@@ -18,21 +18,6 @@ const Folders = ({path, folders, icon}) => {
   )(folders)
 }
 
-export const query = graphql`
-  fragment FoldersFragment on Query {
-    folderIcon: file(relativePath: { eq: "folder.png" }) {
-      ...FolderFragment
-    }
-    folders: allDirectory(filter: {name: {ne: "images"}}, 
-        sort: {fields: relativePath}) {
-      nodes {
-        relativePath
-        url
-      }
-    }
-  }
-`
-
 Folders.propTypes = {
   path: PropTypes.string.isRequired,
   folders: PropTypes.arrayOf(

@@ -13,16 +13,6 @@ const Thumbnail = ({path, imageData}) => {
   </article>
 }
 
-export const query = graphql`
-  fragment ThumbnailFragment on File {
-    childImageSharp {
-      fixed(width: 250, height: 250, cropFocus: CENTER) {
-        ...GatsbyImageSharpFixed
-      }
-    }
-  }
-`
-
 Thumbnail.propTypes = {
   path: PropTypes.string.isRequired,
   imageData: PropTypes.shape({

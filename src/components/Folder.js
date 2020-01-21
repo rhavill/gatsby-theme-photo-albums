@@ -16,16 +16,6 @@ const Folder = ({path, icon}) => {
   )
 }
 
-export const query = graphql`
-  fragment FolderFragment on File {
-    childImageSharp {
-      fixed(width: 250, height: 250) {
-        ...GatsbyImageSharpFixed
-      }
-    }
-  }
-`
-
 Folder.propTypes = {
   path: PropTypes.string.isRequired,
   icon: PropTypes.shape({
