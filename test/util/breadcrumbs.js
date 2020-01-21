@@ -1,4 +1,4 @@
-import breadcrumbs from './breadcrumbs'
+import breadcrumbs from '../../src/util/breadcrumbs'
 
 describe('breadcrumbs', () => {
   it('has single link for root path', () => {
