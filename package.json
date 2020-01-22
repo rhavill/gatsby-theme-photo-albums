@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-theme-photo-albums",
+  "name": "@rhavill/gatsby-theme-photo-albums",
   "private": false,
   "description": "A photo albums theme for Gatsby",
   "version": "0.1.0",
