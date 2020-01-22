@@ -10,7 +10,7 @@ import Pager from '../components/Pager'
 
 const Index = ({data, location, pageContext}) => {
   const {currentPage, numPages} = pageContext
-  const path = location.pathname
+  const path = decodeURI(location.pathname)
   const folders = map(prop('url'), data.folders.nodes)
   const files = map(node => ({
     url: node.url,

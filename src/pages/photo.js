@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import {pathToFileTitle} from '../util/url-text'
 
 const Photo =  ({data, path}) => {
+  path = decodeURI(path)
   const title = pathToFileTitle(path)
 
   return (
