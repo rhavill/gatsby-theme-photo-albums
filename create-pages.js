@@ -4,15 +4,13 @@ const {objectArrayToPropArray} = require('./src/util/ramda-utils')
 
 const query = `
   query {
-      #folders: allDirectory(filter: {name: {ne: "images"}}) {
-      folders: allDirectory {
+      folders: allDirectory(filter: {sourceInstanceName: {eq: "gtpaPhotos"}}) {
         nodes {
         relativePath
         url
       }
     }
-    # photos: allFile(filter: {relativePath: {ne: "folder.png"}}, sort: {fields: relativePath}) {
-    photos: allFile(filter: {relativePath: {ne: "folder.png"}}, sort: {fields: relativePath}) {
+    photos: allFile(filter: {sourceInstanceName: {eq: "gtpaPhotos"}}, sort: {fields: relativePath}) {
         nodes {
         relativePath
         relativeDirectory

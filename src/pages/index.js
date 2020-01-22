@@ -36,7 +36,7 @@ export const query = graphql`
   query indexQuery($skip: Int!, $limit: Int!, $regexFilter: String!) {
     photos: allFile(
       filter: {
-        relativePath: {ne: "folder.png"}, 
+        sourceInstanceName: {eq: "gtpaPhotos"}, 
         url: {regex: $regexFilter}
       }, 
       sort: {fields: relativePath} 
@@ -51,7 +51,7 @@ export const query = graphql`
         }      
       }
     }
-    folderIcon: file(relativePath: { eq: "folder.png" }) {
+    folderIcon: file(sourceInstanceName: {eq: "gtpaFolderIcon"}) {
       childImageSharp {
         fixed(width: 250, height: 250) {
           ...GatsbyImageSharpFixed
@@ -60,16 +60,13 @@ export const query = graphql`
     }
     folders: allDirectory(
       filter: {
-        name: {ne: "images"},
+        sourceInstanceName: {eq: "gtpaPhotos"},
         url: {regex: $regexFilter}
       }, 
       sort: {fields: relativePath}) {
       nodes {
         url
       }
-    }
-    site {
-      pathPrefix
     }
   }
 `
