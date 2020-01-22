@@ -4,6 +4,7 @@
   "description": "A photo albums theme for Gatsby",
   "version": "0.1.0",
   "main": "index.js",
+  "author": "Ricardo Havill",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -54,5 +55,14 @@
   },
   "bugs": {
     "url": "https://github.com/rhavill/gatsby-theme-photo-albums/issues"
-  }
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-plugin",
+    "react",
+    "images",
+    "photos",
+    "gallery"
+  ]
 }

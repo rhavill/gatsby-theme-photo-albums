@@ -6,7 +6,7 @@ const defaults = require('./theme-config')
  */
 
 module.exports = ({albumsPath = defaults.albumsPath}) => ({
-  // pathPrefix: '/photo-gallery',
+  // pathPrefix: '/photo-albums',
   plugins: [
     'gatsby-plugin-theme-ui',
     {
