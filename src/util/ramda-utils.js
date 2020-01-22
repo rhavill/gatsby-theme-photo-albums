@@ -1,4 +1,7 @@
 const addIndex = require('ramda/src/addIndex')
+const compose = require('ramda/src/compose')
+const forEach = require('ramda/src/forEach')
+const groupBy = require('ramda/src/groupBy')
 const map = require('ramda/src/map')
 const prop = require('ramda/src/prop')
 
@@ -22,7 +25,13 @@ const objectArrayToPropArray = (property, objects) => map(prop(property), object
 
 const mapIndexed = addIndex(map)
 
+const indexedForEach = addIndex(forEach)
+
+const groupByProp = property => compose(groupBy, prop)(property)
+
 module.exports = {
   objectArrayToPropArray,
   mapIndexed,
+  indexedForEach,
+  groupByProp,
 }

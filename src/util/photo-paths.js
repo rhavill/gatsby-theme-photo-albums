@@ -1,16 +1,13 @@
-const addIndex = require('ramda/src/addIndex')
 const forEach = require('ramda/src/forEach')
-const groupBy = require('ramda/src/groupBy')
 const keys = require('ramda/src/keys')
 const match = require('ramda/src/match')
-const prop = require('ramda/src/prop')
+const {indexedForEach, groupByProp} = require('./ramda-utils')
 
-const indexedForEach = addIndex(forEach)
-const byRelativeDirectory = groupBy(prop('relativeDirectory'))
+const groupByRelativeDirectory = groupByProp('relativeDirectory')
 
 const getPhotoPathsWithPages = (photosPerPage, fileData) => {
   const photoPaths = {}
-  const groupedFiles = byRelativeDirectory(fileData)
+  const groupedFiles = groupByRelativeDirectory(fileData)
   forEach(relativeDirectory => indexedForEach(
     (file, i) => {
       const pageNumber = Math.ceil((i + 1) / photosPerPage)
@@ -24,7 +21,7 @@ const getPhotoPathsWithPages = (photosPerPage, fileData) => {
 }
 
 const getPhotoPathWithPage = (pageNumber, url) => {
-  const matches = match(/^(.+\/)([^/]+)$/, url)
+  const matches = match(/^(.*\/)([^/]+)$/, url)
   if (matches && matches[1] && matches[2]) {
     const path =  `${matches[1]}` + (pageNumber > 1 ? `${pageNumber}/` : '') + matches[2]
     return path
