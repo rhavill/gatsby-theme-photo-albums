@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import {cleanup, render} from '@testing-library/react'
-import Layout from './Layout'
+import Layout from '../../src/components/Layout'
 
 // automatically unmount and cleanup DOM after the test is finished.
 afterEach(cleanup)
