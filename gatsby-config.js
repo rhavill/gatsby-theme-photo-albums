@@ -1,18 +1,18 @@
-const themeConfig = require('./theme-config')
+const defaults = require('./theme-config')
 /**
  * Configure your Gatsby site with this file.
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-module.exports = ({albumsPath = themeConfig.defaultAlbumsPath}) => ({
-  pathPrefix: '/photo-gallery',
+module.exports = ({albumsPath = defaults.albumsPath}) => ({
+  // pathPrefix: '/photo-gallery',
   plugins: [
     'gatsby-plugin-theme-ui',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'photos',
+        name: 'gtpaPhotos',
         path: albumsPath,
         useMozJpeg: true,
       },
@@ -20,8 +20,8 @@ module.exports = ({albumsPath = themeConfig.defaultAlbumsPath}) => ({
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'images',
-        path: `${__dirname}/images/`, // eslint-disable-line no-undef
+        name: 'gtpaFolderIcon',
+        path: `${__dirname}/folder-icon/`, // eslint-disable-line no-undef
       },
     },
     'gatsby-transformer-sharp', 
