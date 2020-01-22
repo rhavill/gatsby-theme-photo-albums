@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pager renders correctly 1`] = `
+<div
+  className="pager"
+>
+  <a
+    href="/some-path"
+    rel="prev"
+  >
+    ← Previous Page
+  </a>
+  <a
+    href="/some-path/3"
+    rel="next"
+  >
+    Next Page →
+  </a>
+</div>
+`;
