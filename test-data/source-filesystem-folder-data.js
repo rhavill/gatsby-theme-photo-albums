@@ -1,4 +1,4 @@
-import imageData from '../test-data/gatsby-image-data'
+import imageData from './gatsby-image-data'
 
 const folderData = {
   folderIcon: imageData,
