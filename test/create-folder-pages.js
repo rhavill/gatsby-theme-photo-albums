@@ -1,5 +1,4 @@
 const createFolderPages = require('../create-folder-pages')
-const emitter = require('../src/util/event-emitter')
 const {objectArrayToPropArray} = require('../src/util/ramda-utils')
 const queryResults = require('../test-data/create-pages-graphql-results')
 
@@ -64,11 +63,4 @@ describe('create-folder-pages', () => {
     createFolderPages(baseUrl, 5, creator.createPage, [], ['/base/', '/base/sub-folder'])
     expect(creator.getPages()).toEqual(exptected)
   })
-  it('emits an "indexContext" event when the index page is created', () => {
-    const listener = jest.fn()
-    const createPage = jest.fn()
-    emitter.on('indexContext', listener)
-    createFolderPages(baseUrl, 5, createPage, [], ['/base/'])
-    expect(listener.mock.calls.length).toBe(1)
-  })  
 })

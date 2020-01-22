@@ -2,7 +2,7 @@ import React from 'react'
 import {StaticQuery} from 'gatsby'
 import renderer from 'react-test-renderer'
 import {cleanup, render} from '@testing-library/react'
-import Index from '../../src/pages/index'
+import Index from '../../src/templates/Index'
 import queryResults from '../../test-data/index-page-graphql-results'
 
 // automatically unmount and cleanup DOM after the test is finished.

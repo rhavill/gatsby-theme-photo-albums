@@ -1,12 +1,7 @@
 const fs = require('fs')
 const themeConfig = require('./theme-config')
-const emitter = require('./src/util/event-emitter')
 const createPages = require('./create-pages')
 const {prependbaseUrl, ensureLeadingAndTrailingSlash} = require('./src/util/url-text')
-
-let indexContext
-
-emitter.on('indexContext', data => indexContext = data)
 
 exports.onPreBootstrap = ({ reporter }, options) => {
   const albumsPath = options.albumsPath || themeConfig.defaultAlbumsPath
@@ -21,24 +16,6 @@ exports.createPages = async ({ graphql, actions, reporter },
   baseUrl = ensureLeadingAndTrailingSlash(baseUrl)
   const { createPage } = actions
   createPages(baseUrl, photosPerPage, graphql, reporter, createPage)
-}
-
-exports.onCreatePage = ({ page, actions }) => {
-  // Allow paged results functionality on index page
-  const { createPage, deletePage } = actions
-  if (page.path === '/') {
-    deletePage(page)
-    createPage({
-      ...page,
-      context: {
-        ...page.context,
-        ...indexContext
-      },
-    })  
-  }
-  if (page.path === '/photo/') {
-    deletePage(page)
-  }
 }
 
 exports.createSchemaCustomization = ({actions}, {baseUrl = '/'}) => {
