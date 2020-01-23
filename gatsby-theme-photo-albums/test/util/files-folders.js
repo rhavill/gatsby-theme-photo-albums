@@ -1,7 +1,6 @@
 import map from 'ramda/src/map'
 import prop from 'ramda/src/prop'
-import {getChildPaths, getPagerData} from '../../src/util/files-folders'
-import {objectArrayToPropArray} from '../../src/util/ramda-utils'
+import {getChildPaths, getPagerData, addUrlProps} from '../../src/util/files-folders'
 import folderData from '../../test-data/source-filesystem-folder-data'
 import fileData from '../../test-data/source-filesystem-file-data'
 
@@ -9,7 +8,6 @@ const folders = map(prop('url'), folderData.folders.nodes)
 const files = map(prop('url'), fileData.photos.nodes)
 
 describe('files-folders getChildPaths', () => {  
-
   it('returns child directories of current path', () => {
     const path = '/base/level-one'
     const children = getChildPaths(path, folders)
@@ -90,5 +88,22 @@ describe('files-folders getPagerData', () => {
       {limit: 5, skip: 0, numPages: 1, currentPage: 1},
     ]
     expect(data).toEqual(expectedResult)
+  })
+})
+
+describe('files-folders addUrlProps', () => {  
+  it('adds a url property to an array of objects', () => {
+    const baseUrl = '/'
+    const files = [
+      {relativePath: 'folder/1.jpg', relativeDirectory: 'folder'},
+      {relativePath: 'folder/2.jpg', relativeDirectory: 'folder'},
+      {relativePath: 'folder/3.jpg', relativeDirectory: 'folder'},
+    ]
+    const expected = [
+      {relativePath: 'folder/1.jpg', relativeDirectory: 'folder', url: '/folder/1.jpg'},
+      {relativePath: 'folder/2.jpg', relativeDirectory: 'folder', url: '/folder/2.jpg'},
+      {relativePath: 'folder/3.jpg', relativeDirectory: 'folder', url: '/folder/3.jpg'},
+    ]
+    expect(addUrlProps(baseUrl, files)).toEqual(expected)
   })
 })

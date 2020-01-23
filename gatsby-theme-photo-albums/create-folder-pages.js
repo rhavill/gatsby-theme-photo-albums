@@ -12,30 +12,30 @@ const pageIndexToPageNumber = add(1)
 
 const createFolderPages = (baseUrl, photosPerPage, createPage, files, folders) => {
   folders.forEach(folder => {
-    const pagerData = getPagerData(folder, files, photosPerPage)
+    const pagerData = getPagerData(folder.url, files, photosPerPage)
     // The regexFilter allows the child folders and photos of the current page 
     // to be returned by the index page graphql query. 
-    // The trailing slash is removed (if it exists), because the url will have
-    // a trailing slash if it is the base url.
     // eslint-disable-next-line no-useless-escape
-    const regexFilter = '/^' + folder.replace(/\/$/, '') + (folder ? '\/' : '') 
+    const regexFilter = '/^' + folder.relativePath + (folder.relativePath ? '\/' : '') 
       + '[^/]+$/'
     pagerData.forEach((pagerData, i) => {
-      let url = folder
+      let url = folder.url
       if (and(isNotFirstPage(i), !(url === baseUrl))) {
         url = concat(url, '/')
       }
       if (isNotFirstPage(i)) {
         url = concat(url, `${pageIndexToPageNumber(i)}`)
       }
+      const pageContext = {
+        ...pagerData,
+        regexFilter,
+        baseUrl,
+      }
       
       createPage({
         path: url,
         component: require.resolve('./src/templates/Index.js'),
-        context: {
-          ...pagerData,
-          regexFilter
-        }
+        context: pageContext
       })
     })
   })

@@ -1,3 +1,3 @@
 module.exports = {
-  defaultAlbumsPath: 'photo-albums',
+  albumsPath: 'photo-albums',
 }

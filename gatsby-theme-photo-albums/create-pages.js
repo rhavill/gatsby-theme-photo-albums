@@ -1,20 +1,19 @@
 const createFolderPages = require('./create-folder-pages')
 const {getPhotoPathsWithPages} = require('./src/util/photo-paths')
 const {objectArrayToPropArray} = require('./src/util/ramda-utils')
+const {addUrlProps} = require('./src/util/files-folders')
 
 const query = `
   query {
       folders: allDirectory(filter: {sourceInstanceName: {eq: "gtpaPhotos"}}) {
         nodes {
         relativePath
-        url
       }
     }
     photos: allFile(filter: {sourceInstanceName: {eq: "gtpaPhotos"}}, sort: {fields: relativePath}) {
         nodes {
         relativePath
         relativeDirectory
-        url
       }
     }
   }
@@ -26,7 +25,6 @@ const getQueryResults = async (graphql, reporter) => {
     reporter.panicOnBuild('Error while running GraphQL query.')
     return
   }
-
   return {
     files: result.data.photos.nodes,
     folders: result.data.folders.nodes,
@@ -47,10 +45,11 @@ const createPhotoPages = (photosPerPage, createPage, files) => {
 }
 
 const createPages = async (baseUrl, photosPerPage, graphql, reporter, createPage) => {
-  const {files, folders} = await getQueryResults(graphql,reporter)
+  const result = await getQueryResults(graphql,reporter)
+  const folders = addUrlProps(baseUrl, result.folders)
+  const files = addUrlProps(baseUrl, result.files)
   createFolderPages(baseUrl, photosPerPage, createPage, 
-    objectArrayToPropArray('url', files), 
-    objectArrayToPropArray('url', folders)
+    objectArrayToPropArray('url', files), folders
   )
   createPhotoPages(photosPerPage, createPage, files)
 }

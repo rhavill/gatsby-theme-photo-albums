@@ -15,14 +15,14 @@ beforeEach(() => {
 
 describe('Index', () => {
   it('renders correctly', () => {
-    const pageContext = {numPages: 1, currentPage: 1, regexFilter: '/^[^/]+$/'}
+    const pageContext = {baseUrl: '/', numPages: 1, currentPage: 1, regexFilter: '/^[^/]+$/'}
     const tree = renderer
       .create(<Index location={{pathname: '/'}} data={queryResults.data} pageContext={pageContext}/>)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
   it('passes decoded url to child components', () => {
-    const pageContext = {numPages: 1, currentPage: 1, regexFilter: '/^san-sebastián[^/]+$/'}
+    const pageContext = {baseUrl: '/', numPages: 1, currentPage: 1, regexFilter: '/^san-sebastián[^/]+$/'}
     const {getAllByTestId} = render(
       <Index location={{pathname: '/san-sebasti%c3%a1n'}} data={queryResults.data} pageContext={pageContext}/>
     )

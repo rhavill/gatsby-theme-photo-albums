@@ -28,7 +28,7 @@ exports[`Index renders correctly 1`] = `
           data-testid="folder"
         >
           <a
-            href="/base/"
+            href="/"
           >
             <div
               className=" gatsby-image-wrapper"
@@ -47,7 +47,7 @@ exports[`Index renders correctly 1`] = `
                   srcSet="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x"
                 />
                 <img
-                  alt="/base/"
+                  alt="/"
                   height={250}
                   loading="lazy"
                   onLoad={[Function]}
@@ -66,14 +66,14 @@ exports[`Index renders correctly 1`] = `
                       "width": "100%",
                     }
                   }
-                  title="/base/"
+                  title="/"
                   width={250}
                 />
               </picture>
               <noscript
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "<picture><source srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" src=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png\\" alt=\\"/base/\\" title=\\"/base/\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+                    "__html": "<picture><source srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" src=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png\\" alt=\\"/\\" title=\\"/\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
                   }
                 }
               />
@@ -81,7 +81,7 @@ exports[`Index renders correctly 1`] = `
             <div
               className="folder-title"
             >
-              /base/
+              /
             </div>
           </a>
         </article>
@@ -90,7 +90,7 @@ exports[`Index renders correctly 1`] = `
           data-testid="folder"
         >
           <a
-            href="/base/2019-puerto-rico"
+            href="/2019-puerto-rico"
           >
             <div
               className=" gatsby-image-wrapper"
@@ -152,7 +152,7 @@ exports[`Index renders correctly 1`] = `
           data-testid="folder"
         >
           <a
-            href="/base/2019-puerto-rico/jayuya"
+            href="/2019-puerto-rico/jayuya"
           >
             <div
               className=" gatsby-image-wrapper"
@@ -214,7 +214,7 @@ exports[`Index renders correctly 1`] = `
           data-testid="file"
         >
           <a
-            href="/base/2019-puerto-rico/jayuya/IMG_20190814_113735817-small.jpg"
+            href="/2019-puerto-rico/jayuya/IMG_20190814_113735817-small.jpg"
           >
             <div
               className=" gatsby-image-wrapper"
@@ -271,7 +271,7 @@ exports[`Index renders correctly 1`] = `
           data-testid="file"
         >
           <a
-            href="/base/2019-puerto-rico/jayuya/IMG_20190814_104325636-small.jpg"
+            href="/2019-puerto-rico/jayuya/IMG_20190814_104325636-small.jpg"
           >
             <div
               className=" gatsby-image-wrapper"
@@ -328,7 +328,7 @@ exports[`Index renders correctly 1`] = `
           data-testid="file"
         >
           <a
-            href="/base/2019-puerto-rico/jayuya/IMG_20190814_103213316-small.jpg"
+            href="/2019-puerto-rico/jayuya/IMG_20190814_103213316-small.jpg"
           >
             <div
               className=" gatsby-image-wrapper"
@@ -385,7 +385,7 @@ exports[`Index renders correctly 1`] = `
           data-testid="file"
         >
           <a
-            href="/base/2019-puerto-rico/jayuya/IMG_20190814_113817195-small.jpg"
+            href="/2019-puerto-rico/jayuya/IMG_20190814_113817195-small.jpg"
           >
             <div
               className=" gatsby-image-wrapper"

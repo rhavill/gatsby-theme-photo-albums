@@ -1,23 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {graphql} from 'gatsby'
+import compose from 'ramda/src/compose'
 import map from 'ramda/src/map'
+import merge from 'ramda/src/merge'
 import prop from 'ramda/src/prop'
 import Layout from '../components/Layout'
 import Folders from '../components/Folders'
 import Thumbnails from '../components/Thumbnails'
 import Pager from '../components/Pager'
+const {addUrlProps} = require('../util/files-folders')
 
 const Index = ({data, location, pageContext}) => {
-  const {currentPage, numPages} = pageContext
+  const {baseUrl, currentPage, numPages} = pageContext
   const path = decodeURI(location.pathname)
-  const folders = map(prop('url'), data.folders.nodes)
-  const files = map(node => ({
-    url: node.url,
-    imageData: node.childImageSharp.fixed
-  }), data.photos.nodes)
+  const folders = compose(
+    map(prop('url')),
+    addUrlProps(baseUrl))(data.folders.nodes)
+  const files = compose(
+    map(file => merge(file, {imageData: file.childImageSharp.fixed})),
+    addUrlProps(baseUrl))(data.photos.nodes)
   const folderIcon = data.folderIcon.childImageSharp.fixed
-  
+
   return (
     <Layout path={path}>
       <div className="listing-page" data-testid={path} >
@@ -37,13 +41,13 @@ export const query = graphql`
     photos: allFile(
       filter: {
         sourceInstanceName: {eq: "gtpaPhotos"}, 
-        url: {regex: $regexFilter}
+        relativePath: {regex: $regexFilter}
       }, 
       sort: {fields: relativePath} 
       limit: $limit 
       skip: $skip) {
       nodes {
-        url
+        relativePath
         childImageSharp {
           fixed(width: 250, height: 250, cropFocus: CENTER) {
             ...GatsbyImageSharpFixed
@@ -61,11 +65,11 @@ export const query = graphql`
     folders: allDirectory(
       filter: {
         sourceInstanceName: {eq: "gtpaPhotos"},
-        url: {regex: $regexFilter}
+        relativePath: {regex: $regexFilter}
       }, 
       sort: {fields: relativePath}) {
       nodes {
-        url
+        relativePath
       }
     }
   }
@@ -84,14 +88,14 @@ Index.propTypes = {
     folders: PropTypes.shape({
       nodes: PropTypes.arrayOf(
         PropTypes.shape({
-          url: PropTypes.string.isRequired,
+          relativePath: PropTypes.string.isRequired,
         }).isRequired   
       ).isRequired
     }).isRequired,
     photos: PropTypes.shape({
       nodes: PropTypes.arrayOf(
         PropTypes.shape({
-          url: PropTypes.string.isRequired,
+          relativePath: PropTypes.string.isRequired,
           childImageSharp: PropTypes.shape({
             fixed: PropTypes.object.isRequired,
           })
@@ -103,6 +107,7 @@ Index.propTypes = {
     currentPage: PropTypes.number.isRequired,
     numPages: PropTypes.number.isRequired,
     regexFilter: PropTypes.string.isRequired,
+    baseUrl: PropTypes.string.isRequired,
   }).isRequired
 }
 
