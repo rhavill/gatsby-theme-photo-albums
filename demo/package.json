@@ -11,6 +11,7 @@
   "dependencies": {
     "gatsby": "^2.18.8",
     "gatsby-theme-photo-albums": "*",
+    "lodash.merge": "^4.6.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
