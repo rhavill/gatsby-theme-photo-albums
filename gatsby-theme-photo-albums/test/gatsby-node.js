@@ -1,21 +1,7 @@
 const fs = require('fs')
-const compose = require('ramda/src/compose')
-const last = require('ramda/src/last')
-const prop = require('ramda/src/prop')
-const {onCreatePage, onPreBootstrap} = require('../gatsby-node')
+const {onPreBootstrap} = require('../gatsby-node')
 
-const createPage = jest.fn()
 const deletePage = jest.fn()
-const actions = {
-  createPage,
-  deletePage
-}
-const indexPage = {
-  path: '/'
-}
-const photoPage = {
-  path: '/photo/'
-}
 
 jest.mock('fs')
 fs.existsSync
