@@ -1,97 +1,123 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
 <h1 align="center">
-  Gatsby's hello-world starter
+  Gatsby Theme Photo Albums
 </h1>
 
-Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+With this theme, you may add some photo albums to your [Gatsby](https://www.gatsbyjs.org) site. The albums are generated from folders and image files that are placed within a specific directory. To see the theme in action, check out this [demo](http://whereyouat.net/photo-albums-demo).
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+## Installation
 
-## 🚀 Quick start
+1.  Set up a [Gatsby](https://www.gatsbyjs.org/docs/) site.
 
-1.  **Create a Gatsby site.**
-
-    Use the Gatsby CLI to create a new site, specifying the hello-world starter.
-
-    ```shell
-    # create a new Gatsby site using the hello-world starter
-    gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
+2.  Install the theme
+    ```sh
+    npm i gatsby-theme-photo-albums
     ```
 
-1.  **Start developing.**
+    or
 
-    Navigate into your new site’s directory and start it up.
-
-    ```shell
-    cd my-hello-world-starter/
-    gatsby develop
+    ```sh
+    yarn add gatsby-theme-photo-albums
     ```
 
-1.  **Open the source code and start editing!**
+3.  Add the theme to your `gatsby-config.js`:
+    ```js
+    module.exports = {
+      plugins: [
+        {
+          resolve: "gatsby-theme-photo-albums",
+        }
+      ]
+    }
+    ```
+## Configuration
 
-    Your site is now running at `http://localhost:8000`!
+If you want to change the default behavior, add some options to `gatsby-config.js`:
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+```js
+module.exports = {
+  plugins: [
+    {
+      resolve: "gatsby-theme-photo-albums",
+      options: {
+        baseUrl: '/', // the path to the photo albums from your site (default: '/')
+        photosPerPage: 15, // the number of photos to display on a page (default: 15)
+        albumsPath: 'photo-albums', // the directory where you put photo albums (default: 'photo-albums')
+      }
+    }
+  ]
+}
+```
 
-    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+## Adding Photo Albums
+  
+Add some folders and image files to your albums directory. The default directory is `photo-albums`, but this can be changed with the `albumsPath` configuration option. Each folder you create inside the albums directory is a photo album.
 
-## 🧐 What's inside?
+## Customizing Styles
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+This theme utilizes [gatsby-plugin-theme-ui](https://www.gatsbyjs.org/packages/gatsby-plugin-theme-ui), which makes it easy to override CSS styles provided by the theme. If you want to change the styles provided by this theme, create a `src/gatsby-theme-photo-albums` directory in your site and add a file called `theme.js` to the directory. To override the styles, you will want to do a deep merge of the original styles object. One way to do this merge is to use [Lodash merge function](https://lodash.com/docs/#merge). 
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+To install the Lodash merge function:
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+  ```sh
+  npm i lodash.merge
+  ```
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+  or
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+  ```sh
+  yarn add lodash.merge
+  ```
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+Here is an example of a style customization, where the default background color is changed, by using the Lodash merge function in the `src/gatsby-theme-photo-albums/theme.js` file:
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+```js
+import merge from 'lodash.merge'
+import baseTheme from 'gatsby-theme-photo-albums/src/theme'
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+export const theme = merge({}, baseTheme, {
+  colors: {
+    background: '#eee',
+  },
+})
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+export default theme
+```
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+The default styles can be seen in the `src/theme.js` file of the gastsby-theme-photo-albums theme.
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+## Customizing Layout
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+Thanks to Gatsby's awesome [Component Shadowing](https://www.gatsbyjs.org/blog/2019-04-29-component-shadowing/) functionality, you may override any component provided by `gatsby-theme-photo-albums`. For example, you may replace the provided Header component with your own custom Header component, by adding the following code to a file called `src/gatsby-theme-photo-albums/components/Header.js`:
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+```js
+import React from 'react'
+import PropTypes from 'prop-types'
+import {Link} from 'gatsby'
+import {Header as ThemeHeader} from 'theme-ui'
+import breadcrumbs from 'gatsby-theme-photo-albums/src/util/breadcrumbs'
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+const Header = ({ path, rootTitle }) => {
+  const links = breadcrumbs(path, rootTitle)
 
-## 🎓 Learning Gatsby
+  return (
+    <ThemeHeader>
+      <nav>{
+        links.map((crumb, i) => (
+          <Link key={i} to={crumb.path}>
+            {crumb.title}
+          </Link>))
+      }
+      </nav>
+    </ThemeHeader>
+  )
+}
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+Header.propTypes = {
+  path: PropTypes.string.isRequired,
+  rootTitle: PropTypes.string,
+}
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-hello-world)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+Header.defaultProps = { 
+  rootTitle: 'Home',
+}
+```
