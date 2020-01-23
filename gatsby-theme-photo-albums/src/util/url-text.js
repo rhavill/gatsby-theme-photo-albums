@@ -15,7 +15,7 @@ const pathToFile = replace(/.*\/([^/]+$)/, '$1')
 
 const pathToFileTitle = compose(toTitleCase, removeFileExtension, pathToFile)
 
-const prependbaseUrl = curry((baseUrl, relativePath) => {
+const prependBaseUrl = curry((baseUrl, relativePath) => {
   // Make sure baseUrl starts and ends with slash (for consistency)
   const base = ensureLeadingAndTrailingSlash(baseUrl)
   return concat(base, relativePath)
@@ -29,7 +29,7 @@ const ensureLeadingAndTrailingSlash = compose(ensureLeadingSlash, ensureTrailing
 
 module.exports = {
   pathToFileTitle,
-  prependbaseUrl,
+  prependBaseUrl,
   removeFileExtension,
   toTitleCase,
   ensureLeadingAndTrailingSlash,

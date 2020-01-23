@@ -1,7 +1,7 @@
 const curry = require('ramda/src/curry')
 const filter = require('ramda/src/filter')
 const match = require('ramda/src/match')
-const {prependbaseUrl} = require('./url-text')
+const {prependBaseUrl} = require('./url-text')
 
 const getChildPaths = curry(
   (currentPath, paths) => {
@@ -45,7 +45,7 @@ const getPagerData = (currentPath, files, filesPerPage) => {
 const addUrlProps = curry((baseUrl, filesOrDirectories) => 
   filesOrDirectories.map(fileOrDirectory => ({
     ...fileOrDirectory,
-    url: prependbaseUrl(baseUrl, fileOrDirectory.relativePath)
+    url: prependBaseUrl(baseUrl, fileOrDirectory.relativePath)
   })))
 
 module.exports = {
