@@ -12,7 +12,8 @@ const Photo =  ({data, path}) => {
   return (
     <Layout path={path}>
       <div className='photo-page' data-testid={path}>
-        <Img fluid={data.photo.childImageSharp.fluid}  alt={title} title={title} />
+        <Img fluid={data.photo.childImageSharp.fluid}  alt={title} title={title}
+          loading='eager' />
       </div>
     </Layout>
   )

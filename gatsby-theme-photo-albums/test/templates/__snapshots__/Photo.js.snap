@@ -79,7 +79,7 @@ exports[`Photo renders correctly 1`] = `
           />
           <img
             alt="1"
-            loading="lazy"
+            loading="eager"
             onLoad={[Function]}
             sizes="(max-width: 1024px) 100vw, 1024px"
             src="/static/d48e4ab75840455d20bbbb33140bcdaa/426ce/IMG_20190801_180122560_HDR-small.jpg"
@@ -109,7 +109,7 @@ exports[`Photo renders correctly 1`] = `
               "__html": "<picture><source srcset=\\"/static/d48e4ab75840455d20bbbb33140bcdaa/160a1/IMG_20190801_180122560_HDR-small.jpg 512w,
 /static/d48e4ab75840455d20bbbb33140bcdaa/4271c/IMG_20190801_180122560_HDR-small.jpg 614w,
 /static/d48e4ab75840455d20bbbb33140bcdaa/42a5a/IMG_20190801_180122560_HDR-small.jpg 819w,
-/static/d48e4ab75840455d20bbbb33140bcdaa/426ce/IMG_20190801_180122560_HDR-small.jpg 1024w\\" sizes=\\"(max-width: 1024px) 100vw, 1024px\\" /><img loading=\\"lazy\\" sizes=\\"(max-width: 1024px) 100vw, 1024px\\" srcset=\\"/static/d48e4ab75840455d20bbbb33140bcdaa/160a1/IMG_20190801_180122560_HDR-small.jpg 512w,
+/static/d48e4ab75840455d20bbbb33140bcdaa/426ce/IMG_20190801_180122560_HDR-small.jpg 1024w\\" sizes=\\"(max-width: 1024px) 100vw, 1024px\\" /><img loading=\\"eager\\" sizes=\\"(max-width: 1024px) 100vw, 1024px\\" srcset=\\"/static/d48e4ab75840455d20bbbb33140bcdaa/160a1/IMG_20190801_180122560_HDR-small.jpg 512w,
 /static/d48e4ab75840455d20bbbb33140bcdaa/4271c/IMG_20190801_180122560_HDR-small.jpg 614w,
 /static/d48e4ab75840455d20bbbb33140bcdaa/42a5a/IMG_20190801_180122560_HDR-small.jpg 819w,
 /static/d48e4ab75840455d20bbbb33140bcdaa/426ce/IMG_20190801_180122560_HDR-small.jpg 1024w\\" src=\\"/static/d48e4ab75840455d20bbbb33140bcdaa/426ce/IMG_20190801_180122560_HDR-small.jpg\\" alt=\\"1\\" title=\\"1\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
