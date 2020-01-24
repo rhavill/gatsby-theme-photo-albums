@@ -3,18 +3,22 @@ const queryResults = `{
     "folders": {
       "nodes": [
         {
+          "relativeDirectory": "..",
           "relativePath": "",
           "url": "/base/"
         },
         {
+          "relativeDirectory": "",
           "relativePath": "2019-puerto-rico",
           "url": "/base/2019-puerto-rico"
         },
         {
+          "relativeDirectory": "2019-puerto-rico",
           "relativePath": "2019-puerto-rico/jayuya",
           "url": "/base/2019-puerto-rico/jayuya"
         },
         {
+          "relativeDirectory": "2019-puerto-rico",
           "relativePath": "2019-puerto-rico/san-juan",
           "url": "/base/2019-puerto-rico/san-juan"
         }

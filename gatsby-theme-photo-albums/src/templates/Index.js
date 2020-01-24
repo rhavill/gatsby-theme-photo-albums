@@ -37,11 +37,11 @@ const Index = ({data, location, pageContext}) => {
 }
 
 export const query = graphql`
-  query indexQuery($skip: Int!, $limit: Int!, $regexFilter: String!) {
+  query indexQuery($skip: Int!, $limit: Int!, $relativeDirectory: String!) {
     photos: allFile(
       filter: {
         sourceInstanceName: {eq: "gtpaPhotos"}, 
-        relativePath: {regex: $regexFilter}
+        relativeDirectory: {eq: $relativeDirectory}
       }, 
       sort: {fields: relativePath} 
       limit: $limit 
@@ -65,7 +65,7 @@ export const query = graphql`
     folders: allDirectory(
       filter: {
         sourceInstanceName: {eq: "gtpaPhotos"},
-        relativePath: {regex: $regexFilter}
+        relativeDirectory: {eq: $relativeDirectory}
       }, 
       sort: {fields: relativePath}) {
       nodes {
@@ -106,7 +106,7 @@ Index.propTypes = {
   pageContext: PropTypes.shape({
     currentPage: PropTypes.number.isRequired,
     numPages: PropTypes.number.isRequired,
-    regexFilter: PropTypes.string.isRequired,
+    relativeDirectory: PropTypes.string.isRequired,
     baseUrl: PropTypes.string.isRequired,
   }).isRequired
 }

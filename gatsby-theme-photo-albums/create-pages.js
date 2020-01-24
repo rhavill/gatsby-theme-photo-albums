@@ -8,6 +8,7 @@ const query = `
       folders: allDirectory(filter: {sourceInstanceName: {eq: "gtpaPhotos"}}) {
         nodes {
         relativePath
+        relativeDirectory
       }
     }
     photos: allFile(filter: {sourceInstanceName: {eq: "gtpaPhotos"}}, sort: {fields: relativePath}) {
