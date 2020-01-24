@@ -28,9 +28,6 @@ export const query = graphql`
         }
       }
     }
-    site {
-      pathPrefix
-    }
   }
 `
 
