@@ -1,5 +1,5 @@
 const fs = require('fs')
-const themeConfig = require('./theme-config')
+const themeConfig = require('./default-config')
 const createPages = require('./create-pages')
 const {ensureLeadingAndTrailingSlash} = require('./src/util/url-text')
 

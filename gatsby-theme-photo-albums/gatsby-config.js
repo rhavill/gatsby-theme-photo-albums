@@ -1,4 +1,4 @@
-const defaults = require('./theme-config')
+const defaults = require('./default-config')
 /**
  * Configure your Gatsby site with this file.
  *
