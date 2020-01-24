@@ -13,7 +13,7 @@ export const theme = {
     muted: '#f6f6f6f',
     modes: {
       dark: {
-        text: '#3c3c3c',
+        text: '#fff',
         background: '#4f4f4f',
         primary: '#3c3c3c',
         secondary: '#9e9e9e',
