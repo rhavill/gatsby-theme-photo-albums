@@ -15,5 +15,5 @@ exports.createPages = async ({ graphql, actions, reporter },
   { baseUrl = defaults.baseUrl, photosPerPage = defaults.photosPerPage }) => {
   baseUrl = ensureLeadingAndTrailingSlash(baseUrl)
   const { createPage } = actions
-  createPages(baseUrl, photosPerPage, graphql, reporter, createPage)
+  await createPages(baseUrl, photosPerPage, graphql, reporter, createPage)
 }
