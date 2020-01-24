@@ -4,7 +4,8 @@ module.exports = {
         resolve: "gatsby-theme-photo-albums",
         options: {
           //albumsPath: "albums",
-          //baseUrl: "base"
+          //baseUrl: "base",
+          folderIconDir: 'folder-icon',
         },
       },
     ],

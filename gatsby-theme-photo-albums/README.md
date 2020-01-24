@@ -42,6 +42,7 @@ module.exports = {
         baseUrl: '/', // the path to the photo albums from your site (default: '/')
         photosPerPage: 15, // the number of photos to display on a page (default: 15)
         albumsPath: 'photo-albums', // the directory where you put photo albums (default: 'photo-albums')
+        folderIconDir: folder-icon // the directory containing a custom folder icon (do not specify the file name)
       }
     }
   ]

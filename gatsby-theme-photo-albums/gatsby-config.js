@@ -5,7 +5,9 @@ const defaults = require('./default-config')
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-module.exports = ({albumsPath = defaults.albumsPath}) => ({
+module.exports = ({
+  albumsPath = defaults.albumsPath, 
+  folderIconDir = defaults.folderIconDir}) => ({
   // pathPrefix: '/photo-albums',
   plugins: [
     'gatsby-plugin-theme-ui',
@@ -21,7 +23,7 @@ module.exports = ({albumsPath = defaults.albumsPath}) => ({
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'gtpaFolderIcon',
-        path: `${__dirname}/folder-icon/`, // eslint-disable-line no-undef
+        path: folderIconDir, 
       },
     },
     'gatsby-transformer-sharp', 
