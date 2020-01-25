@@ -214,7 +214,7 @@ exports[`Index renders correctly 1`] = `
           data-testid="file"
         >
           <a
-            href="/2019-puerto-rico/jayuya/IMG_20190814_113735817-small.jpg"
+            href="/2019-puerto-rico/jayuya/IMG_20190814_113735817-small"
           >
             <div
               className=" gatsby-image-wrapper"
@@ -271,7 +271,7 @@ exports[`Index renders correctly 1`] = `
           data-testid="file"
         >
           <a
-            href="/2019-puerto-rico/jayuya/IMG_20190814_104325636-small.jpg"
+            href="/2019-puerto-rico/jayuya/IMG_20190814_104325636-small"
           >
             <div
               className=" gatsby-image-wrapper"
@@ -328,7 +328,7 @@ exports[`Index renders correctly 1`] = `
           data-testid="file"
         >
           <a
-            href="/2019-puerto-rico/jayuya/IMG_20190814_103213316-small.jpg"
+            href="/2019-puerto-rico/jayuya/IMG_20190814_103213316-small"
           >
             <div
               className=" gatsby-image-wrapper"
@@ -385,7 +385,7 @@ exports[`Index renders correctly 1`] = `
           data-testid="file"
         >
           <a
-            href="/2019-puerto-rico/jayuya/IMG_20190814_113817195-small.jpg"
+            href="/2019-puerto-rico/jayuya/IMG_20190814_113817195-small"
           >
             <div
               className=" gatsby-image-wrapper"

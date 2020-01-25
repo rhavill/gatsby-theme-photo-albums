@@ -4,11 +4,13 @@ import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import Layout from '../components/Layout'
 import compose from 'ramda/src/compose'
-import {pathToFileTitle, removePathPrefix} from '../util/url-text'
+import {pathToFileTitle, removePathPrefix, removeFileExtension} from '../util/url-text'
 
 const Photo =  ({data, path}) => {
   const pathPrefix = data.site.pathPrefix
-  path = compose(removePathPrefix(pathPrefix), decodeURI)(path)
+  path = compose(
+    removeFileExtension, removePathPrefix(pathPrefix), decodeURI
+  )(path)
   const title = pathToFileTitle(path)
 
   return (

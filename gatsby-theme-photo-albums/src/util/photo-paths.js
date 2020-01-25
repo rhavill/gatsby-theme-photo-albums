@@ -2,7 +2,7 @@ const forEach = require('ramda/src/forEach')
 const keys = require('ramda/src/keys')
 const match = require('ramda/src/match')
 const {indexedForEach, groupByProp} = require('./ramda-utils')
-
+const {removeFileExtension} = require('./url-text')
 const groupByRelativeDirectory = groupByProp('relativeDirectory')
 
 const getPhotoPathsWithPages = (photosPerPage, fileData) => {
@@ -21,6 +21,7 @@ const getPhotoPathsWithPages = (photosPerPage, fileData) => {
 }
 
 const getPhotoPathWithPage = (pageNumber, url) => {
+  url = removeFileExtension(url)
   const matches = match(/^(.*\/)([^/]+)$/, url)
   if (matches && matches[1] && matches[2]) {
     const path =  `${matches[1]}` + (pageNumber > 1 ? `${pageNumber}/` : '') + matches[2]

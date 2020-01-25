@@ -7,7 +7,7 @@ Array [
     data-testid="file"
   >
     <a
-      href="/base/1.jpg"
+      href="/base/1"
     >
       <div
         className=" gatsby-image-wrapper"
@@ -64,7 +64,7 @@ Array [
     data-testid="file"
   >
     <a
-      href="/base/level-one/2.jpg"
+      href="/base/level-one/2"
     >
       <div
         className=" gatsby-image-wrapper"
@@ -121,7 +121,7 @@ Array [
     data-testid="file"
   >
     <a
-      href="/base/level-one/level-two/3.jpg"
+      href="/base/level-one/level-two/3"
     >
       <div
         className=" gatsby-image-wrapper"

@@ -53,10 +53,10 @@ describe('create-pages', () => {
 
   it('calls the createPage function correctly', () => {
     const exptectedPaths = [
-      '2019-puerto-rico/jayuya/IMG_20190814_113735817-small.jpg', 
-      '2019-puerto-rico/jayuya/IMG_20190814_102958452-small.jpg', 
-      '2019-puerto-rico/san-juan/P_20190412_061017_vHDR_Auto-small.jpg', 
-      '2019-puerto-rico/san-juan/IMG_20190801_180122560_HDR-small.jpg', 
+      '2019-puerto-rico/jayuya/IMG_20190814_113735817-small', 
+      '2019-puerto-rico/jayuya/IMG_20190814_102958452-small', 
+      '2019-puerto-rico/san-juan/P_20190412_061017_vHDR_Auto-small', 
+      '2019-puerto-rico/san-juan/IMG_20190801_180122560_HDR-small', 
     ]
     // create-folder-pages.test.js should be testing the createPhotoPages 
     // portion of the createPages function in create-pages.js. Here, we will 

@@ -19,7 +19,7 @@ exports[`Photo renders correctly 1`] = `
         Base
       </a>
       <a
-        href="/base/1.jpg"
+        href="/base/1"
       >
         1
       </a>
@@ -30,7 +30,7 @@ exports[`Photo renders correctly 1`] = `
   >
     <div
       className="photo-page"
-      data-testid="/base/1.jpg"
+      data-testid="/base/1"
     >
       <div
         className=" gatsby-image-wrapper"
