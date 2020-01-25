@@ -1,5 +1,5 @@
 import {toTitleCase, pathToFileTitle, removeFileExtension, 
-  ensureLeadingAndTrailingSlash
+  ensureLeadingAndTrailingSlash, removePathPrefix
 } from '../../src/util/url-text'
 
 describe('url-text', () => {  
@@ -27,5 +27,17 @@ describe('url-text', () => {
     const text = '/something/'
     const expected = '/something/'
     expect(ensureLeadingAndTrailingSlash(text)).toEqual(expected)
+  })
+  it('removePathPrefix removes the path prefix from the url', () => {
+    const pathPrefix = '/prefix'
+    const text = '/prefix/some/path'
+    const expected = '/some/path'
+    expect(removePathPrefix(pathPrefix)(text)).toEqual(expected)
+  })
+  it('removePathPrefix does nothing if pathPrefix is empty', () => {
+    const pathPrefix = ''
+    const text = '/some/path'
+    const expected = '/some/path'
+    expect(removePathPrefix(pathPrefix)(text)).toEqual(expected)
   })
 })

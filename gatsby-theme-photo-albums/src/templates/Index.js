@@ -9,11 +9,15 @@ import Layout from '../components/Layout'
 import Folders from '../components/Folders'
 import Thumbnails from '../components/Thumbnails'
 import Pager from '../components/Pager'
-const {addUrlProps} = require('../util/files-folders')
+import {addUrlProps} from '../util/files-folders'
+import {removePathPrefix} from '../util/url-text'
 
 const Index = ({data, location, pageContext}) => {
   const {baseUrl, currentPage, numPages} = pageContext
-  const path = decodeURI(location.pathname)
+  const pathPrefix = data.site.pathPrefix
+  const path = compose(
+    removePathPrefix(pathPrefix), decodeURI
+  )(location.pathname)
   const folders = compose(
     map(prop('url')),
     addUrlProps(baseUrl))(data.folders.nodes)
@@ -38,6 +42,9 @@ const Index = ({data, location, pageContext}) => {
 
 export const query = graphql`
   query indexQuery($skip: Int!, $limit: Int!, $relativeDirectory: String!) {
+    site {
+      pathPrefix
+    }
     photos: allFile(
       filter: {
         sourceInstanceName: {eq: "gtpaPhotos"}, 
@@ -80,6 +87,9 @@ Index.propTypes = {
     pathname: PropTypes.string.isRequired
   }).isRequired,
   data: PropTypes.shape({
+    site: PropTypes.shape({
+      pathPrefix: PropTypes.string.isRequired,
+    }),
     folderIcon: PropTypes.shape({
       childImageSharp: PropTypes.shape({
         fixed: PropTypes.object.isRequired

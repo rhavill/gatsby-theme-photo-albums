@@ -27,10 +27,16 @@ const ensureLeadingSlash = text => text.charAt(0) === '/' ? text : '/' + text
 
 const ensureLeadingAndTrailingSlash = compose(ensureLeadingSlash, ensureTrailingSlash)
 
+const removePathPrefix = curry((pathPrefix, url) => {
+  const regex = new RegExp('^' + pathPrefix)
+  return replace(regex, '', url)
+})
+
 module.exports = {
   pathToFileTitle,
   prependBaseUrl,
   removeFileExtension,
   toTitleCase,
   ensureLeadingAndTrailingSlash,
+  removePathPrefix,
 }
