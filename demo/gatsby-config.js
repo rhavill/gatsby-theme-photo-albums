@@ -1,12 +1,13 @@
 module.exports = {
-    plugins: [
-      {
-        resolve: "gatsby-theme-photo-albums",
-        options: {
-          //albumsPath: "albums",
-          //baseUrl: "base",
-          folderIconDir: 'folder-icon',
-        },
+  pathPrefix: '/demo-albums',
+  plugins: [
+    {
+      resolve: "gatsby-theme-photo-albums",
+      options: {
+        //albumsPath: "albums",
+        //baseUrl: "base",
+        folderIconDir: 'folder-icon',
       },
-    ],
-  }
+    },
+  ],
+}

@@ -1,6 +1,7 @@
 module.exports = {
   albumsPath: 'photo-albums',
-  folderIconDir: `${__dirname}/folder-icon/`,
   baseUrl: '/',
+  folderIconDir: `${__dirname}/folder-icon/`,
+  pathPrefix: '',
   photosPerPage: 15,
 }

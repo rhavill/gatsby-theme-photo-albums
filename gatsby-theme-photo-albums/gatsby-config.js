@@ -7,8 +7,9 @@ const defaults = require('./default-config')
 
 module.exports = ({
   albumsPath = defaults.albumsPath, 
-  folderIconDir = defaults.folderIconDir}) => ({
-  // pathPrefix: '/photo-albums',
+  folderIconDir = defaults.folderIconDir,
+  pathPrefix = defaults.pathPrefix}) => ({
+  pathPrefix,
   plugins: [
     'gatsby-plugin-theme-ui',
     {
