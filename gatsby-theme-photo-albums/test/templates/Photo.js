@@ -30,11 +30,11 @@ describe('Photo', () => {
     )
     expect(getAllByTestId('/san-sebastián/san-sebastián').length).toBe(1)
   })
-  // it('passes path to child components without pathPrefix config variable', () => {
-  //   const path = '/path-prefix/top-level/file.jpg'  
-  //   const {getAllByTestId} = render(
-  //     <Photo path={path} data={photoData.data} />
-  //   )
-  //   expect(getAllByTestId('/top-level/file.jpg').length).toBe(1)
-  // })
+  it('passes path to child components without pathPrefix config variable', () => {
+    const path = '/path-prefix/top-level/file.jpg'  
+    const {getAllByTestId} = render(
+      <Photo path={path} data={photoData.data} />
+    )
+    expect(getAllByTestId('/top-level/file').length).toBe(1)
+  })
 })
