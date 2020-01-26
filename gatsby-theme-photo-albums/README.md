@@ -86,39 +86,17 @@ export default theme
 
 The default styles can be seen in the `src/theme.js` file of the gastsby-theme-photo-albums theme.
 
-## Customizing Layout
+## Component Shadowing
 
-Thanks to Gatsby's awesome [Component Shadowing](https://www.gatsbyjs.org/blog/2019-04-29-component-shadowing/) functionality, you may override any component provided by `gatsby-theme-photo-albums`. For example, you may replace the provided Header component with your own custom Header component, by adding the following code to a file called `src/gatsby-theme-photo-albums/components/Header.js`:
+Thanks to Gatsby's awesome [Component Shadowing](https://www.gatsbyjs.org/blog/2019-04-29-component-shadowing/) functionality, you may override any component provided by `gatsby-theme-photo-albums`. For example, you may change the text of the "Next Page" pagination link, by implementing your own custom PreviousPageText component. To override PreviousPageText, add the following code to a file called `src/gatsby-theme-photo-albums/components/pagination/PreviousPageText.js`:
 
 ```js
 import React from 'react'
-import PropTypes from 'prop-types'
-import {Link} from 'gatsby'
-import {Header as ThemeHeader} from 'theme-ui'
-import breadcrumbs from 'gatsby-theme-photo-albums/src/util/breadcrumbs'
 
-const Header = ({ path, rootTitle }) => {
-  const links = breadcrumbs(path, rootTitle)
+const NextPageText = () => 
+  <span className='next-page'>
+    Siguiente →
+  </span>
 
-  return (
-    <ThemeHeader>
-      <nav>{
-        links.map((crumb, i) => (
-          <Link key={i} to={crumb.path}>
-            {crumb.title}
-          </Link>))
-      }
-      </nav>
-    </ThemeHeader>
-  )
-}
-
-Header.propTypes = {
-  path: PropTypes.string.isRequired,
-  rootTitle: PropTypes.string,
-}
-
-Header.defaultProps = { 
-  rootTitle: 'Home',
-}
+export default NextPageText
 ```
