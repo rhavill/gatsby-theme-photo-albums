@@ -100,3 +100,5 @@ const NextPageText = () =>
 
 export default NextPageText
 ```
+
+In the example above, the text of the "Next Page" pagination link was changed from English to Spanish. To see other components that may be overriden with Component Shadowing, look in the `src` directory of the `gatsby-theme-photo-albums` theme.
