@@ -25,16 +25,28 @@ const ensureTrailingSlash = text => text.slice(-1) === '/' ? text : text + '/'
 
 const ensureLeadingSlash = text => text.charAt(0) === '/' ? text : '/' + text
 
-const ensureLeadingAndTrailingSlash = compose(ensureLeadingSlash, ensureTrailingSlash)
+const ensureLeadingAndTrailingSlash = compose(
+  ensureLeadingSlash, ensureTrailingSlash
+)
 
 const removePathPrefix = curry((pathPrefix, url) => {
   const regex = new RegExp('^' + pathPrefix)
   return replace(regex, '', url)
 })
 
+const removeTrailingSlash = replace(/\/$/, '')
+
+const removeTrailingSlashAndNumber = replace(/\/\d+$/, '')
+         
+// First remove trailing slash (if it exists), then remove trailing slash + 
+// digit (if they exist)
+const removePathPageNumber = compose(
+  removeTrailingSlashAndNumber, removeTrailingSlash
+)
+
 const getPagerUrls = (path, currentPage, numPages) => {
   let urls = {prev: null, next: null}
-  const pathWithoutPageNumber = path.replace(/\/?\d+$/, '')
+  const pathWithoutPageNumber = removePathPageNumber(path)
   if (currentPage === 2) {
     urls.prev = pathWithoutPageNumber
   }
