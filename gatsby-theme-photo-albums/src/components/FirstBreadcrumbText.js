@@ -2,7 +2,7 @@ import React from 'react'
 
 const FirstBreadcrumbText = () => 
   <span className='first-breadcrumb'>
-    Hogar
+    Home
   </span>
 
 export default FirstBreadcrumbText

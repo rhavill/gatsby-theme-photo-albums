@@ -14,7 +14,7 @@ exports[`Layout renders correctly 1`] = `
         <span
           className="first-breadcrumb"
         >
-          Hogar
+          Home
         </span>
       </a>
     </nav>
