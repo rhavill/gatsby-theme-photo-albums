@@ -2,11 +2,12 @@ module.exports = {
   pathPrefix: '/demo-albums',
   plugins: [
     {
-      resolve: "gatsby-theme-photo-albums",
+      resolve: 'gatsby-theme-photo-albums',
       options: {
-        //albumsPath: "albums",
-        //baseUrl: "base",
+        // albumsPath: 'albums',
+        // baseUrl: 'albums',
         folderIconDir: 'folder-icon',
+        // photosPerPage: 15,
       },
     },
   ],
