@@ -65,7 +65,7 @@ export const theme = {
     },
     Main: {
       maxWidth: [640, 768, 1024, 1200, 1366, '100%'],
-      top: '8rem',
+      top: '4.1rem',
       position: 'relative',
       section: {
         flexGrow: 1,
