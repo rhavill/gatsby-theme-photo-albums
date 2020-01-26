@@ -1,22 +1,23 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import {cleanup, render} from '@testing-library/react'
-import Layout from '../../src/components/Layout'
+import Header from '../../../src/components/layout/Header'
 
 // automatically unmount and cleanup DOM after the test is finished.
 afterEach(cleanup)
 
-describe('Layout', () => {
+describe('Header', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<Layout path='/'><div>hello</div></Layout>)
+      .create(<Header path='/' />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
-  it('displays child nodes', () => {
+  it('displays "title case" text for path components', () => {
     const {getByText} = render(
-      <Layout path='/'><div>hello</div></Layout>
+      <Header path='/first-dir/second-dir' />
     )
-    expect(getByText('hello')).toBeTruthy()
+    expect(getByText('First Dir')).toBeTruthy()
+    expect(getByText('Second Dir')).toBeTruthy()
   })
 })

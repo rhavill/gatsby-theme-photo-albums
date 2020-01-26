@@ -1,8 +1,8 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import {cleanup, render} from '@testing-library/react'
-import Folder from '../../src/components/Folder'
-import imageData from '../../test-data/gatsby-image-data'
+import Folder from '../../../src/components/folders/Folder'
+import imageData from '../../../test-data/gatsby-image-data'
 
 // automatically unmount and cleanup DOM after the test is finished.
 afterEach(cleanup)

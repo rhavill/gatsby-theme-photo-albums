@@ -2,8 +2,8 @@ import map from 'ramda/src/map'
 import React from 'react'
 import renderer from 'react-test-renderer'
 import {cleanup, render} from '@testing-library/react'
-import Thumbnails from '../../src/components/Thumbnails'
-import fileData from '../../test-data/source-filesystem-file-data'
+import Thumbnails from '../../../src/components/thumbnails/Thumbnails'
+import fileData from '../../../test-data/source-filesystem-file-data'
 
 // automatically unmount and cleanup DOM after the test is finished.
 afterEach(cleanup)

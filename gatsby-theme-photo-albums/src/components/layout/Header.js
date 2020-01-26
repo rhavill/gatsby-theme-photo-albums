@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {Link} from 'gatsby'
 import {Header as ThemeHeader} from 'theme-ui'
 import FirstBreadcrumbText from './FirstBreadcrumbText'
-import breadcrumbs from '../util/breadcrumbs'
+import breadcrumbs from '../../util/breadcrumbs'
 
 const Header = ({ path }) => {
   const links = breadcrumbs(path)

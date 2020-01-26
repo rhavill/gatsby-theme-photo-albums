@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import {cleanup} from '@testing-library/react'
-import Thumbnail from '../../src/components/Thumbnail'
+import Thumbnail from '../../../src/components/thumbnails/Thumbnail'
 
 // automatically unmount and cleanup DOM after the test is finished.
 afterEach(cleanup)
@@ -16,7 +16,9 @@ const fileData = {
 describe('Thumbnail', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<Thumbnail path='/level-one/level-two/3.jpg' imageData={fileData} />)
+      .create(<Thumbnail path='/level-one/level-two/3.jpg' 
+        imageData={fileData} 
+        />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })

@@ -1,9 +1,9 @@
+import compose from 'ramda/src/compose'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
-import Layout from '../components/Layout'
-import compose from 'ramda/src/compose'
+import Layout from '../components/layout/Layout'
 import {pathToFileTitle, removePathPrefix, removeFileExtension} from '../util/url-text'
 
 const Photo =  ({data, path}) => {

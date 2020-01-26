@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {Link} from 'gatsby'
 import PreviousPageText from './PreviousPageText'
 import NextPageText from './NextPageText'
-import {getPagerUrls} from '../util/url-text'
+import {getPagerUrls} from '../../util/url-text'
 
 const Pager = ({path, currentPage, numPages}) => {
   const {prev, next} = getPagerUrls(path, currentPage, numPages)

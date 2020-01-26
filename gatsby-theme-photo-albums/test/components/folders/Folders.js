@@ -1,9 +1,9 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import {cleanup, render} from '@testing-library/react'
-import Folders from '../../src/components/Folders'
-import {objectArrayToPropArray} from '../../src/util/ramda-utils'
-import folderData from '../../test-data/source-filesystem-folder-data'
+import Folders from '../../../src/components/folders/Folders'
+import {objectArrayToPropArray} from '../../../src/util/ramda-utils'
+import folderData from '../../../test-data/source-filesystem-folder-data'
 
 // automatically unmount and cleanup DOM after the test is finished.
 afterEach(cleanup)

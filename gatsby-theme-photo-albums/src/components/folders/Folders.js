@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Folder from './Folder'
-import {mapIndexed} from '../util/ramda-utils'
+import {mapIndexed} from '../../util/ramda-utils'
 
 const Folders = ({folders, icon}) => {
   return mapIndexed((folder, i) => 
