@@ -1,7 +1,7 @@
 import compose from 'ramda/src/compose'
 import {removeFileExtension, toTitleCase} from './url-text'
 
-const breadcrumbs = (path, rootTitle = 'Home') => {
+const breadcrumbs = (path) => {
   // Set path to empty string for root directory. 
   // Also, remove trailing slash (if it exists) for consistency.
   const parts = path === '/' ? [''] : path.replace(/\/$/, '').split('/')
@@ -9,7 +9,7 @@ const breadcrumbs = (path, rootTitle = 'Home') => {
     .map((folder, i) => ({
       // convert to "title case" and remove file extension
       title: folder === '' 
-        ? rootTitle 
+        ? '' 
         : compose(toTitleCase, removeFileExtension)(folder),
       path: folder === '' ? '/' : parts.filter((part, j) => j <= i).join('/') 
     }))

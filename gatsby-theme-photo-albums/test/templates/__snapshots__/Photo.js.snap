@@ -11,7 +11,11 @@ exports[`Photo renders correctly 1`] = `
       <a
         href="/"
       >
-        Home
+        <span
+          className="first-breadcrumb"
+        >
+          Hogar
+        </span>
       </a>
       <a
         href="/base"

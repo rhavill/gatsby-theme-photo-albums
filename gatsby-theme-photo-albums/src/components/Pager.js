@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'gatsby'
+import PreviousPageText from './PreviousPageText'
+import NextPageText from './NextPageText'
 
 const Pager = ({path, currentPage, numPages}) => {
   const pathWithoutPageNumber = path.replace(/\/?\d+$/, '')
@@ -15,12 +17,12 @@ const Pager = ({path, currentPage, numPages}) => {
     <div className='pager'>
       {!isFirst && (
         <Link to={prevPage} rel='prev'>
-          ← Previous Page
+          <PreviousPageText />
         </Link>
       )}
       {!isLast && (
         <Link to={nextPage} rel='next'>
-          Next Page →
+          <NextPageText />
         </Link>
       )}
     </div>

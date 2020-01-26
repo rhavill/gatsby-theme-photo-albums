@@ -8,13 +8,21 @@ exports[`Pager renders correctly 1`] = `
     href="/some-path"
     rel="prev"
   >
-    ← Previous Page
+    <span
+      className="previous-page"
+    >
+      ← Previous Page
+    </span>
   </a>
   <a
     href="/some-path/3"
     rel="next"
   >
-    Next Page →
+    <span
+      className="next-page"
+    >
+      Next Page →
+    </span>
   </a>
 </div>
 `;
