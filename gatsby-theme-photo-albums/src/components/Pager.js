@@ -3,28 +3,23 @@ import PropTypes from 'prop-types'
 import {Link} from 'gatsby'
 import PreviousPageText from './PreviousPageText'
 import NextPageText from './NextPageText'
+import {getPagerUrls} from '../util/url-text'
 
 const Pager = ({path, currentPage, numPages}) => {
-  const pathWithoutPageNumber = path.replace(/\/?\d+$/, '')
-  const isFirst = currentPage === 1
-  const isLast = currentPage === numPages
-  const prevPage = currentPage - 1 === 1 
-    ? pathWithoutPageNumber 
-    : pathWithoutPageNumber + '/' + (currentPage - 1).toString()
-  const nextPage = pathWithoutPageNumber + '/' + (currentPage + 1).toString()
+  const {prev, next} = getPagerUrls(path, currentPage, numPages)
 
   return (
     <div className='pager'>
-      {!isFirst && (
-        <Link to={prevPage} rel='prev'>
+      {prev ? (
+        <Link to={prev} rel='prev'>
           <PreviousPageText />
         </Link>
-      )}
-      {!isLast && (
-        <Link to={nextPage} rel='next'>
+      ) : null}
+      {next ? (
+        <Link to={next} rel='next'>
           <NextPageText />
         </Link>
-      )}
+      ) : null}
     </div>
   )
 }

@@ -32,11 +32,28 @@ const removePathPrefix = curry((pathPrefix, url) => {
   return replace(regex, '', url)
 })
 
+const getPagerUrls = (path, currentPage, numPages) => {
+  let urls = {prev: null, next: null}
+  const pathWithoutPageNumber = path.replace(/\/?\d+$/, '')
+  if (currentPage === 2) {
+    urls.prev = pathWithoutPageNumber
+  }
+  else if (currentPage > 2) {
+    urls.prev = pathWithoutPageNumber + '/' + (currentPage - 1).toString()
+  }
+  if (currentPage < numPages) {
+    urls.next = pathWithoutPageNumber + '/' + (currentPage + 1).toString()
+  }
+
+  return urls
+}
+
 module.exports = {
+  ensureLeadingAndTrailingSlash,
+  getPagerUrls,
   pathToFileTitle,
   prependBaseUrl,
   removeFileExtension,
-  toTitleCase,
-  ensureLeadingAndTrailingSlash,
   removePathPrefix,
+  toTitleCase,
 }
