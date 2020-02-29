@@ -15,13 +15,13 @@ describe('Photo', () => {
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
-  it('displays images with "title" attributes containing a title-case version of the photo file name', () => {
-    const path = removeFileExtension(photoData.data.photo.childImageSharp.fluid.src)
+  it('displays image with "title" attribute containing a title-case version of the photo file name', () => {
+    const path = removeFileExtension(photoData.data.photo.childImageSharp.fixed.src)
     const {getAllByTitle} = render(
       <Photo path={path} data={photoData.data} />
     )
     const expected = pathToFileTitle(path)
-    expect(getAllByTitle(expected).length).toBe(2)
+    expect(getAllByTitle(expected).length).toBe(1)
   })
   it('passes decoded url to child components', () => {
     const path = '/san-sebasti%c3%a1n/san-sebasti%c3%a1n'  

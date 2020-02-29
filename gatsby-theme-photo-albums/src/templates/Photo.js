@@ -16,7 +16,7 @@ const Photo =  ({data, path}) => {
   return (
     <Layout path={path}>
       <div className='photo-page' data-testid={path}>
-        <Img fluid={data.photo.childImageSharp.fluid}  alt={title} title={title}
+        <Img fixed={data.photo.childImageSharp.fixed} alt={title} title={title}
           loading='eager' />
       </div>
     </Layout>
@@ -25,14 +25,14 @@ const Photo =  ({data, path}) => {
 // set "fit" property to CONTAIN or COVER?
 // add maxWidth values for 1280 and 1536?
 export const query = graphql`
-  query photoQuery($relativePath: String!) {
+  query photoQuery($relativePath: String!, $width: Int!, $height: Int!) {
     site {
       pathPrefix
     }
     photo: file(relativePath: {eq: $relativePath}) {
       childImageSharp {
-        fluid(maxWidth: 1024, srcSetBreakpoints: [512, 614, 819, 1024], fit: CONTAIN) {
-          ...GatsbyImageSharpFluid
+        fixed(width: $width, height: $height) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
@@ -47,10 +47,12 @@ Photo.propTypes = {
     }),
     photo: PropTypes.shape({
       childImageSharp: PropTypes.shape({
-        fluid: PropTypes.shape({
+        fixed: PropTypes.shape({
           src: PropTypes.string.isRequired,
           srcSet: PropTypes.string.isRequired,
-        })
+          width: PropTypes.number.isRequired,
+          height: PropTypes.number.isRequired,
+        }).isRequired
       })
     })
   })
