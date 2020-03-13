@@ -1,6 +1,7 @@
 import compose from 'ramda/src/compose'
 import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
+import {Global} from '@emotion/core'
 import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import Layout from '../components/layout/Layout'
@@ -21,6 +22,13 @@ const Photo =  ({data, path, pageContext}) => {
 console.log('window', windowDimensions, 'dim', dimensions)
   return (
     <Layout path={path}>
+      <Global
+        styles={{
+          'body': {
+            margin: 0
+          }
+        }}
+      />
       <div className='photo-page' data-testid={path} ref={ref}>
         <Img fixed={data.photo.childImageSharp.fixed} alt={title} title={title}
           loading='eager' css={dimensions}/>
