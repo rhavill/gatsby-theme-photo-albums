@@ -18,7 +18,7 @@ const Photo =  ({data, path, pageContext}) => {
   const ref = useRef(null)
   const windowDimensions = useWindowDimensions()
   const dimensions = photoDimensions(windowDimensions, pageContext)
-
+console.log('window', windowDimensions, 'dim', dimensions)
   return (
     <Layout path={path}>
       <div className='photo-page' data-testid={path} ref={ref}>

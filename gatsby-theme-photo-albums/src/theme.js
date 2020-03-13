@@ -42,6 +42,7 @@ export const theme = {
       }
     },
     Header: {
+      display: 'none',
       backgroundColor: 'primary',
       color: 'secondary',
       fontWeight: 'bold',
@@ -49,7 +50,7 @@ export const theme = {
       width: '100%',
       zIndex: 2,
       nav: {
-        padding: '1rem',
+        // padding: '1rem',
         maxWidth: [640, 768, 1024, 1200, 1366, '100%'],
         a: {
           '::before': {
@@ -65,7 +66,7 @@ export const theme = {
     },
     Main: {
       maxWidth: [640, 768, 1024, 1200, 1366, '100%'],
-      top: '4.1rem',
+      //top: '4.1rem',
       position: 'relative',
       section: {
         flexGrow: 1,
@@ -102,12 +103,14 @@ export const theme = {
       '.gatsby-image-wrapper':  {
         borderRadius: '.5rem',
         boxShadow: '0.25rem 0.25rem .5rem .1rem #000',
+        margin: 'auto',
       },
       '.photo-page': {
-        maxWidth: '80%',
+        // maxWidth: '80%',
         marginLeft: 'auto',
         marginRight: 'auto',
-        paddingBottom: '4rem'
+        // paddingBottom: '4rem',
+        display: 'flex',
       }
     },
   }
