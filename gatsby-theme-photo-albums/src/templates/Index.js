@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {graphql} from 'gatsby'
+import {Global} from '@emotion/core'
 import compose from 'ramda/src/compose'
 import map from 'ramda/src/map'
 import merge from 'ramda/src/merge'
@@ -28,6 +29,13 @@ const Index = ({data, location, pageContext}) => {
 
   return (
     <Layout path={path}>
+      <Global
+        styles={{
+          'body': {
+            margin: 0
+          }
+        }}
+      />
       <div className="listing-page" data-testid={path} >
         <section>
           <Folders path={path} folders={folders} icon={folderIcon} />

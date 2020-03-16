@@ -13,11 +13,4 @@ describe('Header', () => {
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
-  it('displays "title case" text for path components', () => {
-    const {getByText} = render(
-      <Header path='/first-dir/second-dir' />
-    )
-    expect(getByText('First Dir')).toBeTruthy()
-    expect(getByText('Second Dir')).toBeTruthy()
-  })
 })

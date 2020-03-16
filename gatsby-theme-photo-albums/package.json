@@ -11,7 +11,7 @@
     "debug": "node --nolazy --inspect-brk node_modules/.bin/gatsby develop",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "lint": "./node_modules/.bin/eslint *.js src/*.js src/**/*.js",
+    "lint": "./node_modules/.bin/eslint '*.js' 'src/**/*.js'",
     "serve": "gatsby serve",
     "start": "npm run develop",
     "test": "jest"
@@ -20,6 +20,7 @@
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
     "@mdx-js/react": "^1.5.1",
+    "emotion-theming": "^10.0.27",
     "gatsby-image": "^2.2.36",
     "gatsby-plugin-emotion": "^4.1.24",
     "gatsby-plugin-sharp": "^2.3.7",

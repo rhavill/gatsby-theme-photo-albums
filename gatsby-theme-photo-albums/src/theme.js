@@ -39,34 +39,17 @@ export const theme = {
       '.listing-page': {
         display: 'flex',
         flexWrap: 'wrap',
+        margin: '.75rem'
       }
     },
     Header: {
-      display: 'none',
-      backgroundColor: 'primary',
       color: 'secondary',
       fontWeight: 'bold',
       position: 'fixed',
-      width: '100%',
-      zIndex: 2,
-      nav: {
-        // padding: '1rem',
-        maxWidth: [640, 768, 1024, 1200, 1366, '100%'],
-        a: {
-          '::before': {
-            content: '"\\00A0/\\00A0"'
-          },
-          ':first-child': {
-            '::before': {
-              content: 'none'
-            }
-          }
-        }
-      },
+      zIndex: 200,
     },
     Main: {
       maxWidth: [640, 768, 1024, 1200, 1366, '100%'],
-      //top: '4.1rem',
       position: 'relative',
       section: {
         flexGrow: 1,
@@ -106,10 +89,8 @@ export const theme = {
         margin: 'auto',
       },
       '.photo-page': {
-        // maxWidth: '80%',
         marginLeft: 'auto',
         marginRight: 'auto',
-        // paddingBottom: '4rem',
         display: 'flex',
       }
     },

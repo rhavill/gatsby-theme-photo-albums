@@ -19,7 +19,7 @@ const Photo =  ({data, path, pageContext}) => {
   const ref = useRef(null)
   const windowDimensions = useWindowDimensions()
   const dimensions = photoDimensions(windowDimensions, pageContext)
-  
+
   return (
     <Layout path={path}>
       <Global
