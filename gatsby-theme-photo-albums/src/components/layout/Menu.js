@@ -5,7 +5,7 @@ import {Link} from 'gatsby'
 import {css} from '@emotion/core'
 import {withTheme} from 'emotion-theming'
 
-const Menu = ({ links, theme }) => {
+export const Menu = ({ links, theme }) => {
   const [isOpen, setIsOpen] = useState(false)
   const handleCheck = () => setIsOpen(!isOpen)
   const listDisplay = isOpen ? 'block' : 'none'
@@ -63,6 +63,14 @@ Menu.propTypes = {
       primary: PropTypes.string.isRequired
     }).isRequired
   }).isRequired
+}
+
+Menu.defaultProps = {
+  theme: {
+    colors: {
+      primary: '#6bccf9'
+    }
+  }
 }
 
 export default withTheme(Menu)

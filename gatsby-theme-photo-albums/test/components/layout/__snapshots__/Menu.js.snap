@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu renders correctly 1`] = `
+<nav>
+  <label
+    css={
+      Object {
+        "map": undefined,
+        "name": "tdkpd4",
+        "next": undefined,
+        "styles": "
+    font-size: 2rem;
+    padding: .5rem;
+    display: inline-block;
+    background-color: #6bccf9;
+  ",
+        "toString": [Function],
+      }
+    }
+    htmlFor="menu-checkbox"
+  >
+    ☰
+  </label>
+  <input
+    css={
+      Object {
+        "display": "none",
+      }
+    }
+    defaultChecked={false}
+    id="menu-checkbox"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <ul
+    css={
+      Object {
+        "map": undefined,
+        "name": "1myc36q",
+        "next": undefined,
+        "styles": "
+    list-style-type: none;
+    margin: 0rem;
+    padding: 0;
+    display: none;
+    background-color: #6bccf9;
+  ",
+        "toString": [Function],
+      }
+    }
+  >
+    <li
+      css={
+        Object {
+          "map": undefined,
+          "name": "lmlfqw",
+          "next": undefined,
+          "styles": "
+    display: block;
+    padding: .5rem;
+    /*box-sizing: border-box;*/
+    border-top: 1px solid;
+  ",
+          "toString": [Function],
+        }
+      }
+    >
+      <a
+        href="/"
+      >
+        Home
+      </a>
+    </li>
+    <li
+      css={
+        Object {
+          "map": undefined,
+          "name": "lmlfqw",
+          "next": undefined,
+          "styles": "
+    display: block;
+    padding: .5rem;
+    /*box-sizing: border-box;*/
+    border-top: 1px solid;
+  ",
+          "toString": [Function],
+        }
+      }
+    >
+      <a
+        href="/one"
+      >
+        One
+      </a>
+    </li>
+    <li
+      css={
+        Object {
+          "map": undefined,
+          "name": "lmlfqw",
+          "next": undefined,
+          "styles": "
+    display: block;
+    padding: .5rem;
+    /*box-sizing: border-box;*/
+    border-top: 1px solid;
+  ",
+          "toString": [Function],
+        }
+      }
+    >
+      <a
+        href="/one/two"
+      >
+        Two
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
