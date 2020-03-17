@@ -30,6 +30,7 @@ export const Menu = ({ links, theme }) => {
     padding: .5rem;
     display: inline-block;
     background-color: ${theme.colors.primary};
+    cursor: pointer;
   `
   return (
     <nav>
