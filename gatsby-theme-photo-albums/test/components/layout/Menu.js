@@ -1,7 +1,6 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
-import {cleanup, render} from '@testing-library/react'
-import {Menu} from '../../../src/components/layout/Menu'
+import {cleanup, render, renderer} from '../../../src/util/test-utils'
+import Menu from '../../../src/components/layout/Menu'
 
 // automatically unmount and cleanup DOM after the test is finished.
 afterEach(cleanup)

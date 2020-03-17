@@ -6,6 +6,7 @@ import {css} from '@emotion/core'
 import {withTheme} from 'emotion-theming'
 
 export const Menu = ({ links, theme }) => {
+  
   const [isOpen, setIsOpen] = useState(false)
   const handleCheck = () => setIsOpen(!isOpen)
   const listDisplay = isOpen ? 'block' : 'none'
@@ -30,7 +31,6 @@ export const Menu = ({ links, theme }) => {
     display: inline-block;
     background-color: ${theme.colors.primary};
   `
-
   return (
     <nav>
       <label htmlFor='menu-checkbox' css={label}>&#9776;</label>
@@ -63,14 +63,6 @@ Menu.propTypes = {
       primary: PropTypes.string.isRequired
     }).isRequired
   }).isRequired
-}
-
-Menu.defaultProps = {
-  theme: {
-    colors: {
-      primary: '#6bccf9'
-    }
-  }
 }
 
 export default withTheme(Menu)

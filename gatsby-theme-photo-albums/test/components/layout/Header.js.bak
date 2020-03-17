@@ -1,7 +1,9 @@
 import React from 'react'
-import {renderer} from '../../../src/util/test-utils'
-import {cleanup} from '@testing-library/react'
+import renderer from 'react-test-renderer'
+import {cleanup, render} from '@testing-library/react'
 import Header from '../../../src/components/layout/Header'
+import { ThemeProvider } from 'emotion-theming'
+import theme from '../../../src/theme'
 
 // automatically unmount and cleanup DOM after the test is finished.
 afterEach(cleanup)
@@ -9,7 +11,7 @@ afterEach(cleanup)
 describe('Header', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<Header path='/' />)
+      .create(<ThemeProvider theme={theme}><Header path='/' /></ThemeProvider>)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
