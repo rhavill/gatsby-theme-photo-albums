@@ -2,25 +2,90 @@
 
 exports[`Index renders correctly 1`] = `
 <div
-  className="css-1czag6s-Layout"
+  className="css-1ala8gf-Layout"
 >
   <header
-    className="css-1upivqb-Header"
+    className="css-a1lwk2-Header"
   >
     <nav>
-      <a
-        href="/"
+      <label
+        css={
+          Object {
+            "map": undefined,
+            "name": "tdkpd4",
+            "next": undefined,
+            "styles": "
+    font-size: 2rem;
+    padding: .5rem;
+    display: inline-block;
+    background-color: #6bccf9;
+  ",
+            "toString": [Function],
+          }
+        }
+        htmlFor="menu-checkbox"
       >
-        <span
-          className="first-breadcrumb"
+        ☰
+      </label>
+      <input
+        css={
+          Object {
+            "display": "none",
+          }
+        }
+        defaultChecked={false}
+        id="menu-checkbox"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <ul
+        css={
+          Object {
+            "map": undefined,
+            "name": "1myc36q",
+            "next": undefined,
+            "styles": "
+    list-style-type: none;
+    margin: 0rem;
+    padding: 0;
+    display: none;
+    background-color: #6bccf9;
+  ",
+            "toString": [Function],
+          }
+        }
+      >
+        <li
+          css={
+            Object {
+              "map": undefined,
+              "name": "lmlfqw",
+              "next": undefined,
+              "styles": "
+    display: block;
+    padding: .5rem;
+    /*box-sizing: border-box;*/
+    border-top: 1px solid;
+  ",
+              "toString": [Function],
+            }
+          }
         >
-          Home
-        </span>
-      </a>
+          <a
+            href="/"
+          >
+            <span
+              className="first-breadcrumb"
+            >
+              Home
+            </span>
+          </a>
+        </li>
+      </ul>
     </nav>
   </header>
   <main
-    className="css-11l540n-Main"
+    className="css-bkl1g-Main"
   >
     <div
       className="listing-page"

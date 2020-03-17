@@ -1,6 +1,5 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
-import {cleanup, render} from '@testing-library/react'
+import {cleanup, render, renderer} from '../../src/util/test-utils'
 import Photo from '../../src/templates/Photo'
 import photoData from '../../test-data/source-filesystem-photo-data'
 import {pathToFileTitle, removeFileExtension} from '../../src/util/url-text'
