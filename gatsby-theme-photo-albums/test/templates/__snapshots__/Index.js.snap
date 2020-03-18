@@ -12,13 +12,14 @@ exports[`Index renders correctly 1`] = `
         css={
           Object {
             "map": undefined,
-            "name": "tdkpd4",
+            "name": "1ox5w5f",
             "next": undefined,
             "styles": "
     font-size: 2rem;
     padding: .5rem;
     display: inline-block;
     background-color: #6bccf9;
+    cursor: pointer;
   ",
             "toString": [Function],
           }
@@ -85,7 +86,7 @@ exports[`Index renders correctly 1`] = `
     </nav>
   </header>
   <main
-    className="css-bkl1g-Main"
+    className="css-nv2sqw-Main"
   >
     <div
       className="listing-page"
