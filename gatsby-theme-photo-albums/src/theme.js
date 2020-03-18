@@ -92,6 +92,9 @@ export const theme = {
         marginLeft: 'auto',
         marginRight: 'auto',
         display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
       }
     },
   }
