@@ -56,76 +56,76 @@ exports[`Photo renders correctly 1`] = `
           }
         }
       >
-        <li
-          css={
-            Object {
-              "map": undefined,
-              "name": "lmlfqw",
-              "next": undefined,
-              "styles": "
+        <a
+          href="/"
+        >
+          <li
+            css={
+              Object {
+                "map": undefined,
+                "name": "lmlfqw",
+                "next": undefined,
+                "styles": "
     display: block;
     padding: .5rem;
     /*box-sizing: border-box;*/
     border-top: 1px solid;
   ",
-              "toString": [Function],
+                "toString": [Function],
+              }
             }
-          }
-        >
-          <a
-            href="/"
           >
             <span
               className="first-breadcrumb"
             >
               Home
             </span>
-          </a>
-        </li>
-        <li
-          css={
-            Object {
-              "map": undefined,
-              "name": "lmlfqw",
-              "next": undefined,
-              "styles": "
+          </li>
+        </a>
+        <a
+          href="/base"
+        >
+          <li
+            css={
+              Object {
+                "map": undefined,
+                "name": "lmlfqw",
+                "next": undefined,
+                "styles": "
     display: block;
     padding: .5rem;
     /*box-sizing: border-box;*/
     border-top: 1px solid;
   ",
-              "toString": [Function],
+                "toString": [Function],
+              }
             }
-          }
-        >
-          <a
-            href="/base"
           >
             Base
-          </a>
-        </li>
-        <li
-          css={
-            Object {
-              "map": undefined,
-              "name": "lmlfqw",
-              "next": undefined,
-              "styles": "
+          </li>
+        </a>
+        <a
+          href="/base/1"
+        >
+          <li
+            css={
+              Object {
+                "map": undefined,
+                "name": "lmlfqw",
+                "next": undefined,
+                "styles": "
     display: block;
     padding: .5rem;
     /*box-sizing: border-box;*/
     border-top: 1px solid;
   ",
-              "toString": [Function],
+                "toString": [Function],
+              }
             }
-          }
-        >
-          <a
-            href="/base/1"
           >
             1
-          </a>
-        </li>
+          </li>
+        </a>
       </ul>
     </nav>
   </header>

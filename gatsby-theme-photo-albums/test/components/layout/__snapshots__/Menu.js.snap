@@ -50,72 +50,72 @@ exports[`Menu renders correctly 1`] = `
       }
     }
   >
-    <li
-      css={
-        Object {
-          "map": undefined,
-          "name": "lmlfqw",
-          "next": undefined,
-          "styles": "
+    <a
+      href="/"
+    >
+      <li
+        css={
+          Object {
+            "map": undefined,
+            "name": "lmlfqw",
+            "next": undefined,
+            "styles": "
     display: block;
     padding: .5rem;
     /*box-sizing: border-box;*/
     border-top: 1px solid;
   ",
-          "toString": [Function],
+            "toString": [Function],
+          }
         }
-      }
-    >
-      <a
-        href="/"
       >
         Home
-      </a>
-    </li>
-    <li
-      css={
-        Object {
-          "map": undefined,
-          "name": "lmlfqw",
-          "next": undefined,
-          "styles": "
+      </li>
+    </a>
+    <a
+      href="/one"
+    >
+      <li
+        css={
+          Object {
+            "map": undefined,
+            "name": "lmlfqw",
+            "next": undefined,
+            "styles": "
     display: block;
     padding: .5rem;
     /*box-sizing: border-box;*/
     border-top: 1px solid;
   ",
-          "toString": [Function],
+            "toString": [Function],
+          }
         }
-      }
-    >
-      <a
-        href="/one"
       >
         One
-      </a>
-    </li>
-    <li
-      css={
-        Object {
-          "map": undefined,
-          "name": "lmlfqw",
-          "next": undefined,
-          "styles": "
+      </li>
+    </a>
+    <a
+      href="/one/two"
+    >
+      <li
+        css={
+          Object {
+            "map": undefined,
+            "name": "lmlfqw",
+            "next": undefined,
+            "styles": "
     display: block;
     padding: .5rem;
     /*box-sizing: border-box;*/
     border-top: 1px solid;
   ",
-          "toString": [Function],
+            "toString": [Function],
+          }
         }
-      }
-    >
-      <a
-        href="/one/two"
       >
         Two
-      </a>
-    </li>
+      </li>
+    </a>
   </ul>
 </nav>
 `;

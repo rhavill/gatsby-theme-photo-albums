@@ -39,11 +39,11 @@ export const Menu = ({ links, theme }) => {
         onChange={handleCheck} css={{display: 'none'}} />
       <ul css={ul}>{
         links.map((link, i) => (
-          <li key={i} css={li}>
-            <Link to={link.path}>
+          <Link key={i} to={link.path}>
+            <li css={li}>
               {link.title}
-            </Link>
-          </li>))
+            </li>
+          </Link>))
       }</ul>
     </nav>
   )
