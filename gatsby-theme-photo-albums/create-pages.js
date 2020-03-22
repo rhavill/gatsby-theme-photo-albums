@@ -39,7 +39,7 @@ const createPhotoPages = (photosPerPage, createPage, files) => {
   files.forEach(file => {
     const {width, height} = sizeOf(file.absolutePath)
     createPage({
-      path: photoPaths[file.url],
+      path: photoPaths[file.url].url,
       component: require.resolve('./src/templates/Photo.js'),
       context: {
         relativePath: file.relativePath,

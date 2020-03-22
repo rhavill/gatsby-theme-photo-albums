@@ -5,14 +5,26 @@ describe('photo-paths', () => {
   it('returns Gatsby location pathnames for some gatsby-source-filesystem files', () => {
     const photosPerPage = 10
     const expected = {
-      '/base/2019-puerto-rico/jayuya/IMG_20190814_113735817-small.jpg': 
-        '/base/2019-puerto-rico/jayuya/IMG_20190814_113735817-small',
-      '/base/2019-puerto-rico/jayuya/IMG_20190814_102958452-small.jpg':
-        '/base/2019-puerto-rico/jayuya/IMG_20190814_102958452-small',
-      '/base/2019-puerto-rico/san-juan/P_20190412_061017_vHDR_Auto-small.jpg':
-        '/base/2019-puerto-rico/san-juan/P_20190412_061017_vHDR_Auto-small',
-      '/base/2019-puerto-rico/san-juan/IMG_20190801_180122560_HDR-small.jpg':
-        '/base/2019-puerto-rico/san-juan/IMG_20190801_180122560_HDR-small',
+      '/base/2019-puerto-rico/jayuya/IMG_20190814_102958452-small.jpg': {
+        url: '/base/2019-puerto-rico/jayuya/IMG_20190814_102958452-small',
+        previousUrl: null,
+        nextUrl: '/base/2019-puerto-rico/jayuya/IMG_20190814_113735817-small',
+      },
+      '/base/2019-puerto-rico/jayuya/IMG_20190814_113735817-small.jpg': {
+        url: '/base/2019-puerto-rico/jayuya/IMG_20190814_113735817-small',
+        previousUrl: '/base/2019-puerto-rico/jayuya/IMG_20190814_102958452-small',
+        nextUrl: null,
+      },
+      '/base/2019-puerto-rico/san-juan/IMG_20190801_180122560_HDR-small.jpg': {
+        url: '/base/2019-puerto-rico/san-juan/IMG_20190801_180122560_HDR-small',
+        nextUrl: '/base/2019-puerto-rico/san-juan/P_20190412_061017_vHDR_Auto-small',
+        previousUrl: null,
+      },
+      '/base/2019-puerto-rico/san-juan/P_20190412_061017_vHDR_Auto-small.jpg': {
+        url: '/base/2019-puerto-rico/san-juan/P_20190412_061017_vHDR_Auto-small',
+        previousUrl: '/base/2019-puerto-rico/san-juan/IMG_20190801_180122560_HDR-small',
+        nextUrl: null,
+      },
     }
     const photoPaths = getPhotoPathsWithPages(photosPerPage, queryResults.data.photos.nodes)
     expect(photoPaths).toEqual(expected)
@@ -20,14 +32,26 @@ describe('photo-paths', () => {
   it('returns Gatsby location pathnames for second page of photos', () => {
     const photosPerPage = 1
     const expected = {
-      '/base/2019-puerto-rico/jayuya/IMG_20190814_113735817-small.jpg': 
-        '/base/2019-puerto-rico/jayuya/IMG_20190814_113735817-small',
-      '/base/2019-puerto-rico/jayuya/IMG_20190814_102958452-small.jpg':
-        '/base/2019-puerto-rico/jayuya/2/IMG_20190814_102958452-small',
-      '/base/2019-puerto-rico/san-juan/P_20190412_061017_vHDR_Auto-small.jpg':
-        '/base/2019-puerto-rico/san-juan/P_20190412_061017_vHDR_Auto-small',
-      '/base/2019-puerto-rico/san-juan/IMG_20190801_180122560_HDR-small.jpg':
-        '/base/2019-puerto-rico/san-juan/2/IMG_20190801_180122560_HDR-small',
+      '/base/2019-puerto-rico/jayuya/IMG_20190814_102958452-small.jpg': {
+        url: '/base/2019-puerto-rico/jayuya/IMG_20190814_102958452-small',
+        previousUrl: null,
+        nextUrl: '/base/2019-puerto-rico/jayuya/2/IMG_20190814_113735817-small',
+      },
+      '/base/2019-puerto-rico/jayuya/IMG_20190814_113735817-small.jpg': {
+        url: '/base/2019-puerto-rico/jayuya/2/IMG_20190814_113735817-small',
+        previousUrl: '/base/2019-puerto-rico/jayuya/IMG_20190814_102958452-small',
+        nextUrl: null,
+      },
+      '/base/2019-puerto-rico/san-juan/IMG_20190801_180122560_HDR-small.jpg': {
+        url: '/base/2019-puerto-rico/san-juan/IMG_20190801_180122560_HDR-small',
+        previousUrl: null,
+        nextUrl: '/base/2019-puerto-rico/san-juan/2/P_20190412_061017_vHDR_Auto-small',
+      },
+      '/base/2019-puerto-rico/san-juan/P_20190412_061017_vHDR_Auto-small.jpg': {
+        url: '/base/2019-puerto-rico/san-juan/2/P_20190412_061017_vHDR_Auto-small',
+        previousUrl: '/base/2019-puerto-rico/san-juan/IMG_20190801_180122560_HDR-small',
+        nextUrl: null,
+      },
     }
     const photoPaths = getPhotoPathsWithPages(photosPerPage, queryResults.data.photos.nodes)
     expect(photoPaths).toEqual(expected)
@@ -42,11 +66,11 @@ describe('photo-paths', () => {
       {relativePath: '5.jpg', relativeDirectory: '', url: '/5.jpg'},
     ]
     const expected = {
-      '/1.jpg': '/1',
-      '/2.jpg': '/2',
-      '/3.jpg': '/2/3',
-      '/4.jpg': '/2/4',
-      '/5.jpg': '/3/5',
+      '/1.jpg': {url: '/1', previousUrl: null, nextUrl: '/2'},
+      '/2.jpg': {url: '/2', previousUrl: '/1', nextUrl: '/2/3'},
+      '/3.jpg': {url: '/2/3', previousUrl: '/2', nextUrl: '/2/4'},
+      '/4.jpg': {url: '/2/4', previousUrl: '/2/3', nextUrl: '/3/5'},
+      '/5.jpg': {url: '/3/5', previousUrl: '/2/4', nextUrl: null},
     }
     const photoPaths = getPhotoPathsWithPages(photosPerPage, rootPhotos)
     expect(photoPaths).toEqual(expected)

@@ -8,15 +8,26 @@ const groupByRelativeDirectory = groupByProp('relativeDirectory')
 const getPhotoPathsWithPages = (photosPerPage, fileData) => {
   const photoPaths = {}
   const groupedFiles = groupByRelativeDirectory(fileData)
-  forEach(relativeDirectory => indexedForEach(
-    (file, i) => {
-      const pageNumber = Math.ceil((i + 1) / photosPerPage)
-      photoPaths[file.url] = getPhotoPathWithPage(
-        pageNumber, file.url
-      )
-    }, 
-    groupedFiles[relativeDirectory]
-  ), keys(groupedFiles))
+  forEach(relativeDirectory => { 
+    let previousUrl = null
+    let previousUrlWithPage = null
+    return indexedForEach(
+      (file, i) => {
+        const pageNumber = Math.ceil((i + 1) / photosPerPage)
+        photoPaths[file.url] = {
+          url: getPhotoPathWithPage(pageNumber, file.url),
+          previousUrl: previousUrlWithPage,
+          nextUrl: null,
+        }
+        if (previousUrl) {
+          photoPaths[previousUrl].nextUrl = photoPaths[file.url].url
+        }
+        previousUrl = file.url
+        previousUrlWithPage = photoPaths[file.url].url
+      }, 
+      groupedFiles[relativeDirectory]
+    )
+  }, keys(groupedFiles))
   return photoPaths
 }
 
