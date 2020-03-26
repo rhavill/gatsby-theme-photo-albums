@@ -6,14 +6,14 @@ const {addUrlProps} = require('./src/util/files-folders')
 
 const query = `
   query {
-      folders: allDirectory(filter: {sourceInstanceName: {eq: "gtpaPhotos"}}) {
-        nodes {
+    folders: allDirectory(filter: {sourceInstanceName: {eq: "gtpaPhotos"}}) {
+      nodes {
         relativePath
         relativeDirectory
       }
     }
     photos: allFile(filter: {sourceInstanceName: {eq: "gtpaPhotos"}}, sort: {fields: relativePath}) {
-        nodes {
+      nodes {
         absolutePath
         relativePath
         relativeDirectory

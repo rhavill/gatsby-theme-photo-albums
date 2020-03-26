@@ -63,6 +63,7 @@ export const query = graphql`
       skip: $skip) {
       nodes {
         relativePath
+        relativeDirectory
         childImageSharp {
           fixed(width: 250, height: 250, cropFocus: CENTER) {
             ...GatsbyImageSharpFixed
@@ -85,6 +86,7 @@ export const query = graphql`
       sort: {fields: relativePath}) {
       nodes {
         relativePath
+        relativeDirectory
       }
     }
   }

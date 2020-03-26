@@ -1,6 +1,7 @@
 import React from 'react'
 import {StaticQuery} from 'gatsby'
 import {cleanup, render, renderer} from '../../src/util/test-utils'
+import {addUrlProps} from '../../src/util/files-folders'
 import Index from '../../src/templates/Index'
 import queryResults from '../../test-data/index-page-graphql-results'
 

@@ -2,7 +2,7 @@ const forEach = require('ramda/src/forEach')
 const keys = require('ramda/src/keys')
 const match = require('ramda/src/match')
 const {indexedForEach, groupByProp} = require('./ramda-utils')
-const {removeFileExtension} = require('./url-text')
+const {removeFileExtension, ensureLeadingAndTrailingSlash} = require('./url-text')
 const groupByRelativeDirectory = groupByProp('relativeDirectory')
 
 const getPhotoPathsWithPages = (photosPerPage, fileData) => {
@@ -18,6 +18,7 @@ const getPhotoPathsWithPages = (photosPerPage, fileData) => {
           url: getPhotoPathWithPage(pageNumber, file.url),
           previousUrl: previousUrlWithPage,
           nextUrl: null,
+          parentUrl: appendPageNumberToUrl(pageNumber, file.parentUrl),
         }
         if (previousUrl) {
           photoPaths[previousUrl].nextUrl = photoPaths[file.url].url
@@ -41,4 +42,15 @@ const getPhotoPathWithPage = (pageNumber, url) => {
   return url
 }
 
-module.exports = {getPhotoPathsWithPages, getPhotoPathWithPage}
+const appendPageNumberToUrl = (pageNumber, url) => {
+  let path = url ? url : null
+  if (path && pageNumber > 1) {
+    path = `${ensureLeadingAndTrailingSlash(path)}${pageNumber}`
+  }
+  return path
+}
+
+module.exports = {
+  getPhotoPathsWithPages, 
+  getPhotoPathWithPage,
+}
