@@ -43,6 +43,7 @@ const createPhotoPages = (photosPerPage, createPage, files) => {
       component: require.resolve('./src/templates/Photo.js'),
       context: {
         relativePath: file.relativePath,
+        file: photoPaths[file.url],
         width,
         height,
       },
