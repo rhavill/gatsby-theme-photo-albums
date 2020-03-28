@@ -10,7 +10,12 @@ afterEach(cleanup)
 describe('Photo', () => {
   const pageContext = {
     width: 1024,
-    height: 768
+    height: 768,
+    file: {
+      previousUrl: '/prev',
+      nextUrl: '/next',
+      parentUrl: '/parent',
+    },
   }
   it('renders correctly', () => {
     const tree = renderer

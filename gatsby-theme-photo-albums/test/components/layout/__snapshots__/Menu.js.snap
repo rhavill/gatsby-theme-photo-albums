@@ -1,18 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu renders correctly 1`] = `
-<nav>
+<nav
+  css={
+    Object {
+      "map": undefined,
+      "name": "1wrhuiq",
+      "next": undefined,
+      "styles": "
+    background-color: #6bccf9;
+  ",
+      "toString": [Function],
+    }
+  }
+>
   <label
     css={
       Object {
         "map": undefined,
-        "name": "1ox5w5f",
+        "name": "1pss38v",
         "next": undefined,
         "styles": "
     font-size: 2rem;
-    padding: .5rem;
-    display: inline-block;
-    background-color: #6bccf9;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
   ",
         "toString": [Function],
@@ -37,14 +51,13 @@ exports[`Menu renders correctly 1`] = `
     css={
       Object {
         "map": undefined,
-        "name": "1myc36q",
+        "name": "vm8o2u",
         "next": undefined,
         "styles": "
     list-style-type: none;
-    margin: 0rem;
+    margin: 0;
     padding: 0;
     display: none;
-    background-color: #6bccf9;
   ",
         "toString": [Function],
       }

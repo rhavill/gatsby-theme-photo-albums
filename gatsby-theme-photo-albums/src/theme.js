@@ -95,6 +95,28 @@ export const theme = {
         justifyContent: 'center',
         alignItems: 'center',
         minHeight: '100vh',
+        fontSize: '2rem',
+        color: 'secondary',
+        '.photo-navigation': {
+          backgroundColor: 'primary',
+          width: '3.0rem',
+          height: '3.0rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'absolute',
+          zIndex: 200,
+        },
+        '.previous': {
+          left: 0,
+        },
+        '.next': {
+          right: 0,
+        },
+        '.parent': {
+          right: 0,
+          top: 0,
+        },
       }
     },
   }

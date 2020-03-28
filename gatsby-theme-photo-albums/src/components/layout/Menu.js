@@ -11,12 +11,15 @@ export const Menu = ({ links, theme }) => {
   const handleCheck = () => setIsOpen(!isOpen)
   const listDisplay = isOpen ? 'block' : 'none'
 
+  const nav = css`
+    background-color: ${theme.colors.primary};
+  `
+
   const ul = css`
     list-style-type: none;
-    margin: 0rem;
+    margin: 0;
     padding: 0;
     display: ${listDisplay};
-    background-color: ${theme.colors.primary};
   `
 
   const li = css`
@@ -27,13 +30,15 @@ export const Menu = ({ links, theme }) => {
   `
   const label = css`
     font-size: 2rem;
-    padding: .5rem;
-    display: inline-block;
-    background-color: ${theme.colors.primary};
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
   `
   return (
-    <nav>
+    <nav css={nav}>
       <label htmlFor='menu-checkbox' css={label}>&#9776;</label>
       <input type='checkbox' id='menu-checkbox' defaultChecked={isOpen} 
         onChange={handleCheck} css={{display: 'none'}} />
