@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
 
 function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window
+  let width =  null, height = null
+  if (typeof window !== 'undefined') {
+    width = window.innerWidth
+    height = window.innerHeight
+  }
   const orientation = height > width ? 'portrait' : 'landscape'
   return {
     width,
