@@ -1,14 +1,18 @@
 import compose from 'ramda/src/compose'
+import find from 'ramda/src/find'
+import propEq from 'ramda/src/propEq'
 import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {Global} from '@emotion/core'
-import {graphql, Link} from 'gatsby'
+import {graphql, navigate, Link} from 'gatsby'
 import Img from 'gatsby-image'
 import Layout from '../components/layout/Layout'
 import {pathToFileTitle, removePathPrefix, removeFileExtension} from '../util/url-text'
+import useKeyUp from '../hooks/use-key-up'
 import useWindowDimensions from '../hooks/use-window-dimensions'
 import photoDimensions from '../util/photo-dimensions'
 //import { Context } from 'theme-ui'
+
 
 const Photo =  ({data, path, pageContext}) => {
   const pathPrefix = data.site.pathPrefix
@@ -20,6 +24,24 @@ const Photo =  ({data, path, pageContext}) => {
   const windowDimensions = useWindowDimensions()
   const dimensions = photoDimensions(windowDimensions, pageContext)
 
+  const previousUrl = pageContext.file.previousUrl
+  const nextUrl = pageContext.file.nextUrl
+  const parentUrl = pageContext.file.parentUrl
+  const keyUpActions = []
+  if (parentUrl) {
+    keyUpActions.push({navigateTo: parentUrl, wasPressed: useKeyUp('ArrowUp')})
+  }    
+  if (previousUrl) {
+    keyUpActions.push({navigateTo: previousUrl, wasPressed: useKeyUp('ArrowLeft')})
+  }
+  if (nextUrl) {
+    keyUpActions.push({navigateTo: nextUrl, wasPressed: useKeyUp('ArrowRight')})
+  }
+  const action = find(propEq('wasPressed', true), keyUpActions)
+  if (action) {
+    navigate(action.navigateTo)
+  }
+  
   return (
     <Layout path={path}>
       <Global
@@ -30,21 +52,21 @@ const Photo =  ({data, path, pageContext}) => {
         }}
       />
       <div className='photo-page' data-testid={path} ref={ref}>
-        {pageContext.file.previousUrl ?
+        {previousUrl ?
           <div className='photo-navigation previous'>
-            <div><Link to={pageContext.file.previousUrl}>◄</Link></div>
+            <div><Link to={previousUrl}>◄</Link></div>
           </div> 
           : null}
         <Img fixed={data.photo.childImageSharp.fixed} alt={title} title={title}
           loading='eager' css={dimensions}/>
-        {pageContext.file.parentUrl ?
+        {parentUrl ?
           <div className='photo-navigation parent'>
-            <div><Link to={pageContext.file.parentUrl}>⯅</Link></div>
+            <div><Link to={parentUrl}>⯅</Link></div>
           </div>
           : null}
-        {pageContext.file.nextUrl ?
+        {nextUrl ?
           <div className='photo-navigation next'>
-            <div><Link to={pageContext.file.nextUrl}>►</Link></div>
+            <div><Link to={nextUrl}>►</Link></div>
           </div>
           : null}
       </div>
@@ -88,10 +110,10 @@ Photo.propTypes = {
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     file: PropTypes.shape({
-      previousUrl: PropTypes.string.isRequired,
-      nextUrl: PropTypes.string.isRequired,
-      parentUrl: PropTypes.string.isRequired,
-    }).isRequired,
+      previousUrl: PropTypes.string,
+      nextUrl: PropTypes.string,
+      parentUrl: PropTypes.string,
+    }),
   }).isRequired
 }
 
