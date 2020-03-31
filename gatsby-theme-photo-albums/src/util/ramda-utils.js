@@ -1,7 +1,9 @@
 const addIndex = require('ramda/src/addIndex')
+const complement = require('ramda/src/complement')
 const compose = require('ramda/src/compose')
 const forEach = require('ramda/src/forEach')
 const groupBy = require('ramda/src/groupBy')
+const isNil = require('ramda/src/isNil')
 const map = require('ramda/src/map')
 const prop = require('ramda/src/prop')
 
@@ -29,9 +31,12 @@ const indexedForEach = addIndex(forEach)
 
 const groupByProp = property => compose(groupBy, prop)(property)
 
+const isNotNil = complement(isNil)
+
 module.exports = {
   objectArrayToPropArray,
   mapIndexed,
   indexedForEach,
   groupByProp,
+  isNotNil,
 }
