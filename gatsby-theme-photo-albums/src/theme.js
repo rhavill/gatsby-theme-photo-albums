@@ -102,10 +102,14 @@ export const theme = {
           width: '3.0rem',
           height: '3.0rem',
           display: 'flex',
+          '@media (max-width: 680px)': {
+            display: 'none',
+          },
           alignItems: 'center',
           justifyContent: 'center',
           position: 'absolute',
           zIndex: 200,
+          opacity: '40%',
         },
         '.previous': {
           left: 0,
@@ -116,6 +120,7 @@ export const theme = {
         '.parent': {
           right: 0,
           top: 0,
+          display: 'none',
         },
       }
     },

@@ -99,7 +99,7 @@ exports[`Index renders correctly 1`] = `
     </nav>
   </header>
   <main
-    className="css-1wmjwce-Main"
+    className="css-1wf4k6s-Main"
   >
     <div
       className="listing-page"
