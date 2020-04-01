@@ -29,6 +29,7 @@
     "gatsby-source-filesystem": "^2.1.42",
     "gatsby-transformer-sharp": "^2.3.9",
     "ramda": "^0.26.1",
+    "react-swipeable": "^5.5.1",
     "theme-ui": "^0.2.49"
   },
   "peerDependencies": {

@@ -12,10 +12,10 @@ import Layout from '../components/layout/Layout'
 import {isNotNil} from '../util/ramda-utils'
 import {pathToFileTitle, removePathPrefix, removeFileExtension} from '../util/url-text'
 import useKeyUp from '../hooks/use-key-up'
+import useSwipeNavigate from '../hooks/use-swipe-navigate'
 import useWindowDimensions from '../hooks/use-window-dimensions'
 import photoDimensions from '../util/photo-dimensions'
 //import { Context } from 'theme-ui'
-
 
 const Photo =  ({data, path, pageContext}) => {
   const pathPrefix = data.site.pathPrefix
@@ -39,11 +39,14 @@ const Photo =  ({data, path, pageContext}) => {
     both(
       compose(isNotNil, prop('navigateTo')),
       propEq('wasPressed', true)
-    ), 
-    keyUpActions)
+    ),
+    keyUpActions
+  )
   if (action) {
     navigate(action.navigateTo)
   }
+  
+  const swipeHandlers = useSwipeNavigate(nextUrl, previousUrl, parentUrl)
 
   return (
     <Layout path={path}>
@@ -54,24 +57,26 @@ const Photo =  ({data, path, pageContext}) => {
           }
         }}
       />
-      <div className='photo-page' data-testid={path} ref={ref}>
-        {previousUrl ?
-          <div className='photo-navigation previous'>
-            <div><Link to={previousUrl}>◄</Link></div>
-          </div> 
-          : null}
-        <Img fixed={data.photo.childImageSharp.fixed} alt={title} title={title}
-          loading='eager' css={dimensions}/>
-        {parentUrl ?
-          <div className='photo-navigation parent'>
-            <div><Link to={parentUrl}>⯅</Link></div>
-          </div>
-          : null}
-        {nextUrl ?
-          <div className='photo-navigation next'>
-            <div><Link to={nextUrl}>►</Link></div>
-          </div>
-          : null}
+      <div {...swipeHandlers}>
+        <div className='photo-page' data-testid={path} ref={ref}>
+          {previousUrl ?
+            <div className='photo-navigation previous'>
+              <div><Link to={previousUrl}>◄</Link></div>
+            </div> 
+            : null}
+          <Img fixed={data.photo.childImageSharp.fixed} alt={title} title={title}
+            loading='eager' css={dimensions} draggable={false} />
+          {parentUrl ?
+            <div className='photo-navigation parent'>
+              <div><Link to={parentUrl}>⯅</Link></div>
+            </div>
+            : null}
+          {nextUrl ?
+            <div className='photo-navigation next'>
+              <div><Link to={nextUrl}>►</Link></div>
+            </div>
+            : null}
+        </div>
       </div>
     </Layout>
   )
