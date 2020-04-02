@@ -36,7 +36,7 @@ const getPhotoPathWithPage = (pageNumber, url) => {
   url = removeFileExtension(url)
   const matches = match(/^(.*\/)([^/]+)$/, url)
   if (matches && matches[1] && matches[2]) {
-    const path =  `${matches[1]}` + (pageNumber > 1 ? `${pageNumber}/` : '') + matches[2]
+    const path =  `${matches[1]}` + (pageNumber > 1 ? `page-${pageNumber}/` : '') + matches[2]
     return path
   }
   return url
@@ -45,7 +45,7 @@ const getPhotoPathWithPage = (pageNumber, url) => {
 const appendPageNumberToUrl = (pageNumber, url) => {
   let path = url ? url : null
   if (path && pageNumber > 1) {
-    path = `${ensureLeadingAndTrailingSlash(path)}${pageNumber}`
+    path = `${ensureLeadingAndTrailingSlash(path)}page-${pageNumber}`
   }
   return path
 }
