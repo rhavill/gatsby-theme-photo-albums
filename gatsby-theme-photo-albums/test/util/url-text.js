@@ -41,10 +41,10 @@ describe('url-text', () => {
     expect(removePathPrefix(pathPrefix)(text)).toEqual(expected)
   })
   it('getPagerUrls outputs the correct previous/next urls when the current url ends in "/"', () => {
-    const path = '/album-3/2/'
+    const path = '/album-3/page-2/'
     const currentPage = 2 
     const numPages = 3
-    const expected = {prev: '/album-3', next: '/album-3/3'}
+    const expected = {prev: '/album-3', next: '/album-3/page-3'}
     expect(getPagerUrls(path, currentPage, numPages)).toEqual(expected)
   })
 })

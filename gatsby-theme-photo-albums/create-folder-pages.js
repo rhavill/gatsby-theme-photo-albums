@@ -19,7 +19,7 @@ const createFolderPages = (baseUrl, photosPerPage, createPage, files, folders) =
         url = concat(url, '/')
       }
       if (isNotFirstPage(i)) {
-        url = concat(url, `${pageIndexToPageNumber(i)}`)
+        url = concat(url, `page-${pageIndexToPageNumber(i)}`)
       }
       const pageContext = {
         ...pagerData,

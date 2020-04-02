@@ -9,13 +9,13 @@ afterEach(cleanup)
 describe('Pager', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<Pager path='/some-path/2' currentPage={2} numPages={3} />)
+      .create(<Pager path='/some-path/page-2' currentPage={2} numPages={3} />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
   it('displays Previous and Next link if previous and next pages exist', () => {
     const {getByText} = render(
-      <Pager path='/some-path/2' currentPage={2} numPages={3} />
+      <Pager path='/some-path/page-2' currentPage={2} numPages={3} />
     )
     expect(getByText('← Previous Page')).toBeTruthy()
     expect(getByText('Next Page →')).toBeTruthy()
@@ -29,7 +29,7 @@ describe('Pager', () => {
   })
   it('only displays Previous link for first page', () => {
     const {getByText, queryByText} = render(
-      <Pager path='/some-path/3' currentPage={3} numPages={3} />
+      <Pager path='/some-path/page-3' currentPage={3} numPages={3} />
     )
     expect(getByText('← Previous Page')).toBeTruthy()
     expect(queryByText('Next Page →')).toBeNull()
