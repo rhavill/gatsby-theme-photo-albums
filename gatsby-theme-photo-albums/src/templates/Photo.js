@@ -26,7 +26,7 @@ const Photo =  ({data, path, pageContext}) => {
   const ref = useRef(null)
   const windowDimensions = useWindowDimensions()
   const dimensions = photoDimensions(windowDimensions, pageContext)
-
+  const css = {height: windowDimensions.height}
   const previousUrl = pageContext.file.previousUrl
   const nextUrl = pageContext.file.nextUrl
   const parentUrl = pageContext.file.parentUrl
@@ -58,7 +58,7 @@ const Photo =  ({data, path, pageContext}) => {
         }}
       />
       <div {...swipeHandlers}>
-        <div className='photo-page' data-testid={path} ref={ref}>
+        <div className='photo-page' data-testid={path} ref={ref} css={css}>
           {previousUrl ?
             <div className='photo-navigation previous'>
               <div><Link to={previousUrl}>◄</Link></div>

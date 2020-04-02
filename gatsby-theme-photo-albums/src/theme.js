@@ -94,7 +94,6 @@ export const theme = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '100vh',
         fontSize: '2rem',
         color: 'secondary',
         '.photo-navigation': {

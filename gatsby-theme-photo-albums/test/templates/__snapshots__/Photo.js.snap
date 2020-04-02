@@ -143,13 +143,18 @@ exports[`Photo renders correctly 1`] = `
     </nav>
   </header>
   <main
-    className="css-1wf4k6s-Main"
+    className="css-gyipzr-Main"
   >
     <div
       onMouseDown={[Function]}
     >
       <div
         className="photo-page"
+        css={
+          Object {
+            "height": 768,
+          }
+        }
         data-testid="/base/1"
       >
         <div
