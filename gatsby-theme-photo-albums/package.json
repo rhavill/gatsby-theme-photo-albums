@@ -33,9 +33,9 @@
     "theme-ui": "^0.2.49"
   },
   "peerDependencies": {
-    "gatsby": "^2.18.8",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "gatsby": "^2.20.10",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@testing-library/react": "^9.3.2",
@@ -44,7 +44,7 @@
     "babel-preset-gatsby": "^0.2.25",
     "eslint": "^6.7.2",
     "eslint-plugin-react": "^7.17.0",
-    "gatsby": "^2.18.10",
+    "gatsby": "^2.20.10",
     "identity-obj-proxy": "^3.0.0",
     "image-size": "^0.8.3",
     "jest": "^24.9.0",
@@ -52,9 +52,9 @@
     "jsdom": "^16.2.2",
     "npm-check": "^5.9.2",
     "prettier": "^1.19.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-test-renderer": "^16.12.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
     "start-server-and-test": "^1.10.11"
   },
   "repository": {
