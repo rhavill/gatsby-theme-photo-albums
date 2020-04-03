@@ -9,7 +9,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "gatsby": "^2.20.10",
+    "gatsby": "^2.20.12",
     "gatsby-theme-photo-albums": "*",
     "lodash.merge": "^4.6.2",
     "react": "^16.13.1",
