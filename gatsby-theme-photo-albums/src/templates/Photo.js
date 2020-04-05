@@ -3,30 +3,27 @@ import compose from 'ramda/src/compose'
 import find from 'ramda/src/find'
 import prop from 'ramda/src/prop'
 import propEq from 'ramda/src/propEq'
-import React, {useRef} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import {Global} from '@emotion/core'
 import {graphql, navigate, Link} from 'gatsby'
 import Img from 'gatsby-image'
 import Layout from '../components/layout/Layout'
+import PhotoStyles from '../styles/Photo'
 import {isNotNil} from '../util/ramda-utils'
 import {pathToFileTitle, removePathPrefix, removeFileExtension} from '../util/url-text'
 import useKeyUp from '../hooks/use-key-up'
 import useSwipeNavigate from '../hooks/use-swipe-navigate'
 import useWindowDimensions from '../hooks/use-window-dimensions'
 import photoDimensions from '../util/photo-dimensions'
-//import { Context } from 'theme-ui'
 
-const Photo =  ({data, path, pageContext}) => {
+const Photo = ({data, path, pageContext}) => {
   const pathPrefix = data.site.pathPrefix
   path = compose(
     removeFileExtension, removePathPrefix(pathPrefix), decodeURI
   )(path)
   const title = pathToFileTitle(path)
-  const ref = useRef(null)
   const windowDimensions = useWindowDimensions()
   const dimensions = photoDimensions(windowDimensions, pageContext)
-  const css = {height: windowDimensions.height}
   const previousUrl = pageContext.file.previousUrl
   const nextUrl = pageContext.file.nextUrl
   const parentUrl = pageContext.file.parentUrl
@@ -50,15 +47,8 @@ const Photo =  ({data, path, pageContext}) => {
 
   return (
     <Layout path={path}>
-      <Global
-        styles={{
-          'body': {
-            margin: 0
-          }
-        }}
-      />
-      <div {...swipeHandlers}>
-        <div className='photo-page' data-testid={path} ref={ref} css={css}>
+      <div data-testid={path} {...swipeHandlers}>
+        <PhotoStyles height={windowDimensions.height}>
           {previousUrl ?
             <div className='photo-navigation previous'>
               <div><Link to={previousUrl}>◄</Link></div>
@@ -76,7 +66,7 @@ const Photo =  ({data, path, pageContext}) => {
               <div><Link to={nextUrl}>►</Link></div>
             </div>
             : null}
-        </div>
+        </PhotoStyles>
       </div>
     </Layout>
   )

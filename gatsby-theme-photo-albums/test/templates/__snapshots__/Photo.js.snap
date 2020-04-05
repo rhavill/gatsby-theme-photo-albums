@@ -2,52 +2,20 @@
 
 exports[`Photo renders correctly 1`] = `
 <div
-  className="css-1ala8gf-Layout"
+  className="css-1qldoov-Layout"
 >
-  <header
-    className="css-a1lwk2-Header"
+  <div
+    className="css-1jhlbdc-Header"
   >
     <nav
-      css={
-        Object {
-          "map": undefined,
-          "name": "1wrhuiq",
-          "next": undefined,
-          "styles": "
-    background-color: #6bccf9;
-  ",
-          "toString": [Function],
-        }
-      }
+      className="css-1be44vx-Menu"
     >
       <label
-        css={
-          Object {
-            "map": undefined,
-            "name": "1pss38v",
-            "next": undefined,
-            "styles": "
-    font-size: 2rem;
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  ",
-            "toString": [Function],
-          }
-        }
         htmlFor="menu-checkbox"
       >
         ☰
       </label>
       <input
-        css={
-          Object {
-            "display": "none",
-          }
-        }
         defaultChecked={false}
         id="menu-checkbox"
         onChange={[Function]}
@@ -56,38 +24,14 @@ exports[`Photo renders correctly 1`] = `
       <ul
         css={
           Object {
-            "map": undefined,
-            "name": "vm8o2u",
-            "next": undefined,
-            "styles": "
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: none;
-  ",
-            "toString": [Function],
+            "display": "none",
           }
         }
       >
         <a
           href="/"
         >
-          <li
-            css={
-              Object {
-                "map": undefined,
-                "name": "lmlfqw",
-                "next": undefined,
-                "styles": "
-    display: block;
-    padding: .5rem;
-    /*box-sizing: border-box;*/
-    border-top: 1px solid;
-  ",
-                "toString": [Function],
-              }
-            }
-          >
+          <li>
             <span
               className="first-breadcrumb"
             >
@@ -98,64 +42,29 @@ exports[`Photo renders correctly 1`] = `
         <a
           href="/base"
         >
-          <li
-            css={
-              Object {
-                "map": undefined,
-                "name": "lmlfqw",
-                "next": undefined,
-                "styles": "
-    display: block;
-    padding: .5rem;
-    /*box-sizing: border-box;*/
-    border-top: 1px solid;
-  ",
-                "toString": [Function],
-              }
-            }
-          >
+          <li>
             Base
           </li>
         </a>
         <a
           href="/base/1"
         >
-          <li
-            css={
-              Object {
-                "map": undefined,
-                "name": "lmlfqw",
-                "next": undefined,
-                "styles": "
-    display: block;
-    padding: .5rem;
-    /*box-sizing: border-box;*/
-    border-top: 1px solid;
-  ",
-                "toString": [Function],
-              }
-            }
-          >
+          <li>
             1
           </li>
         </a>
       </ul>
     </nav>
-  </header>
-  <main
-    className="css-gyipzr-Main"
+  </div>
+  <div
+    className="css-15phz5z-MainContent"
   >
     <div
+      data-testid="/base/1"
       onMouseDown={[Function]}
     >
       <div
-        className="photo-page"
-        css={
-          Object {
-            "height": 768,
-          }
-        }
-        data-testid="/base/1"
+        className="css-3q5667-Photo"
       >
         <div
           className="photo-navigation previous"
@@ -241,6 +150,6 @@ exports[`Photo renders correctly 1`] = `
         </div>
       </div>
     </div>
-  </main>
+  </div>
 </div>
 `;

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'gatsby'
+import PagerStyles from '../../styles/Pager'
 import PreviousPageText from './PreviousPageText'
 import NextPageText from './NextPageText'
 import {getPagerUrls} from '../../util/url-text'
@@ -9,7 +10,7 @@ const Pager = ({path, currentPage, numPages}) => {
   const {prev, next} = getPagerUrls(path, currentPage, numPages)
 
   return (
-    <div className='pager'>
+    <PagerStyles>
       {prev ? (
         <Link to={prev} rel='prev'>
           <PreviousPageText />
@@ -20,7 +21,7 @@ const Pager = ({path, currentPage, numPages}) => {
           <NextPageText />
         </Link>
       ) : null}
-    </div>
+    </PagerStyles>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Header as ThemeHeader} from 'theme-ui'
+import HeaderStyles from '../../styles/Header'
 import FirstBreadcrumbText from './FirstBreadcrumbText'
 import Menu from './Menu'
 import breadcrumbs from '../../util/breadcrumbs'
@@ -11,9 +11,9 @@ const Header = ({ path }) => {
     links[0].title = <FirstBreadcrumbText />
   }
   return (
-    <ThemeHeader>
+    <HeaderStyles>
       <Menu links={links} />
-    </ThemeHeader>
+    </HeaderStyles>
   )
 }
 

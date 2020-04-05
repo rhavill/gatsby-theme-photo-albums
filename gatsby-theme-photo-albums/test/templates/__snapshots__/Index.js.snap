@@ -2,52 +2,20 @@
 
 exports[`Index renders correctly 1`] = `
 <div
-  className="css-1ala8gf-Layout"
+  className="css-1qldoov-Layout"
 >
-  <header
-    className="css-a1lwk2-Header"
+  <div
+    className="css-1jhlbdc-Header"
   >
     <nav
-      css={
-        Object {
-          "map": undefined,
-          "name": "1wrhuiq",
-          "next": undefined,
-          "styles": "
-    background-color: #6bccf9;
-  ",
-          "toString": [Function],
-        }
-      }
+      className="css-1be44vx-Menu"
     >
       <label
-        css={
-          Object {
-            "map": undefined,
-            "name": "1pss38v",
-            "next": undefined,
-            "styles": "
-    font-size: 2rem;
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  ",
-            "toString": [Function],
-          }
-        }
         htmlFor="menu-checkbox"
       >
         ☰
       </label>
       <input
-        css={
-          Object {
-            "display": "none",
-          }
-        }
         defaultChecked={false}
         id="menu-checkbox"
         onChange={[Function]}
@@ -56,38 +24,14 @@ exports[`Index renders correctly 1`] = `
       <ul
         css={
           Object {
-            "map": undefined,
-            "name": "vm8o2u",
-            "next": undefined,
-            "styles": "
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: none;
-  ",
-            "toString": [Function],
+            "display": "none",
           }
         }
       >
         <a
           href="/"
         >
-          <li
-            css={
-              Object {
-                "map": undefined,
-                "name": "lmlfqw",
-                "next": undefined,
-                "styles": "
-    display: block;
-    padding: .5rem;
-    /*box-sizing: border-box;*/
-    border-top: 1px solid;
-  ",
-                "toString": [Function],
-              }
-            }
-          >
+          <li>
             <span
               className="first-breadcrumb"
             >
@@ -97,435 +41,438 @@ exports[`Index renders correctly 1`] = `
         </a>
       </ul>
     </nav>
-  </header>
-  <main
-    className="css-gyipzr-Main"
+  </div>
+  <div
+    className="css-15phz5z-MainContent"
   >
     <div
-      className="listing-page"
       data-testid="/"
     >
-      <section>
-        <article
-          className="folder"
-          data-testid="folder"
-        >
-          <a
-            href="/"
+      <div
+        className="css-1hxgsm0-Index"
+      >
+        <section>
+          <article
+            className="folder"
+            data-testid="folder"
           >
-            <div
-              className=" gatsby-image-wrapper"
-              style={
-                Object {
-                  "display": "inline-block",
-                  "height": 250,
-                  "overflow": "hidden",
-                  "position": "relative",
-                  "width": 250,
-                }
-              }
+            <a
+              href="/"
             >
-              <picture>
-                <source
-                  srcSet="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x"
-                />
-                <img
-                  alt="/"
-                  height={250}
-                  loading="lazy"
-                  onLoad={[Function]}
-                  src="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png"
-                  srcSet="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x"
-                  style={
+              <div
+                className=" gatsby-image-wrapper"
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "height": 250,
+                    "overflow": "hidden",
+                    "position": "relative",
+                    "width": 250,
+                  }
+                }
+              >
+                <picture>
+                  <source
+                    srcSet="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x"
+                  />
+                  <img
+                    alt="/"
+                    height={250}
+                    loading="lazy"
+                    onLoad={[Function]}
+                    src="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png"
+                    srcSet="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x"
+                    style={
+                      Object {
+                        "height": "100%",
+                        "left": 0,
+                        "objectFit": "cover",
+                        "objectPosition": "center",
+                        "opacity": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "transition": "opacity 500ms",
+                        "width": "100%",
+                      }
+                    }
+                    title="/"
+                    width={250}
+                  />
+                </picture>
+                <noscript
+                  dangerouslySetInnerHTML={
                     Object {
-                      "height": "100%",
-                      "left": 0,
-                      "objectFit": "cover",
-                      "objectPosition": "center",
-                      "opacity": 0,
-                      "position": "absolute",
-                      "top": 0,
-                      "transition": "opacity 500ms",
-                      "width": "100%",
+                      "__html": "<picture><source srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" src=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png\\" alt=\\"/\\" title=\\"/\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
                     }
                   }
-                  title="/"
-                  width={250}
                 />
-              </picture>
-              <noscript
-                dangerouslySetInnerHTML={
+              </div>
+              <div
+                className="folder-title"
+              >
+                /
+              </div>
+            </a>
+          </article>
+          <article
+            className="folder"
+            data-testid="folder"
+          >
+            <a
+              href="/2019-puerto-rico"
+            >
+              <div
+                className=" gatsby-image-wrapper"
+                style={
                   Object {
-                    "__html": "<picture><source srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" src=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png\\" alt=\\"/\\" title=\\"/\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+                    "display": "inline-block",
+                    "height": 250,
+                    "overflow": "hidden",
+                    "position": "relative",
+                    "width": 250,
                   }
                 }
-              />
-            </div>
-            <div
-              className="folder-title"
-            >
-              /
-            </div>
-          </a>
-        </article>
-        <article
-          className="folder"
-          data-testid="folder"
-        >
-          <a
-            href="/2019-puerto-rico"
-          >
-            <div
-              className=" gatsby-image-wrapper"
-              style={
-                Object {
-                  "display": "inline-block",
-                  "height": 250,
-                  "overflow": "hidden",
-                  "position": "relative",
-                  "width": 250,
-                }
-              }
-            >
-              <picture>
-                <source
-                  srcSet="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x"
-                />
-                <img
-                  alt="2019 Puerto Rico"
-                  height={250}
-                  loading="lazy"
-                  onLoad={[Function]}
-                  src="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png"
-                  srcSet="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x"
-                  style={
+              >
+                <picture>
+                  <source
+                    srcSet="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x"
+                  />
+                  <img
+                    alt="2019 Puerto Rico"
+                    height={250}
+                    loading="lazy"
+                    onLoad={[Function]}
+                    src="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png"
+                    srcSet="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x"
+                    style={
+                      Object {
+                        "height": "100%",
+                        "left": 0,
+                        "objectFit": "cover",
+                        "objectPosition": "center",
+                        "opacity": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "transition": "opacity 500ms",
+                        "width": "100%",
+                      }
+                    }
+                    title="2019 Puerto Rico"
+                    width={250}
+                  />
+                </picture>
+                <noscript
+                  dangerouslySetInnerHTML={
                     Object {
-                      "height": "100%",
-                      "left": 0,
-                      "objectFit": "cover",
-                      "objectPosition": "center",
-                      "opacity": 0,
-                      "position": "absolute",
-                      "top": 0,
-                      "transition": "opacity 500ms",
-                      "width": "100%",
+                      "__html": "<picture><source srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" src=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png\\" alt=\\"2019 Puerto Rico\\" title=\\"2019 Puerto Rico\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
                     }
                   }
-                  title="2019 Puerto Rico"
-                  width={250}
                 />
-              </picture>
-              <noscript
-                dangerouslySetInnerHTML={
+              </div>
+              <div
+                className="folder-title"
+              >
+                2019 Puerto Rico
+              </div>
+            </a>
+          </article>
+          <article
+            className="folder"
+            data-testid="folder"
+          >
+            <a
+              href="/2019-puerto-rico/jayuya"
+            >
+              <div
+                className=" gatsby-image-wrapper"
+                style={
                   Object {
-                    "__html": "<picture><source srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" src=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png\\" alt=\\"2019 Puerto Rico\\" title=\\"2019 Puerto Rico\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+                    "display": "inline-block",
+                    "height": 250,
+                    "overflow": "hidden",
+                    "position": "relative",
+                    "width": 250,
                   }
                 }
-              />
-            </div>
-            <div
-              className="folder-title"
-            >
-              2019 Puerto Rico
-            </div>
-          </a>
-        </article>
-        <article
-          className="folder"
-          data-testid="folder"
-        >
-          <a
-            href="/2019-puerto-rico/jayuya"
-          >
-            <div
-              className=" gatsby-image-wrapper"
-              style={
-                Object {
-                  "display": "inline-block",
-                  "height": 250,
-                  "overflow": "hidden",
-                  "position": "relative",
-                  "width": 250,
-                }
-              }
-            >
-              <picture>
-                <source
-                  srcSet="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x"
-                />
-                <img
-                  alt="Jayuya"
-                  height={250}
-                  loading="lazy"
-                  onLoad={[Function]}
-                  src="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png"
-                  srcSet="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x"
-                  style={
+              >
+                <picture>
+                  <source
+                    srcSet="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x"
+                  />
+                  <img
+                    alt="Jayuya"
+                    height={250}
+                    loading="lazy"
+                    onLoad={[Function]}
+                    src="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png"
+                    srcSet="/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x"
+                    style={
+                      Object {
+                        "height": "100%",
+                        "left": 0,
+                        "objectFit": "cover",
+                        "objectPosition": "center",
+                        "opacity": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "transition": "opacity 500ms",
+                        "width": "100%",
+                      }
+                    }
+                    title="Jayuya"
+                    width={250}
+                  />
+                </picture>
+                <noscript
+                  dangerouslySetInnerHTML={
                     Object {
-                      "height": "100%",
-                      "left": 0,
-                      "objectFit": "cover",
-                      "objectPosition": "center",
-                      "opacity": 0,
-                      "position": "absolute",
-                      "top": 0,
-                      "transition": "opacity 500ms",
-                      "width": "100%",
+                      "__html": "<picture><source srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" src=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png\\" alt=\\"Jayuya\\" title=\\"Jayuya\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
                     }
                   }
-                  title="Jayuya"
-                  width={250}
                 />
-              </picture>
-              <noscript
-                dangerouslySetInnerHTML={
+              </div>
+              <div
+                className="folder-title"
+              >
+                Jayuya
+              </div>
+            </a>
+          </article>
+          <article
+            className="file"
+            data-testid="file"
+          >
+            <a
+              href="/2019-puerto-rico/jayuya/IMG_20190814_113735817-small"
+            >
+              <div
+                className=" gatsby-image-wrapper"
+                style={
                   Object {
-                    "__html": "<picture><source srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png 1x\\" src=\\"/static/b75d8bd08d0e30f3925cc6187ddc8b84/f17d3/folder.png\\" alt=\\"Jayuya\\" title=\\"Jayuya\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+                    "display": "inline-block",
+                    "height": 250,
+                    "overflow": "hidden",
+                    "position": "relative",
+                    "width": 250,
                   }
                 }
-              />
-            </div>
-            <div
-              className="folder-title"
-            >
-              Jayuya
-            </div>
-          </a>
-        </article>
-        <article
-          className="file"
-          data-testid="file"
-        >
-          <a
-            href="/2019-puerto-rico/jayuya/IMG_20190814_113735817-small"
-          >
-            <div
-              className=" gatsby-image-wrapper"
-              style={
-                Object {
-                  "display": "inline-block",
-                  "height": 250,
-                  "overflow": "hidden",
-                  "position": "relative",
-                  "width": 250,
-                }
-              }
-            >
-              <picture>
-                <source
-                  srcSet="/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x"
-                />
-                <img
-                  alt="Img 20190814 113735817 Small"
-                  height={250}
-                  loading="lazy"
-                  onLoad={[Function]}
-                  src="/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg"
-                  srcSet="/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x"
-                  style={
+              >
+                <picture>
+                  <source
+                    srcSet="/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x"
+                  />
+                  <img
+                    alt="Img 20190814 113735817 Small"
+                    height={250}
+                    loading="lazy"
+                    onLoad={[Function]}
+                    src="/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg"
+                    srcSet="/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x"
+                    style={
+                      Object {
+                        "height": "100%",
+                        "left": 0,
+                        "objectFit": "cover",
+                        "objectPosition": "center",
+                        "opacity": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "transition": "opacity 500ms",
+                        "width": "100%",
+                      }
+                    }
+                    title="Img 20190814 113735817 Small"
+                    width={250}
+                  />
+                </picture>
+                <noscript
+                  dangerouslySetInnerHTML={
                     Object {
-                      "height": "100%",
-                      "left": 0,
-                      "objectFit": "cover",
-                      "objectPosition": "center",
-                      "opacity": 0,
-                      "position": "absolute",
-                      "top": 0,
-                      "transition": "opacity 500ms",
-                      "width": "100%",
+                      "__html": "<picture><source srcset=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x\\" src=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg\\" alt=\\"Img 20190814 113735817 Small\\" title=\\"Img 20190814 113735817 Small\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
                     }
                   }
-                  title="Img 20190814 113735817 Small"
-                  width={250}
                 />
-              </picture>
-              <noscript
-                dangerouslySetInnerHTML={
+              </div>
+            </a>
+          </article>
+          <article
+            className="file"
+            data-testid="file"
+          >
+            <a
+              href="/2019-puerto-rico/jayuya/IMG_20190814_104325636-small"
+            >
+              <div
+                className=" gatsby-image-wrapper"
+                style={
                   Object {
-                    "__html": "<picture><source srcset=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg 1x\\" src=\\"/static/bd5e73a4e4ef1e6c999f05a63948fb15/284df/IMG_20190814_113735817-small.jpg\\" alt=\\"Img 20190814 113735817 Small\\" title=\\"Img 20190814 113735817 Small\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+                    "display": "inline-block",
+                    "height": 250,
+                    "overflow": "hidden",
+                    "position": "relative",
+                    "width": 250,
                   }
                 }
-              />
-            </div>
-          </a>
-        </article>
-        <article
-          className="file"
-          data-testid="file"
-        >
-          <a
-            href="/2019-puerto-rico/jayuya/IMG_20190814_104325636-small"
-          >
-            <div
-              className=" gatsby-image-wrapper"
-              style={
-                Object {
-                  "display": "inline-block",
-                  "height": 250,
-                  "overflow": "hidden",
-                  "position": "relative",
-                  "width": 250,
-                }
-              }
-            >
-              <picture>
-                <source
-                  srcSet="/static/097fee76750829e6093dd01b5cf77350/284df/IMG_20190814_104325636-small.jpg 1x"
-                />
-                <img
-                  alt="Img 20190814 104325636 Small"
-                  height={250}
-                  loading="lazy"
-                  onLoad={[Function]}
-                  src="/static/097fee76750829e6093dd01b5cf77350/284df/IMG_20190814_104325636-small.jpg"
-                  srcSet="/static/097fee76750829e6093dd01b5cf77350/284df/IMG_20190814_104325636-small.jpg 1x"
-                  style={
+              >
+                <picture>
+                  <source
+                    srcSet="/static/097fee76750829e6093dd01b5cf77350/284df/IMG_20190814_104325636-small.jpg 1x"
+                  />
+                  <img
+                    alt="Img 20190814 104325636 Small"
+                    height={250}
+                    loading="lazy"
+                    onLoad={[Function]}
+                    src="/static/097fee76750829e6093dd01b5cf77350/284df/IMG_20190814_104325636-small.jpg"
+                    srcSet="/static/097fee76750829e6093dd01b5cf77350/284df/IMG_20190814_104325636-small.jpg 1x"
+                    style={
+                      Object {
+                        "height": "100%",
+                        "left": 0,
+                        "objectFit": "cover",
+                        "objectPosition": "center",
+                        "opacity": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "transition": "opacity 500ms",
+                        "width": "100%",
+                      }
+                    }
+                    title="Img 20190814 104325636 Small"
+                    width={250}
+                  />
+                </picture>
+                <noscript
+                  dangerouslySetInnerHTML={
                     Object {
-                      "height": "100%",
-                      "left": 0,
-                      "objectFit": "cover",
-                      "objectPosition": "center",
-                      "opacity": 0,
-                      "position": "absolute",
-                      "top": 0,
-                      "transition": "opacity 500ms",
-                      "width": "100%",
+                      "__html": "<picture><source srcset=\\"/static/097fee76750829e6093dd01b5cf77350/284df/IMG_20190814_104325636-small.jpg 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/097fee76750829e6093dd01b5cf77350/284df/IMG_20190814_104325636-small.jpg 1x\\" src=\\"/static/097fee76750829e6093dd01b5cf77350/284df/IMG_20190814_104325636-small.jpg\\" alt=\\"Img 20190814 104325636 Small\\" title=\\"Img 20190814 104325636 Small\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
                     }
                   }
-                  title="Img 20190814 104325636 Small"
-                  width={250}
                 />
-              </picture>
-              <noscript
-                dangerouslySetInnerHTML={
+              </div>
+            </a>
+          </article>
+          <article
+            className="file"
+            data-testid="file"
+          >
+            <a
+              href="/2019-puerto-rico/jayuya/IMG_20190814_103213316-small"
+            >
+              <div
+                className=" gatsby-image-wrapper"
+                style={
                   Object {
-                    "__html": "<picture><source srcset=\\"/static/097fee76750829e6093dd01b5cf77350/284df/IMG_20190814_104325636-small.jpg 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/097fee76750829e6093dd01b5cf77350/284df/IMG_20190814_104325636-small.jpg 1x\\" src=\\"/static/097fee76750829e6093dd01b5cf77350/284df/IMG_20190814_104325636-small.jpg\\" alt=\\"Img 20190814 104325636 Small\\" title=\\"Img 20190814 104325636 Small\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+                    "display": "inline-block",
+                    "height": 250,
+                    "overflow": "hidden",
+                    "position": "relative",
+                    "width": 250,
                   }
                 }
-              />
-            </div>
-          </a>
-        </article>
-        <article
-          className="file"
-          data-testid="file"
-        >
-          <a
-            href="/2019-puerto-rico/jayuya/IMG_20190814_103213316-small"
-          >
-            <div
-              className=" gatsby-image-wrapper"
-              style={
-                Object {
-                  "display": "inline-block",
-                  "height": 250,
-                  "overflow": "hidden",
-                  "position": "relative",
-                  "width": 250,
-                }
-              }
-            >
-              <picture>
-                <source
-                  srcSet="/static/62d1e49090d0f8a33026172e988f62ef/284df/IMG_20190814_103213316-small.jpg 1x"
-                />
-                <img
-                  alt="Img 20190814 103213316 Small"
-                  height={250}
-                  loading="lazy"
-                  onLoad={[Function]}
-                  src="/static/62d1e49090d0f8a33026172e988f62ef/284df/IMG_20190814_103213316-small.jpg"
-                  srcSet="/static/62d1e49090d0f8a33026172e988f62ef/284df/IMG_20190814_103213316-small.jpg 1x"
-                  style={
+              >
+                <picture>
+                  <source
+                    srcSet="/static/62d1e49090d0f8a33026172e988f62ef/284df/IMG_20190814_103213316-small.jpg 1x"
+                  />
+                  <img
+                    alt="Img 20190814 103213316 Small"
+                    height={250}
+                    loading="lazy"
+                    onLoad={[Function]}
+                    src="/static/62d1e49090d0f8a33026172e988f62ef/284df/IMG_20190814_103213316-small.jpg"
+                    srcSet="/static/62d1e49090d0f8a33026172e988f62ef/284df/IMG_20190814_103213316-small.jpg 1x"
+                    style={
+                      Object {
+                        "height": "100%",
+                        "left": 0,
+                        "objectFit": "cover",
+                        "objectPosition": "center",
+                        "opacity": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "transition": "opacity 500ms",
+                        "width": "100%",
+                      }
+                    }
+                    title="Img 20190814 103213316 Small"
+                    width={250}
+                  />
+                </picture>
+                <noscript
+                  dangerouslySetInnerHTML={
                     Object {
-                      "height": "100%",
-                      "left": 0,
-                      "objectFit": "cover",
-                      "objectPosition": "center",
-                      "opacity": 0,
-                      "position": "absolute",
-                      "top": 0,
-                      "transition": "opacity 500ms",
-                      "width": "100%",
+                      "__html": "<picture><source srcset=\\"/static/62d1e49090d0f8a33026172e988f62ef/284df/IMG_20190814_103213316-small.jpg 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/62d1e49090d0f8a33026172e988f62ef/284df/IMG_20190814_103213316-small.jpg 1x\\" src=\\"/static/62d1e49090d0f8a33026172e988f62ef/284df/IMG_20190814_103213316-small.jpg\\" alt=\\"Img 20190814 103213316 Small\\" title=\\"Img 20190814 103213316 Small\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
                     }
                   }
-                  title="Img 20190814 103213316 Small"
-                  width={250}
                 />
-              </picture>
-              <noscript
-                dangerouslySetInnerHTML={
+              </div>
+            </a>
+          </article>
+          <article
+            className="file"
+            data-testid="file"
+          >
+            <a
+              href="/2019-puerto-rico/jayuya/IMG_20190814_113817195-small"
+            >
+              <div
+                className=" gatsby-image-wrapper"
+                style={
                   Object {
-                    "__html": "<picture><source srcset=\\"/static/62d1e49090d0f8a33026172e988f62ef/284df/IMG_20190814_103213316-small.jpg 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/62d1e49090d0f8a33026172e988f62ef/284df/IMG_20190814_103213316-small.jpg 1x\\" src=\\"/static/62d1e49090d0f8a33026172e988f62ef/284df/IMG_20190814_103213316-small.jpg\\" alt=\\"Img 20190814 103213316 Small\\" title=\\"Img 20190814 103213316 Small\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+                    "display": "inline-block",
+                    "height": 250,
+                    "overflow": "hidden",
+                    "position": "relative",
+                    "width": 250,
                   }
                 }
-              />
-            </div>
-          </a>
-        </article>
-        <article
-          className="file"
-          data-testid="file"
-        >
-          <a
-            href="/2019-puerto-rico/jayuya/IMG_20190814_113817195-small"
-          >
-            <div
-              className=" gatsby-image-wrapper"
-              style={
-                Object {
-                  "display": "inline-block",
-                  "height": 250,
-                  "overflow": "hidden",
-                  "position": "relative",
-                  "width": 250,
-                }
-              }
-            >
-              <picture>
-                <source
-                  srcSet="/static/1d5338456eb7a30531121a2e30aa10ad/284df/IMG_20190814_113817195-small.jpg 1x"
-                />
-                <img
-                  alt="Img 20190814 113817195 Small"
-                  height={250}
-                  loading="lazy"
-                  onLoad={[Function]}
-                  src="/static/1d5338456eb7a30531121a2e30aa10ad/284df/IMG_20190814_113817195-small.jpg"
-                  srcSet="/static/1d5338456eb7a30531121a2e30aa10ad/284df/IMG_20190814_113817195-small.jpg 1x"
-                  style={
+              >
+                <picture>
+                  <source
+                    srcSet="/static/1d5338456eb7a30531121a2e30aa10ad/284df/IMG_20190814_113817195-small.jpg 1x"
+                  />
+                  <img
+                    alt="Img 20190814 113817195 Small"
+                    height={250}
+                    loading="lazy"
+                    onLoad={[Function]}
+                    src="/static/1d5338456eb7a30531121a2e30aa10ad/284df/IMG_20190814_113817195-small.jpg"
+                    srcSet="/static/1d5338456eb7a30531121a2e30aa10ad/284df/IMG_20190814_113817195-small.jpg 1x"
+                    style={
+                      Object {
+                        "height": "100%",
+                        "left": 0,
+                        "objectFit": "cover",
+                        "objectPosition": "center",
+                        "opacity": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "transition": "opacity 500ms",
+                        "width": "100%",
+                      }
+                    }
+                    title="Img 20190814 113817195 Small"
+                    width={250}
+                  />
+                </picture>
+                <noscript
+                  dangerouslySetInnerHTML={
                     Object {
-                      "height": "100%",
-                      "left": 0,
-                      "objectFit": "cover",
-                      "objectPosition": "center",
-                      "opacity": 0,
-                      "position": "absolute",
-                      "top": 0,
-                      "transition": "opacity 500ms",
-                      "width": "100%",
+                      "__html": "<picture><source srcset=\\"/static/1d5338456eb7a30531121a2e30aa10ad/284df/IMG_20190814_113817195-small.jpg 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/1d5338456eb7a30531121a2e30aa10ad/284df/IMG_20190814_113817195-small.jpg 1x\\" src=\\"/static/1d5338456eb7a30531121a2e30aa10ad/284df/IMG_20190814_113817195-small.jpg\\" alt=\\"Img 20190814 113817195 Small\\" title=\\"Img 20190814 113817195 Small\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
                     }
                   }
-                  title="Img 20190814 113817195 Small"
-                  width={250}
                 />
-              </picture>
-              <noscript
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "<picture><source srcset=\\"/static/1d5338456eb7a30531121a2e30aa10ad/284df/IMG_20190814_113817195-small.jpg 1x\\" /><img loading=\\"lazy\\" width=\\"250\\" height=\\"250\\" srcset=\\"/static/1d5338456eb7a30531121a2e30aa10ad/284df/IMG_20190814_113817195-small.jpg 1x\\" src=\\"/static/1d5338456eb7a30531121a2e30aa10ad/284df/IMG_20190814_113817195-small.jpg\\" alt=\\"Img 20190814 113817195 Small\\" title=\\"Img 20190814 113817195 Small\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
-                  }
-                }
-              />
-            </div>
-          </a>
-        </article>
-      </section>
+              </div>
+            </a>
+          </article>
+        </section>
+      </div>
     </div>
     <div
-      className="pager"
+      className="css-13usky3-Pager"
     />
     <br />
-  </main>
+  </div>
 </div>
 `;
