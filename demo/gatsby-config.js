@@ -7,7 +7,7 @@ module.exports = {
         // albumsPath: 'albums',
         // baseUrl: 'albums',
         folderIconDir: 'folder-icon',
-        // photosPerPage: 15,
+        photosPerPage: 1000,
       },
     },
   ],
