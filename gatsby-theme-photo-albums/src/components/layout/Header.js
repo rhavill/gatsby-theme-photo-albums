@@ -1,23 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Link} from 'gatsby'
-import {Header as ThemeHeader} from 'theme-ui'
+import HeaderStyles from '../../styles/Header'
 import FirstBreadcrumbText from './FirstBreadcrumbText'
+import Menu from './Menu'
 import breadcrumbs from '../../util/breadcrumbs'
 
 const Header = ({ path }) => {
   const links = breadcrumbs(path)
-
+  if (links.length) {
+    links[0].title = <FirstBreadcrumbText />
+  }
   return (
-    <ThemeHeader>
-      <nav>{
-        links.map((crumb, i) => (
-          <Link key={i} to={crumb.path}>
-            {i === 0 ?  (<FirstBreadcrumbText/>) : crumb.title}
-          </Link>))
-      }
-      </nav>
-    </ThemeHeader>
+    <HeaderStyles>
+      <Menu links={links} />
+    </HeaderStyles>
   )
 }
 

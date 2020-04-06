@@ -92,7 +92,7 @@ describe('files-folders getPagerData', () => {
 })
 
 describe('files-folders addUrlProps', () => {  
-  it('adds a url property to an array of objects', () => {
+  it('adds a url property and parentUrl property to an array of objects', () => {
     const baseUrl = '/'
     const files = [
       {relativePath: 'folder/1.jpg', relativeDirectory: 'folder'},
@@ -100,9 +100,9 @@ describe('files-folders addUrlProps', () => {
       {relativePath: 'folder/3.jpg', relativeDirectory: 'folder'},
     ]
     const expected = [
-      {relativePath: 'folder/1.jpg', relativeDirectory: 'folder', url: '/folder/1.jpg'},
-      {relativePath: 'folder/2.jpg', relativeDirectory: 'folder', url: '/folder/2.jpg'},
-      {relativePath: 'folder/3.jpg', relativeDirectory: 'folder', url: '/folder/3.jpg'},
+      {relativePath: 'folder/1.jpg', relativeDirectory: 'folder', url: '/folder/1.jpg', parentUrl: '/folder'},
+      {relativePath: 'folder/2.jpg', relativeDirectory: 'folder', url: '/folder/2.jpg', parentUrl: '/folder'},
+      {relativePath: 'folder/3.jpg', relativeDirectory: 'folder', url: '/folder/3.jpg', parentUrl: '/folder'},
     ]
     expect(addUrlProps(baseUrl, files)).toEqual(expected)
   })

@@ -36,12 +36,12 @@ const removePathPrefix = curry((pathPrefix, url) => {
 
 const removeTrailingSlash = replace(/\/$/, '')
 
-const removeTrailingSlashAndNumber = replace(/\/\d+$/, '')
+const removeTrailingSlashAndPageNumber = replace(/\/page-\d+$/, '')
          
 // First remove trailing slash (if it exists), then remove trailing slash + 
 // digit (if they exist)
 const removePathPageNumber = compose(
-  removeTrailingSlashAndNumber, removeTrailingSlash
+  removeTrailingSlashAndPageNumber, removeTrailingSlash
 )
 
 const getPagerUrls = (path, currentPage, numPages) => {
@@ -51,10 +51,10 @@ const getPagerUrls = (path, currentPage, numPages) => {
     urls.prev = pathWithoutPageNumber
   }
   else if (currentPage > 2) {
-    urls.prev = pathWithoutPageNumber + '/' + (currentPage - 1).toString()
+    urls.prev = pathWithoutPageNumber + '/page-' + (currentPage - 1).toString()
   }
   if (currentPage < numPages) {
-    urls.next = pathWithoutPageNumber + '/' + (currentPage + 1).toString()
+    urls.next = pathWithoutPageNumber + '/page-' + (currentPage + 1).toString()
   }
 
   return urls

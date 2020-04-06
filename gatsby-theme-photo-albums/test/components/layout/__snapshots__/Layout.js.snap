@@ -2,29 +2,52 @@
 
 exports[`Layout renders correctly 1`] = `
 <div
-  className="css-1czag6s-Layout"
+  className="css-1qldoov-Layout"
 >
-  <header
-    className="css-1upivqb-Header"
+  <div
+    className="css-1jhlbdc-Header"
   >
-    <nav>
-      <a
-        href="/"
+    <nav
+      className="css-1be44vx-Menu"
+    >
+      <label
+        htmlFor="menu-checkbox"
       >
-        <span
-          className="first-breadcrumb"
+        ☰
+      </label>
+      <input
+        defaultChecked={false}
+        id="menu-checkbox"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <ul
+        css={
+          Object {
+            "display": "none",
+          }
+        }
+      >
+        <a
+          href="/"
         >
-          Home
-        </span>
-      </a>
+          <li>
+            <span
+              className="first-breadcrumb"
+            >
+              Home
+            </span>
+          </li>
+        </a>
+      </ul>
     </nav>
-  </header>
-  <main
-    className="css-11l540n-Main"
+  </div>
+  <div
+    className="css-15phz5z-MainContent"
   >
     <div>
       hello
     </div>
-  </main>
+  </div>
 </div>
 `;

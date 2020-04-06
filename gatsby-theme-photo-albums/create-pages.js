@@ -1,3 +1,4 @@
+const sizeOf = require('image-size')
 const createFolderPages = require('./create-folder-pages')
 const {getPhotoPathsWithPages} = require('./src/util/photo-paths')
 const {objectArrayToPropArray} = require('./src/util/ramda-utils')
@@ -5,14 +6,15 @@ const {addUrlProps} = require('./src/util/files-folders')
 
 const query = `
   query {
-      folders: allDirectory(filter: {sourceInstanceName: {eq: "gtpaPhotos"}}) {
-        nodes {
+    folders: allDirectory(filter: {sourceInstanceName: {eq: "gtpaPhotos"}}) {
+      nodes {
         relativePath
         relativeDirectory
       }
     }
     photos: allFile(filter: {sourceInstanceName: {eq: "gtpaPhotos"}}, sort: {fields: relativePath}) {
-        nodes {
+      nodes {
+        absolutePath
         relativePath
         relativeDirectory
       }
@@ -35,11 +37,15 @@ const getQueryResults = async (graphql, reporter) => {
 const createPhotoPages = (photosPerPage, createPage, files) => {
   const photoPaths = getPhotoPathsWithPages(photosPerPage, files)
   files.forEach(file => {
+    const {width, height} = sizeOf(file.absolutePath)
     createPage({
-      path: photoPaths[file.url],
+      path: photoPaths[file.url].url,
       component: require.resolve('./src/templates/Photo.js'),
       context: {
         relativePath: file.relativePath,
+        file: photoPaths[file.url],
+        width,
+        height,
       },
     })
   })

@@ -1,19 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header renders correctly 1`] = `
-<header
-  className="css-1upivqb-Header"
+<div
+  className="css-1jhlbdc-Header"
 >
-  <nav>
-    <a
-      href="/"
+  <nav
+    className="css-1be44vx-Menu"
+  >
+    <label
+      htmlFor="menu-checkbox"
     >
-      <span
-        className="first-breadcrumb"
+      ☰
+    </label>
+    <input
+      defaultChecked={false}
+      id="menu-checkbox"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <ul
+      css={
+        Object {
+          "display": "none",
+        }
+      }
+    >
+      <a
+        href="/"
       >
-        Home
-      </span>
-    </a>
+        <li>
+          <span
+            className="first-breadcrumb"
+          >
+            Home
+          </span>
+        </li>
+      </a>
+    </ul>
   </nav>
-</header>
+</div>
 `;

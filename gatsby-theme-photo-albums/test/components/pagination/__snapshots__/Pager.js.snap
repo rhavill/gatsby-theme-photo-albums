@@ -2,7 +2,7 @@
 
 exports[`Pager renders correctly 1`] = `
 <div
-  className="pager"
+  className="css-15gdz0a-Pager"
 >
   <a
     href="/some-path"
@@ -15,7 +15,7 @@ exports[`Pager renders correctly 1`] = `
     </span>
   </a>
   <a
-    href="/some-path/3"
+    href="/some-path/page-3"
     rel="next"
   >
     <span

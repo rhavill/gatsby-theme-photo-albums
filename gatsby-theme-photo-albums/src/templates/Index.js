@@ -5,6 +5,7 @@ import compose from 'ramda/src/compose'
 import map from 'ramda/src/map'
 import merge from 'ramda/src/merge'
 import prop from 'ramda/src/prop'
+import IndexStyles from '../styles/Index'
 import Layout from '../components/layout/Layout'
 import Folders from '../components/folders/Folders'
 import Thumbnails from '../components/thumbnails/Thumbnails'
@@ -28,11 +29,13 @@ const Index = ({data, location, pageContext}) => {
 
   return (
     <Layout path={path}>
-      <div className="listing-page" data-testid={path} >
-        <section>
-          <Folders path={path} folders={folders} icon={folderIcon} />
-          <Thumbnails files={files} currentPage={currentPage} />
-        </section>
+      <div data-testid={path} >
+        <IndexStyles>
+          <section>
+            <Folders path={path} folders={folders} icon={folderIcon} />
+            <Thumbnails files={files} currentPage={currentPage} />
+          </section>
+        </IndexStyles>
       </div>
       <Pager path={path} currentPage={currentPage} numPages={numPages} />
       <br/>
@@ -55,6 +58,7 @@ export const query = graphql`
       skip: $skip) {
       nodes {
         relativePath
+        relativeDirectory
         childImageSharp {
           fixed(width: 250, height: 250, cropFocus: CENTER) {
             ...GatsbyImageSharpFixed
@@ -77,6 +81,7 @@ export const query = graphql`
       sort: {fields: relativePath}) {
       nodes {
         relativePath
+        relativeDirectory
       }
     }
   }

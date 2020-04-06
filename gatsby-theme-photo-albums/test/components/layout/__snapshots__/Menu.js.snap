@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu renders correctly 1`] = `
+<nav
+  className="css-1be44vx-Menu"
+>
+  <label
+    htmlFor="menu-checkbox"
+  >
+    ☰
+  </label>
+  <input
+    defaultChecked={false}
+    id="menu-checkbox"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <ul
+    css={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <a
+      href="/"
+    >
+      <li>
+        Home
+      </li>
+    </a>
+    <a
+      href="/one"
+    >
+      <li>
+        One
+      </li>
+    </a>
+    <a
+      href="/one/two"
+    >
+      <li>
+        Two
+      </li>
+    </a>
+  </ul>
+</nav>
+`;

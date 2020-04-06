@@ -58,7 +58,7 @@ describe('create-pages', () => {
       '2019-puerto-rico/san-juan/P_20190412_061017_vHDR_Auto-small', 
       '2019-puerto-rico/san-juan/IMG_20190801_180122560_HDR-small', 
     ]
-    // create-folder-pages.test.js should be testing the createPhotoPages 
+    // create-folder-pages.test.js should be testing the createFolderPages 
     // portion of the createPages function in create-pages.js. Here, we will 
     // only look at results from the createPhotoPages portion of the createPages 
     // function. This test is very specific to the jest mock api calls, which

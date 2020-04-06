@@ -45,7 +45,8 @@ const getPagerData = (currentPath, files, filesPerPage) => {
 const addUrlProps = curry((baseUrl, filesOrDirectories) => 
   filesOrDirectories.map(fileOrDirectory => ({
     ...fileOrDirectory,
-    url: prependBaseUrl(baseUrl, fileOrDirectory.relativePath)
+    url: prependBaseUrl(baseUrl, fileOrDirectory.relativePath),
+    parentUrl: prependBaseUrl(baseUrl, fileOrDirectory.relativeDirectory),
   })))
 
 module.exports = {
