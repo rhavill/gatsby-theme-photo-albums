@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 
 function getWindowDimensions() {
   let width =  null, height = null
@@ -15,14 +15,17 @@ function getWindowDimensions() {
 }
 
 export default function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions())
+  const [windowDimensions, setWindowDimensions] = useState(
+    {width: 0, height: 0, orientation: 'landscape'}
+  )
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     function handleResize() {
       setWindowDimensions(getWindowDimensions())
     }
-
+    
     window.addEventListener('resize', handleResize)
+    setWindowDimensions(getWindowDimensions())
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
